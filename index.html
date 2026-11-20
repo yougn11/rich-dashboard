@@ -1345,6 +1345,30 @@
     // -----------------------------------------------------------------------
     // 8-3. 실시간 시세 조회 (구글 시트 B1~B6 + D1 과거 확정 종가 표 자동 역산)
     // -----------------------------------------------------------------------
+    function parseFlexibleNumber(val) {
+      if (typeof val === 'number' && !isNaN(val)) return val;
+      if (typeof val === 'string') {
+        const cleaned = val.replace(/[^0-9.\-]/g, '');
+        if (!cleaned) return null;
+        const parsed = Number(cleaned);
+        return isNaN(parsed) ? null : parsed;
+      }
+      return null;
+    }
+
+    async function fetchFallbackUsdKrw() {
+      try {
+        const res = await fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-store' });
+        if (!res.ok) return null;
+        const json = await res.json();
+        const rate = json && json.rates && Number(json.rates.KRW);
+        if (rate && !isNaN(rate) && rate > 500) {
+          return Number(rate.toFixed(1));
+        }
+      } catch (e) {}
+      return null;
+    }
+
     function normalizeUsMarketDate(dotDateStr) {
       const d = parseDotDate(formatDotDate(dotDateStr));
       if (!d) return formatDotDate(dotDateStr);
@@ -1357,6 +1381,14 @@
     async function fetchGoogleSheetPrices(silent = false) {
       const url = (appState.googleSheetUrl || '').trim();
       if (!url) {
+        const fallbackRate = await fetchFallbackUsdKrw();
+        if (fallbackRate) {
+          appState.usdKrwRate = fallbackRate;
+          renderApp();
+          persistState(true);
+          if (!silent) showToast(`실시간 환율(${fallbackRate.toLocaleString('ko-KR')}원/$) 반영 완료! 주가 연동은 설정에서 URL을 등록해 주세요.`);
+          return { usdkrw: fallbackRate };
+        }
         if (!silent) {
           openSettingsModal();
           showToast('먼저 설정에서 구글 시트 웹 앱 URL을 입력해 주세요.');
@@ -1380,28 +1412,42 @@
         let autoAddedDrops = [];
         let streakSyncNote = '';
 
-        if (typeof data.kr === 'number' && !isNaN(data.kr) && data.kr > 0) {
-          appState.assets.kr.currentPrice = Math.round(data.kr);
+        const krNum = parseFlexibleNumber(data.kr);
+        const qldNum = parseFlexibleNumber(data.qld);
+        const fxNum = parseFlexibleNumber(data.usdkrw);
+        const nqPriceNum = parseFlexibleNumber(data.nasdaqPrice);
+        const nqChangeNum = parseFlexibleNumber(data.nasdaqChangePct);
+
+        if (krNum !== null && krNum > 0) {
+          appState.assets.kr.currentPrice = Math.round(krNum);
           appState.assets.kr.priceUpdatedAt = now;
           updatedCount++;
         }
-        if (typeof data.qld === 'number' && !isNaN(data.qld) && data.qld > 0) {
-          appState.assets.qld.currentPrice = Number(data.qld.toFixed(2));
+        if (qldNum !== null && qldNum > 0) {
+          appState.assets.qld.currentPrice = Number(qldNum.toFixed(2));
           appState.assets.qld.priceUpdatedAt = now;
           updatedCount++;
         }
-        if (typeof data.usdkrw === 'number' && !isNaN(data.usdkrw) && data.usdkrw > 500) {
-          appState.usdKrwRate = Number(data.usdkrw.toFixed(1));
+        if (fxNum !== null && fxNum > 500) {
+          appState.usdKrwRate = Number(fxNum.toFixed(1));
+          data.usdkrw = appState.usdKrwRate;
           updatedCount++;
+        } else {
+          const fallbackRate = await fetchFallbackUsdKrw();
+          if (fallbackRate) {
+            appState.usdKrwRate = fallbackRate;
+            data.usdkrw = fallbackRate;
+            updatedCount++;
+          }
         }
 
         const historyRows = Array.isArray(data.nasdaqHistory)
           ? data.nasdaqHistory
-              .filter((r) => r && /^\d{4}\.\d{2}\.\d{2}$/.test(formatDotDate(r.date)) && typeof r.close === 'number' && !isNaN(r.close))
+              .filter((r) => r && /^\d{4}\.\d{2}\.\d{2}$/.test(formatDotDate(r.date)) && parseFlexibleNumber(r.close) !== null)
               .map((r) => ({
                 date: formatDotDate(r.date),
-                close: Number(r.close),
-                changePct: typeof r.changePct === 'number' && !isNaN(r.changePct) ? Number(r.changePct) : null
+                close: parseFlexibleNumber(r.close),
+                changePct: parseFlexibleNumber(r.changePct)
               }))
               .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
           : [];
@@ -1455,11 +1501,11 @@
                 }
               }
 
-              if (data.isNasdaqClosed && typeof data.nasdaqChangePct === 'number' && !isNaN(data.nasdaqChangePct) && data.nasdaqTradeDate) {
+              if (data.isNasdaqClosed && nqChangeNum !== null && data.nasdaqTradeDate) {
                 const liveTradeDate = normalizeUsMarketDate(data.nasdaqTradeDate);
                 if (liveTradeDate > lastCheckedDate) {
                   lastCheckedDate = liveTradeDate;
-                  streak = data.nasdaqChangePct > 0 ? streak + 1 : 0;
+                  streak = nqChangeNum > 0 ? streak + 1 : 0;
                 }
               }
 
@@ -1480,10 +1526,10 @@
           }
         }
 
-        if (typeof data.nasdaqChangePct === 'number' && !isNaN(data.nasdaqChangePct)) {
-          appState.nasdaqChangePct = Number(data.nasdaqChangePct.toFixed(2));
-          if (typeof data.nasdaqPrice === 'number' && !isNaN(data.nasdaqPrice)) {
-            appState.nasdaqPrice = Number(data.nasdaqPrice.toFixed(2));
+        if (nqChangeNum !== null) {
+          appState.nasdaqChangePct = Number(nqChangeNum.toFixed(2));
+          if (nqPriceNum !== null) {
+            appState.nasdaqPrice = Number(nqPriceNum.toFixed(2));
           }
           const tradeDate = data.nasdaqTradeDate ? normalizeUsMarketDate(data.nasdaqTradeDate) : '';
           appState.nasdaqTradeDate = tradeDate;
@@ -1558,10 +1604,16 @@
           lastAlertSignature = alertSig;
           showToast(`🔔 [${getCurrentAsset().shortLabel}] ${activeBreach.stepLabel} 목표 체결가 도달!`);
         } else if (!silent) {
-          showToast(`실시간 시세 반영 완료 (${now})${streakSyncNote}`);
+          showToast(`실시간 시세 반영 완료 (${now}) · 환율 ${appState.usdKrwRate.toLocaleString('ko-KR')}원/$${streakSyncNote}`);
         }
         return data;
       } catch (err) {
+        const fallbackRate = await fetchFallbackUsdKrw();
+        if (fallbackRate) {
+          appState.usdKrwRate = fallbackRate;
+          renderApp();
+          persistState(true);
+        }
         if (!silent) {
           showToast(`시세 조회 실패: ${err.message}`);
         }
@@ -2991,11 +3043,21 @@
   var sheet = ss.getSheets()[0];
   var tz = ss.getSpreadsheetTimeZone();
 
-  var kr = sheet.getRange("B1").getValue();
-  var qld = sheet.getRange("B2").getValue();
-  var usdkrw = sheet.getRange("B3").getValue();
-  var nasdaqPrice = sheet.getRange("B4").getValue();
-  var nasdaqChangePct = sheet.getRange("B5").getValue();
+  function readNum(cellA1) {
+    var v = sheet.getRange(cellA1).getValue();
+    if (typeof v === "number" && !isNaN(v)) return v;
+    if (typeof v === "string") {
+      var n = Number(v.replace(/[^0-9.\\-]/g, ""));
+      return (!isNaN(n) && v.trim() !== "") ? n : null;
+    }
+    return null;
+  }
+
+  var kr = readNum("B1");
+  var qld = readNum("B2");
+  var usdkrw = readNum("B3");
+  var nasdaqPrice = readNum("B4");
+  var nasdaqChangePct = readNum("B5");
   var nasdaqTradeTime = sheet.getRange("B6").getValue();
 
   var nasdaqTradeDate = "";
@@ -3041,11 +3103,11 @@
   }
 
   var result = {
-    kr: typeof kr === "number" ? kr : null,
-    qld: typeof qld === "number" ? qld : null,
-    usdkrw: typeof usdkrw === "number" ? usdkrw : null,
-    nasdaqPrice: typeof nasdaqPrice === "number" ? nasdaqPrice : null,
-    nasdaqChangePct: typeof nasdaqChangePct === "number" ? nasdaqChangePct : null,
+    kr: kr,
+    qld: qld,
+    usdkrw: usdkrw,
+    nasdaqPrice: nasdaqPrice,
+    nasdaqChangePct: nasdaqChangePct,
     nasdaqTradeDate: nasdaqTradeDate,
     isNasdaqClosed: isNasdaqClosed,
     nasdaqHistory: nasdaqHistory,
@@ -3080,7 +3142,7 @@
         if (data) {
           const histLen = Array.isArray(data.nasdaqHistory) ? data.nasdaqHistory.length : 0;
           resEl.className = 'text-[11px] font-bold p-2 rounded-lg bg-emerald-100 text-emerald-800';
-          resEl.textContent = `연결 성공! KR: ${data.kr ?? '-'} / QLD: ${data.qld ?? '-'} / 환율: ${data.usdkrw ?? '-'} / D1 과거종가: ${histLen}일치`;
+          resEl.textContent = `연결 성공! KR: ${data.kr ?? '-'} / QLD: ${data.qld ?? '-'} / 환율: ${appState.usdKrwRate} / D1 과거종가: ${histLen}일치`;
         } else {
           resEl.className = 'text-[11px] font-bold p-2 rounded-lg bg-rose-100 text-rose-700';
           resEl.textContent = '연결 실패: 웹 앱 URL 또는 배포 권한(모든 사용자)을 확인해 주세요.';
@@ -3327,6 +3389,14 @@
 
       if (appState.googleSheetUrl) {
         fetchGoogleSheetPrices(true);
+      } else {
+        fetchFallbackUsdKrw().then((rate) => {
+          if (rate) {
+            appState.usdKrwRate = rate;
+            renderApp();
+            saveStateLocal();
+          }
+        });
       }
     })();
   </script>
