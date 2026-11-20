@@ -57,7 +57,6 @@
           </span>
           <div class="flex items-center gap-1.5 min-w-0">
             <h1 id="headerTitle" class="text-base sm:text-lg font-extrabold tracking-tight truncate">미국테크TOP10</h1>
-            <span id="versionBadge" class="px-1.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 shrink-0">v35</span>
             <span id="readOnlyHeaderBadge" class="hidden px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-200/80 dark:border-amber-800/60 shrink-0">🔒 조회전용</span>
           </div>
         </div>
@@ -607,42 +606,22 @@
             <input type="number" id="settingBaseSharesInput" step="1" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold" />
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">현재 보유 수량</label>
-            <input type="number" id="settingHeldSharesInput" step="1" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold" />
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">최초 기준좌수</label>
+            <input type="number" id="settingInitialBaseSharesInput" step="1" min="1" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold" />
           </div>
-        </div>
-
-        <div class="grid grid-cols-3 gap-2">
-          <div>
-            <label id="settingCashBalanceLabel" class="block text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">현금 예수금</label>
-            <input type="number" id="settingCashBalanceInput" step="any" min="0" class="w-full px-2.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-extrabold" />
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">최초 기준좌수</label>
-            <input type="number" id="settingInitialBaseSharesInput" step="1" min="1" class="w-full px-2.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-extrabold" />
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">원/달러 환율</label>
-            <input type="number" id="settingUsdKrwInput" step="any" min="500" class="w-full px-2.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-extrabold" />
-          </div>
-        </div>
-
-        <div id="settingSubAccountsBox" class="hidden p-3 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
-          <p class="text-[11px] font-bold text-slate-500">세부 계좌별 보유 수량 (합계 자동 반영)</p>
-          <div id="settingSubAccountsInputs" class="grid grid-cols-2 gap-2"></div>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label id="settingCashBalanceLabel" class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">현금 예수금</label>
+            <input type="number" id="settingCashBalanceInput" step="any" min="0" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-extrabold" />
+          </div>
           <div>
             <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">운용 모드 (비상 수동)</label>
             <select id="settingModeInput" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold">
               <option value="crisis">위기모드 (말뚝박기)</option>
               <option value="normal">평상시 (리밸런싱)</option>
             </select>
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">가이드 버전</label>
-            <input type="number" id="settingVersionInput" step="1" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold" />
           </div>
         </div>
 
@@ -1037,8 +1016,62 @@
     }
 
     // -----------------------------------------------------------------------
-    // 8-1. 상태 정규화 및 나스닥 -3% 급락 / 8거래일 연속 상승 완전자동 엔진
+    // 8-1. 상태 정규화 및 매매 이력 기반 보유 수량 완전자동 계산 엔진
     // -----------------------------------------------------------------------
+    function recalculateHoldingsFromHistory(asset) {
+      const startShares = Math.max(0, Math.round(Number(asset.initialBaseShares ?? asset.baseShares) || 0));
+      let totalHeld = startShares;
+
+      const accMap = {};
+      if (Array.isArray(asset.subAccounts) && asset.subAccounts.length > 0) {
+        asset.subAccounts.forEach((acc, idx) => {
+          accMap[acc.name] = idx === 0 ? startShares : 0;
+        });
+      }
+
+      const defaultAccName = (asset.subAccounts && asset.subAccounts[0]) ? asset.subAccounts[0].name : '';
+      const history = Array.isArray(asset.history) ? asset.history : [];
+
+      history.forEach((h) => {
+        const qty = Math.max(0, Math.round(Number(h.shares) || 0));
+        if (qty <= 0) return;
+
+        let targetAcc = (h.account && Object.prototype.hasOwnProperty.call(accMap, h.account))
+          ? h.account
+          : defaultAccName;
+
+        if (h.type === '매수' || h.type === '전액재매수' || h.type === '추가입금' || h.type === '전고가갱신' || h.type === '기준가') {
+          totalHeld += qty;
+          if (targetAcc) accMap[targetAcc] = (accMap[targetAcc] || 0) + qty;
+        } else if (h.type === '매도') {
+          totalHeld = Math.max(0, totalHeld - qty);
+          if (targetAcc) {
+            if ((accMap[targetAcc] || 0) >= qty) {
+              accMap[targetAcc] -= qty;
+            } else {
+              let rem = qty;
+              const own = accMap[targetAcc] || 0;
+              accMap[targetAcc] = 0;
+              rem -= own;
+              Object.keys(accMap).forEach((k) => {
+                if (rem <= 0) return;
+                const take = Math.min(accMap[k], rem);
+                accMap[k] -= take;
+                rem -= take;
+              });
+            }
+          }
+        }
+      });
+
+      asset.heldShares = Math.max(0, totalHeld);
+      if (Array.isArray(asset.subAccounts)) {
+        asset.subAccounts.forEach((acc) => {
+          acc.shares = Math.max(0, Math.round(accMap[acc.name] || 0));
+        });
+      }
+    }
+
     function normalizeAppState(raw) {
       const merged = Object.assign(deepClone(DEFAULT_APP_STATE), raw && typeof raw === 'object' ? raw : {});
       if (merged.interestRegime !== 'zero' && merged.interestRegime !== 'nonzero') {
@@ -1053,7 +1086,6 @@
         a.currentPrice = Number(a.currentPrice) || def.currentPrice;
         a.baseShares = Math.max(1, Math.round(Number(a.baseShares) || def.baseShares));
         a.initialBaseShares = Math.max(1, Math.round(Number(a.initialBaseShares) || a.baseShares));
-        a.heldShares = Math.max(0, Math.round(Number(a.heldShares) ?? def.heldShares));
         a.cashBalance = Math.max(0, Number(a.cashBalance) ?? def.cashBalance);
         a.consecutiveUpDays = Math.max(0, Math.min(8, Math.round(Number(a.consecutiveUpDays) || 0)));
 
@@ -1071,6 +1103,7 @@
         if (!Array.isArray(a.history)) {
           a.history = deepClone(def.history);
         }
+        recalculateHoldingsFromHistory(a);
         merged.assets[key] = a;
       });
 
@@ -2013,12 +2046,12 @@
     // -----------------------------------------------------------------------
     function renderApp() {
       const asset = getCurrentAsset();
+      recalculateHoldingsFromHistory(asset);
       const metrics = computeAssetMetrics(asset);
       const regimeInfo = evaluateNasdaqRegime();
       const isZeroRate = appState.interestRegime === 'zero';
 
       document.getElementById('headerTitle').textContent = asset.shortLabel;
-      document.getElementById('versionBadge').textContent = `v${asset.version}`;
       document.getElementById('lastUpdatedText').textContent = `업데이트 : ${asset.lastUpdated}`;
 
       const priceSyncDot = document.getElementById('priceSyncDot');
@@ -2574,28 +2607,10 @@
       document.getElementById('settingBasePriceInput').value = asset.basePrice;
       document.getElementById('settingBaseDateInput').value = formatIsoDate(asset.baseDate);
       document.getElementById('settingBaseSharesInput').value = asset.baseShares;
-      document.getElementById('settingHeldSharesInput').value = asset.heldShares;
+      document.getElementById('settingInitialBaseSharesInput').value = asset.initialBaseShares || asset.baseShares;
       document.getElementById('settingCashBalanceLabel').textContent = `현금 예수금 (${asset.unitSuffix})`;
       document.getElementById('settingCashBalanceInput').value = asset.cashBalance;
-      document.getElementById('settingInitialBaseSharesInput').value = asset.initialBaseShares || asset.baseShares;
-      document.getElementById('settingUsdKrwInput').value = appState.usdKrwRate || 1390;
-
-      const subBox = document.getElementById('settingSubAccountsBox');
-      const subInputs = document.getElementById('settingSubAccountsInputs');
-      if (asset.subAccounts && asset.subAccounts.length) {
-        subBox.classList.remove('hidden');
-        subInputs.innerHTML = asset.subAccounts.map((acc, idx) => `
-          <div>
-            <label class="block text-[10px] font-bold text-slate-500 mb-0.5">${acc.name} (주)</label>
-            <input type="number" data-sub-idx="${idx}" value="${acc.shares}" step="1" min="0" class="setting-sub-acc-input w-full px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-extrabold" />
-          </div>
-        `).join('');
-      } else {
-        subBox.classList.add('hidden');
-      }
-
       document.getElementById('settingModeInput').value = asset.mode;
-      document.getElementById('settingVersionInput').value = asset.version;
       document.getElementById('settingNormalStepInput').value = asset.normalStepPct;
       document.getElementById('settingCrisisStepInput').value = asset.crisisStepPct;
       document.getElementById('settingMaxCrisisDropInput').value = asset.maxCrisisDropPct;
@@ -2695,7 +2710,7 @@
           ? `• 다음 대응 : ${nd.step}구간(${formatPrice(nd.targetPrice, asset)}) 도달 시 -${nd.deltaShares.toLocaleString()}주 매도(10% 현금화)`
           : `• 다음 대응 : ${nd.step}구간(${formatPrice(nd.targetPrice, asset)}) 도달 시 +${nd.deltaShares.toLocaleString()}주 매수(10% 투입)`;
         const text = [
-          `[리치프로젝트 · ${asset.shortLabel} v${asset.version}] (${asset.lastUpdated})`,
+          `[리치프로젝트 · ${asset.shortLabel}] (${asset.lastUpdated})`,
           `• 금리 체제 : ${appState.interestRegime === 'zero' ? '제로금리(25% 말뚝)' : '비제로금리(50% 말뚝)'}`,
           `• 현재 비중 : 현금 ${m.cashPct}% : 주식 ${m.stockPct}%`,
           `• 기준가(전고가) : ${formatPrice(asset.basePrice, asset)} (${asset.baseDate})`,
@@ -3155,7 +3170,6 @@
 
         const asset = getCurrentAsset();
         appState.googleSheetUrl = document.getElementById('settingGoogleSheetUrlInput').value.trim();
-        appState.usdKrwRate = Number(document.getElementById('settingUsdKrwInput').value) || 1390;
 
         asset.basePrice = Number(document.getElementById('settingBasePriceInput').value) || asset.basePrice;
         asset.baseDate = formatDotDate(document.getElementById('settingBaseDateInput').value) || asset.baseDate;
@@ -3163,26 +3177,12 @@
         asset.initialBaseShares = Math.max(1, Math.round(Number(document.getElementById('settingInitialBaseSharesInput').value) || asset.baseShares));
         asset.cashBalance = Math.max(0, Number(document.getElementById('settingCashBalanceInput').value) ?? asset.cashBalance);
 
-        const subInputs = document.querySelectorAll('.setting-sub-acc-input');
-        if (subInputs.length) {
-          let sumShares = 0;
-          subInputs.forEach((inp) => {
-            const idx = Number(inp.dataset.subIdx);
-            const val = Math.max(0, Math.round(Number(inp.value) || 0));
-            if (asset.subAccounts[idx]) asset.subAccounts[idx].shares = val;
-            sumShares += val;
-          });
-          asset.heldShares = sumShares;
-        } else {
-          asset.heldShares = Math.max(0, Math.round(Number(document.getElementById('settingHeldSharesInput').value) ?? asset.heldShares));
-        }
-
         asset.mode = document.getElementById('settingModeInput').value;
-        asset.version = Math.max(1, Math.round(Number(document.getElementById('settingVersionInput').value) || asset.version));
         asset.normalStepPct = Number(document.getElementById('settingNormalStepInput').value) || asset.normalStepPct;
         asset.crisisStepPct = Number(document.getElementById('settingCrisisStepInput').value) || asset.crisisStepPct;
         asset.maxCrisisDropPct = Number(document.getElementById('settingMaxCrisisDropInput').value) || asset.maxCrisisDropPct;
 
+        recalculateHoldingsFromHistory(asset);
         activeTableTab = asset.mode === 'normal' ? 'normal' : 'crisis';
         closeModal('settingsModal');
         renderApp();
