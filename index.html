@@ -1633,14 +1633,38 @@
 
       let points = [];
       if (activeChartMode === 'history') {
-        const baseShares = m.baseShares;
-        const firstType = asset.history.length > 0 ? normalizeTradeType(asset.history[0].type) : '';
-        let runningShares = firstType === '기준가'
-          ? 0
-          : (asset.id === 'qld' ? baseShares : 0);
+        const histLen = asset.history.length;
+        const firstType = histLen > 0 ? normalizeTradeType(asset.history[0].type) : '';
 
-        if (asset.history.length === 0 || firstType !== '기준가') {
-          const initStockPct = Math.min(100, Math.max(0, Math.round((runningShares / baseShares) * 100)));
+        // 현재 보유 수량(m.heldShares)과 기준 수량(m.baseShares)에서 역산하여 과거 구간별 정확한 보유 비중 복원
+        const sharesAfterList = new Array(histLen);
+        const baseAfterList = new Array(histLen);
+        let revHeld = m.heldShares;
+        let revBase = m.baseShares;
+
+        for (let i = histLen - 1; i >= 0; i--) {
+          const item = asset.history[i];
+          const norm = normalizeTradeType(item.type);
+          const sh = Number(item.shares) || 0;
+
+          sharesAfterList[i] = revHeld;
+          baseAfterList[i] = revBase;
+
+          if (norm === '매수' || norm === '전액재매수') {
+            revHeld = Math.max(0, revHeld - sh);
+          } else if (norm === '매도') {
+            revHeld = revHeld + sh;
+          } else if (norm === '기준가' && sh > 0) {
+            revHeld = Math.max(0, revHeld - sh);
+            revBase = Math.max(1, revBase - sh);
+          }
+        }
+
+        const initialHeld = revHeld;
+        const initialBase = Math.max(1, revBase);
+
+        if (histLen === 0 || firstType !== '기준가') {
+          const initStockPct = Math.min(100, Math.max(0, Math.round((initialHeld / initialBase) * 100)));
           points.push({
             label: asset.baseDate.slice(5),
             title: `전고가 기준 (${asset.baseDate})`,
@@ -1650,20 +1674,14 @@
           });
         }
 
-        asset.history.forEach((h) => {
+        asset.history.forEach((h, i) => {
           const norm = normalizeTradeType(h.type);
           const typeInfo = getTradeTypeInfo(norm);
-          if (norm === '매수' || norm === '전액재매수') {
-            runningShares += Number(h.shares) || 0;
-          } else if (norm === '매도') {
-            runningShares = Math.max(0, runningShares - (Number(h.shares) || 0));
-          } else if (norm === '기준가' && (Number(h.shares) || 0) > 0) {
-            runningShares += Number(h.shares) || 0;
-          }
-          const stPct = Math.min(100, Math.max(0, Math.round((runningShares / baseShares) * 100)));
+          const stPct = Math.min(100, Math.max(0, Math.round((sharesAfterList[i] / Math.max(1, baseAfterList[i])) * 100)));
+          const shLabel = (Number(h.shares) || 0) > 0 ? ` (${formatShares(h.shares)})` : '';
           points.push({
             label: h.date.slice(5),
-            title: `${h.date} ${typeInfo.label}`,
+            title: `${h.date} ${typeInfo.label}${shLabel}`,
             price: Number(h.price) || asset.basePrice,
             stockPct: stPct,
             cashPct: 100 - stPct,
@@ -2951,4 +2969,4 @@ ${historyLines}`;
     })();
   </script>
 </body>
-  </html>
+          </html>
