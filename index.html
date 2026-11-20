@@ -1040,7 +1040,7 @@
           ? h.account
           : defaultAccName;
 
-        if (h.type === '매수' || h.type === '전액재매수' || h.type === '추가입금' || h.type === '전고가갱신' || h.type === '기준가') {
+        if (h.type === '매수' || h.type === '전액재매수' || h.type === '추가입금') {
           totalHeld += qty;
           if (targetAcc) accMap[targetAcc] = (accMap[targetAcc] || 0) + qty;
         } else if (h.type === '매도') {
