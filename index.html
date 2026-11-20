@@ -911,16 +911,16 @@
           currency: 'USD',
           unitSuffix: '$',
           decimals: 2,
-          version: 19,
-          lastUpdated: '2026.11.06',
+          version: 34,
+          lastUpdated: '2026.11.19',
           basePrice: 100.77,
           baseDate: '2026.10.12',
-          currentPrice: 77.88,
-          priceUpdatedAt: '2026.11.06',
+          currentPrice: 70.54,
+          priceUpdatedAt: '2026.11.19',
           initialBaseShares: 1699,
           baseShares: 1699,
-          heldShares: 340,
-          cashBalance: 131760,
+          heldShares: 680,
+          cashBalance: 107776,
           mode: 'crisis',
           normalStepPct: 5,
           crisisStepPct: 10,
@@ -928,15 +928,16 @@
           lastDrop3Date: '2026.11.05',
           consecutiveUpDays: 0,
           subAccounts: [
-            { name: '미국직투', shares: 340, note: '11/06 말뚝 2구간 매수 누적 20% 보유' }
+            { name: '해외직투', shares: 680, note: '11/19 말뚝 3구간 매수 포함 40% 보유' }
           ],
           history: [
-            { id: 'qld-1012', date: '2026.10.12', type: '전고가갱신', account: '미국직투', price: 100.77, shares: 0, note: '전고가 갱신일 · 현재 기준가 · 말뚝박기 기준 $100.77' },
-            { id: 'qld-1015', date: '2026.10.15', type: '매도', account: '미국직투', price: 95.71, shares: 170, note: '평시 리밸런싱 1구간 (-5%) · 10% 현금화' },
-            { id: 'qld-1019', date: '2026.10.19', type: '매도', account: '미국직투', price: 90.45, shares: 170, note: '평시 리밸런싱 2구간 (-10%) · 누적 340주 매도 (20%)' },
-            { id: 'qld-1103a', date: '2026.11.03', type: '매도', account: '미국직투', price: 81.35, shares: 1139, note: '매도 체결' },
-            { id: 'qld-1103b', date: '2026.11.03', type: '매도', account: '미국직투', price: 81.40, shares: 50, note: '위기 모드 전환 후 추가 1,189주 매도 · 누적 매도 1,529주 (90%)' },
-            { id: 'qld-1106', date: '2026.11.06', type: '매수', account: '미국직투', price: 77.88, shares: 170, note: '말뚝박기 2구간 하락에 따른 10% 매수' }
+            { id: 'qld-1015', date: '2026.10.15', type: '매도', account: '해외직투', price: 95.71, shares: 170, note: '평시 리밸런싱 1구간 (-5%) 매도' },
+            { id: 'qld-1019', date: '2026.10.19', type: '매도', account: '해외직투', price: 90.45, shares: 170, note: '평시 리밸런싱 2구간 (-10%) · 누적 340주 매도 (20%)' },
+            { id: 'qld-1103a', date: '2026.11.03', type: '매도', account: '해외직투', price: 81.35, shares: 1139, note: '위기 모드 전환 후 1차 추가 매도' },
+            { id: 'qld-1103b', date: '2026.11.03', type: '매도', account: '해외직투', price: 81.40, shares: 50, note: '위기 모드 전환 후 2차 추가 매도 · 누적 매도 1,529주 (90%)' },
+            { id: 'qld-1106', date: '2026.11.06', type: '매수', account: '해외직투', price: 77.88, shares: 170, note: '말뚝박기 2구간(-20%) 하락에 따른 10% 매수' },
+            { id: 'qld-1119a', date: '2026.11.19', type: '매수', account: '해외직투', price: 70.54, shares: 170, note: '말뚝박기 3구간 돌파 10% 추가 매수' },
+            { id: 'qld-1119b', date: '2026.11.19', type: '매수', account: '해외직투', price: 70.54, shares: 170, note: '중복 매수주문' }
           ]
         }
       }
@@ -1056,33 +1057,11 @@
         a.cashBalance = Math.max(0, Number(a.cashBalance) ?? def.cashBalance);
         a.consecutiveUpDays = Math.max(0, Math.min(8, Math.round(Number(a.consecutiveUpDays) || 0)));
 
-        if (key === 'kr') {
-          const hasLegacyKrSample = Array.isArray(a.history) && a.history.some((h) => h && (h.id === 'kr-1' || h.id === 'kr-2'));
-          if (hasLegacyKrSample) {
-            a.history = deepClone(def.history);
-          }
-        }
-
         if (key === 'qld') {
           if (a.normalStepPct === 3) a.normalStepPct = 5;
           if (a.crisisStepPct === 6 && a.maxCrisisDropPct === 60) {
             a.crisisStepPct = merged.interestRegime === 'zero' ? 5 : 10;
             a.maxCrisisDropPct = merged.interestRegime === 'zero' ? 50 : 100;
-          }
-          const hasLegacyQld = Array.isArray(a.history) && a.history.some((h) => h && (h.id === 'qld-1' || h.id === 'qld-2' || h.id === 'qld-3'));
-          if (hasLegacyQld || (Number(a.basePrice) === 120 && Number(a.heldShares) === 240)) {
-            a.basePrice = def.basePrice;
-            a.baseDate = def.baseDate;
-            a.currentPrice = def.currentPrice;
-            a.priceUpdatedAt = def.priceUpdatedAt;
-            a.initialBaseShares = def.initialBaseShares;
-            a.baseShares = def.baseShares;
-            a.heldShares = def.heldShares;
-            a.cashBalance = def.cashBalance;
-            a.lastUpdated = def.lastUpdated;
-            a.version = Math.max(Number(a.version) || 19, def.version);
-            a.subAccounts = deepClone(def.subAccounts);
-            a.history = deepClone(def.history);
           }
         }
 
@@ -1115,18 +1094,6 @@
         ['kr', 'qld'].forEach((k) => {
           merged.assets[k].lastDrop3Date = '2026.11.05';
         });
-      }
-
-      const krAsset = merged.assets.kr;
-      if (krAsset && krAsset.heldShares === 2031 && Array.isArray(krAsset.subAccounts)) {
-        const isaAcc = krAsset.subAccounts.find((s) => s.name === 'ISA');
-        const yj1Acc = krAsset.subAccounts.find((s) => s.name === '연저펀1');
-        if (isaAcc && yj1Acc && isaAcc.shares === 0 && yj1Acc.shares === 2031) {
-          isaAcc.shares = 1354;
-          isaAcc.note = '11/06 20% 잔여 보유';
-          yj1Acc.shares = 677;
-          yj1Acc.note = '11/20 말뚝 3구간 매수';
-        }
       }
 
       return merged;
