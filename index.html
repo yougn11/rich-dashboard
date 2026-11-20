@@ -49,7 +49,7 @@
   <!-- ===================================================================== -->
   <header class="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
     <div class="max-w-4xl mx-auto px-3 sm:px-5 pt-2.5 pb-2 space-y-2">
-      <!-- 1행: 앱 타이틀 & 버전/업데이트일 -->
+      <!-- 1행: 앱 타이틀 & 업데이트일 -->
       <div class="flex items-center justify-between gap-2">
         <div class="flex items-center gap-2 min-w-0">
           <span class="px-2.5 py-1 rounded-xl bg-indigo-600 text-white font-extrabold text-xs tracking-tight shrink-0">
@@ -60,7 +60,7 @@
             <span id="readOnlyHeaderBadge" class="hidden px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-200/80 dark:border-amber-800/60 shrink-0">🔒 조회전용</span>
           </div>
         </div>
-        <p id="lastUpdatedText" class="text-[11px] text-slate-500 dark:text-slate-400 shrink-0">업데이트 : 2026.11.20</p>
+        <p id="lastUpdatedText" class="text-[11px] text-slate-500 dark:text-slate-400 shrink-0">업데이트 : 2026.11.21</p>
       </div>
 
       <!-- 2행: 유틸리티 버튼 그룹 -->
@@ -105,7 +105,7 @@
       </div>
     </div>
 
-    <!-- 3행: 종목 전환 탭 & 운용 모드 배지 (완전 자동 전환 · 터치 잠금) -->
+    <!-- 3행: 종목 전환 탭 & 운용 모드 배지 -->
     <div class="max-w-4xl mx-auto px-3 sm:px-5 pb-2.5 flex items-center justify-between gap-2">
       <div class="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200/70 dark:border-slate-700/70">
         <button type="button" data-asset="kr" class="asset-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold transition">
@@ -128,7 +128,7 @@
   <!-- ===================================================================== -->
   <main class="max-w-4xl mx-auto px-3 sm:px-5 pt-4 space-y-4">
 
-    <!-- 0) 전체 통합 포트폴리오 요약 바 (미국테크TOP10 + QLD 환산 합산) -->
+    <!-- 0) 전체 통합 포트폴리오 요약 바 -->
     <section class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl border border-indigo-500/30 p-3.5 sm:p-4 shadow-sm space-y-2.5">
       <div class="flex flex-wrap items-center justify-between gap-2">
         <div class="flex flex-wrap items-center gap-1.5">
@@ -310,7 +310,7 @@
       <div id="comboChartContainer" class="w-full h-56 sm:h-64 relative select-none"></div>
     </section>
 
-    <!-- C. 다음 액션 가이드 카드 (추가 하락 대응 & V자 반등 대응) -->
+    <!-- C. 다음 액션 가이드 카드 -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
       <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs flex flex-col justify-between space-y-3">
         <div class="space-y-2">
@@ -363,7 +363,7 @@
       </div>
     </section>
 
-    <!-- D. 위기 · 공황 종료 트래커 (완전자동 · 금리 상태 연동) -->
+    <!-- D. 위기 · 공황 종료 트래커 -->
     <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 shadow-xs space-y-2.5">
       <div class="flex items-center justify-between gap-2">
         <div class="flex items-center gap-1.5 min-w-0">
@@ -397,14 +397,14 @@
             <span id="activeExitRuleLabel" class="text-[11px] font-bold text-slate-600 dark:text-slate-300 truncate">종료 예정 (+1개월 1일)</span>
             <span id="activeExitDdayBadge" class="px-1.5 py-0.5 rounded-md text-[10px] font-extrabold bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 shrink-0">-</span>
           </div>
-          <p id="activeExitDateText" class="text-base font-extrabold">2026.12.06</p>
+          <p id="activeExitDateText" class="text-base font-extrabold">2026.12.21</p>
         </div>
 
         <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/70 flex flex-col justify-between space-y-1.5">
           <div class="flex items-center justify-between gap-1">
             <div class="flex items-center gap-1 min-w-0">
               <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 truncate">8거래일 연속 상승</span>
-              <span class="px-1.5 py-0.5 rounded bg-emerald-100/80 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-[9px] font-extrabold shrink-0">IXIC자동</span>
+              <span id="upStreakRoleTag" class="px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-[9px] font-extrabold shrink-0">즉시해제 조건</span>
             </div>
             <span id="upStreakCountBadge" class="text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 shrink-0">0 / 8일</span>
           </div>
@@ -414,7 +414,7 @@
       </div>
     </section>
 
-    <!-- E. 구간표 섹션 (말뚝박기 표 / 리밸런싱 표 서브탭 전환) -->
+    <!-- E. 구간표 섹션 -->
     <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs space-y-3">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
         <div>
@@ -823,17 +823,17 @@
 
     const DEFAULT_APP_STATE = {
       activeAsset: 'kr',
-      interestRegime: 'nonzero', // 'nonzero' = 비제로금리(50% 말뚝), 'zero' = 제로금리(25% 말뚝)
+      interestRegime: 'nonzero',
       googleSheetUrl: '',
       editPin: '',
       usdKrwRate: 1390,
       nasdaqPrice: null,
       nasdaqChangePct: null,
-      nasdaqTradeDate: '',
-      isNasdaqClosed: false,
-      lastUpStreakTradeDate: '',
+      nasdaqTradeDate: '2026.11.20',
+      isNasdaqClosed: true,
+      lastUpStreakTradeDate: '2026.11.20',
       hasNasdaqHistoryFeed: false,
-      nasdaqDrop3Dates: ['2026.11.05'],
+      nasdaqDrop3Dates: ['2026.11.05', '2026.11.20'],
       dismissedDrop3Dates: [],
       crisisAutoExitNotice: null,
       assets: {
@@ -846,7 +846,7 @@
           unitSuffix: '원',
           decimals: 0,
           version: 35,
-          lastUpdated: '2026.11.20',
+          lastUpdated: '2026.11.21',
           basePrice: 17345,
           baseDate: '2026.10.06',
           currentPrice: 14620,
@@ -859,7 +859,7 @@
           normalStepPct: 2.5,
           crisisStepPct: 5,
           maxCrisisDropPct: 50,
-          lastDrop3Date: '2026.11.05',
+          lastDrop3Date: '2026.11.20',
           consecutiveUpDays: 0,
           subAccounts: [
             { name: 'ISA', shares: 1354, note: '11/06 20% 잔여 보유' },
@@ -891,7 +891,7 @@
           unitSuffix: '$',
           decimals: 2,
           version: 34,
-          lastUpdated: '2026.11.19',
+          lastUpdated: '2026.11.21',
           basePrice: 100.77,
           baseDate: '2026.10.12',
           currentPrice: 70.54,
@@ -904,7 +904,7 @@
           normalStepPct: 5,
           crisisStepPct: 10,
           maxCrisisDropPct: 100,
-          lastDrop3Date: '2026.11.05',
+          lastDrop3Date: '2026.11.20',
           consecutiveUpDays: 0,
           subAccounts: [
             { name: '해외직투', shares: 680, note: '11/19 말뚝 3구간 매수 포함 40% 보유' }
@@ -1015,9 +1015,6 @@
       appState.assets.qld.normalStepPct = 5;
     }
 
-    // -----------------------------------------------------------------------
-    // 8-1. 상태 정규화 및 매매 이력 기반 보유 수량 완전자동 계산 엔진
-    // -----------------------------------------------------------------------
     function recalculateHoldingsFromHistory(asset) {
       const startShares = Math.max(0, Math.round(Number(asset.initialBaseShares ?? asset.baseShares) || 0));
       let totalHeld = startShares;
@@ -1124,8 +1121,19 @@
       const sig = JSON.stringify(merged.nasdaqDrop3Dates);
       if (sig === JSON.stringify(['2026.11.03', '2026.11.06']) || sig === JSON.stringify(['2026.10.30', '2026.11.05'])) {
         merged.nasdaqDrop3Dates = ['2026.11.05'];
+      }
+
+      if (
+        merged.nasdaqDrop3Dates.includes('2026.11.05') &&
+        !merged.nasdaqDrop3Dates.includes('2026.11.20') &&
+        !merged.dismissedDrop3Dates.includes('2026.11.20')
+      ) {
+        merged.nasdaqDrop3Dates.push('2026.11.20');
+        merged.nasdaqDrop3Dates.sort();
         ['kr', 'qld'].forEach((k) => {
-          merged.assets[k].lastDrop3Date = '2026.11.05';
+          merged.assets[k].lastDrop3Date = '2026.11.20';
+          merged.assets[k].mode = 'crisis';
+          merged.assets[k].consecutiveUpDays = 0;
         });
       }
 
@@ -1199,7 +1207,7 @@
       if (!dateCompleted && !streakCompleted) return false;
 
       const reasonText = streakCompleted
-        ? '나스닥 8거래일 연속 상승 조건 달성'
+        ? `${reg.regime === 'panic' ? '공황' : '일반'} 위기 중 나스닥 8거래일 연속 상승 조건 달성`
         : `${reg.regime === 'panic' ? '공황' : '일반'} 위기 종료일(${reg.activeExitDate}) 도달`;
 
       ['kr', 'qld'].forEach((k) => {
@@ -1207,1157 +1215,534 @@
         appState.assets[k].lastDrop3Date = '';
         appState.assets[k].consecutiveUpDays = 0;
       });
-      appState.nasdaqDrop3Dates = [];
       appState.crisisAutoExitNotice = {
-        date: getNowStamp().slice(0, 10),
+        date: formatDotDate(getTodayIso()),
         reason: reasonText
       };
       activeTableTab = 'normal';
       return true;
     }
 
-    function saveStateLocal() {
-      try {
-        localStorage.setItem(STORAGE_KEY_STATE, JSON.stringify(appState));
-      } catch (e) {}
-    }
+    function registerNasdaqDrop3Date(dotDate, options = {}) {
+      const cleanDate = formatDotDate(dotDate);
+      if (!/^\d{4}\.\d{2}\.\d{2}$/.test(cleanDate)) return false;
 
-    function persistState(triggerCloud = true) {
-      saveStateLocal();
-      if (triggerCloud && ghConfig.token && !isReadOnlyMode) {
-        pushToGist(true);
-      }
-    }
-
-    // -----------------------------------------------------------------------
-    // 8-2. 전략 계산 엔진 (평시 10%씩 현금화 / 위기 10%씩 말뚝 / QLD ×2)
-    // -----------------------------------------------------------------------
-    function computeAssetMetrics(asset) {
-      const stockPct = Math.max(0, Math.min(100, Math.round((asset.heldShares / asset.baseShares) * 100)));
-      const cashPct = 100 - stockPct;
-      const drawdownPct = ((asset.currentPrice - asset.basePrice) / asset.basePrice) * 100;
-
-      const crisisStepCount = 10;
-      const crisisSteps = [];
-      for (let i = 1; i <= crisisStepCount; i++) {
-        const dropPct = Number((i * asset.crisisStepPct).toFixed(2));
-        const targetPrice = Math.max(0, asset.basePrice * (1 - dropPct / 100));
-        const sPct = Math.min(100, i * 10);
-        const cPct = 100 - sPct;
-        const cumShares = Math.round((asset.baseShares * sPct) / 100);
-        crisisSteps.push({
-          step: i,
-          dropPct,
-          targetPrice,
-          stockPct: sPct,
-          cashPct: cPct,
-          cumShares
-        });
+      if (!Array.isArray(appState.nasdaqDrop3Dates)) appState.nasdaqDrop3Dates = [];
+      appState.dismissedDrop3Dates = (appState.dismissedDrop3Dates || []).filter((d) => d !== cleanDate);
+      const alreadyExists = appState.nasdaqDrop3Dates.includes(cleanDate);
+      if (!alreadyExists) {
+        appState.nasdaqDrop3Dates.push(cleanDate);
+        appState.nasdaqDrop3Dates.sort();
       }
 
-      const normalSteps = [];
-      for (let i = 0; i <= 10; i++) {
-        const dropPct = Number((i * asset.normalStepPct).toFixed(2));
-        const targetPrice = Math.max(0, asset.basePrice * (1 - dropPct / 100));
-        const cPct = Math.min(100, i * 10);
-        const sPct = 100 - cPct;
-        const targetShares = Math.round((asset.baseShares * sPct) / 100);
-        normalSteps.push({
-          step: i,
-          dropPct,
-          targetPrice,
-          stockPct: sPct,
-          cashPct: cPct,
-          targetShares
-        });
-      }
-
-      const activeSteps = asset.mode === 'crisis' ? crisisSteps : normalSteps;
-      let priceStep = 0;
-      activeSteps.forEach((s) => {
-        if (asset.currentPrice <= s.targetPrice * 1.0001) {
-          priceStep = s.step;
-        }
+      const reg = evaluateNasdaqRegime();
+      ['kr', 'qld'].forEach((k) => {
+        appState.assets[k].mode = 'crisis';
+        appState.assets[k].lastDrop3Date = reg.latestDropDate || cleanDate;
+        appState.assets[k].consecutiveUpDays = 0;
+        appState.assets[k].lastUpdated = cleanDate;
       });
+      appState.crisisAutoExitNotice = null;
+      activeTableTab = 'crisis';
 
-      let heldStep = 0;
-      if (asset.mode === 'crisis') {
-        heldStep = Math.max(0, Math.min(10, Math.round(stockPct / 10)));
-      } else {
-        heldStep = Math.max(0, Math.min(10, Math.round(cashPct / 10)));
+      if (!options.silent) {
+        showToast(
+          reg.regime === 'panic'
+            ? `🚨 한 달 내 -3% ${reg.countIn31Days}회 → 공황 위기 자동 전환!`
+            : `🚨 나스닥 -3% 감지 (${cleanDate}) → 위기모드 자동 전환!`
+        );
+      }
+      return !alreadyExists;
+    }
+
+    function removeNasdaqDrop3Date(dotDate) {
+      if (isReadOnlyMode) {
+        showToast('🔒 조회 전용 모드입니다.');
+        return;
+      }
+      const cleanDate = formatDotDate(dotDate);
+      appState.nasdaqDrop3Dates = (appState.nasdaqDrop3Dates || []).filter((d) => d !== cleanDate);
+      if (!Array.isArray(appState.dismissedDrop3Dates)) appState.dismissedDrop3Dates = [];
+      if (!appState.dismissedDrop3Dates.includes(cleanDate)) {
+        appState.dismissedDrop3Dates.push(cleanDate);
       }
 
-      let nextDropInfo = null;
-      if (asset.mode === 'crisis') {
-        const nextIdx = Math.min(crisisSteps.length - 1, heldStep);
-        const row = crisisSteps[nextIdx];
-        const addShares = Math.max(0, row.cumShares - asset.heldShares);
-        nextDropInfo = {
-          actionKind: 'buy',
-          step: row.step,
-          dropPct: row.dropPct,
-          targetPrice: row.targetPrice,
-          deltaShares: addShares,
-          targetStockPct: row.stockPct,
-          targetCashPct: row.cashPct,
-          targetShares: row.cumShares
-        };
+      if (!appState.nasdaqDrop3Dates.length) {
+        ['kr', 'qld'].forEach((k) => {
+          appState.assets[k].mode = 'normal';
+          appState.assets[k].lastDrop3Date = '';
+          appState.assets[k].consecutiveUpDays = 0;
+        });
+        activeTableTab = 'normal';
+        showToast('급락일이 모두 삭제되어 평상시 모드로 전환되었습니다.');
       } else {
-        const nextIdx = Math.min(normalSteps.length - 1, heldStep + 1);
-        const row = normalSteps[nextIdx];
-        const sellShares = Math.max(0, asset.heldShares - row.targetShares);
-        nextDropInfo = {
-          actionKind: 'sell',
-          step: row.step,
-          dropPct: row.dropPct,
-          targetPrice: row.targetPrice,
-          deltaShares: sellShares,
-          targetStockPct: row.stockPct,
-          targetCashPct: row.cashPct,
-          targetShares: row.targetShares
-        };
+        const reg = evaluateNasdaqRegime();
+        ['kr', 'qld'].forEach((k) => {
+          appState.assets[k].lastDrop3Date = reg.latestDropDate;
+        });
+        showToast(`${cleanDate} 급락일 삭제 완료`);
+      }
+      persistAndSync();
+    }
+
+    function calculateMetrics(asset) {
+      const basePrice = Math.max(0.0001, Number(asset.basePrice) || 1);
+      const currentPrice = Math.max(0, Number(asset.currentPrice) || 0);
+      const baseShares = Math.max(1, Math.round(Number(asset.baseShares) || 1));
+      const initialBaseShares = Math.max(1, Math.round(Number(asset.initialBaseShares) || baseShares));
+      const heldShares = Math.max(0, Math.round(Number(asset.heldShares) || 0));
+      const cashBalance = Math.max(0, Number(asset.cashBalance) || 0);
+
+      const stockValue = heldShares * currentPrice;
+      const totalAssetValue = stockValue + cashBalance;
+
+      const stockRatioPct = Math.min(100, Math.max(0, Math.round((heldShares / baseShares) * 100)));
+      const cashRatioPct = 100 - stockRatioPct;
+
+      const evalStockPct = totalAssetValue > 0 ? Math.round((stockValue / totalAssetValue) * 100) : stockRatioPct;
+      const evalCashPct = 100 - evalStockPct;
+
+      const drawdownPct = ((currentPrice - basePrice) / basePrice) * 100;
+
+      const isCrisis = asset.mode === 'crisis';
+      const stepPct = isCrisis ? (Number(asset.crisisStepPct) || 5) : (Number(asset.normalStepPct) || 2.5);
+      const maxSteps = isCrisis
+        ? Math.max(1, Math.round((Number(asset.maxCrisisDropPct) || 50) / stepPct))
+        : 10;
+
+      const priceStep = currentPrice >= basePrice
+        ? 0
+        : Math.min(maxSteps, Math.floor((Math.abs(drawdownPct) + 1e-9) / stepPct));
+
+      const heldStep = Math.min(maxSteps, Math.max(0, Math.round(cashRatioPct / 10)));
+
+      const tableRows = [];
+      for (let s = 1; s <= maxSteps; s++) {
+        const dropPct = -(stepPct * s);
+        const targetPrice = basePrice * (1 + dropPct / 100);
+        const cashPct = s * 10;
+        const stockPct = 100 - cashPct;
+        const actionShares = Math.round(baseShares * (cashPct / 100));
+        tableRows.push({
+          step: s,
+          dropPct,
+          targetPrice,
+          cashPct,
+          stockPct,
+          actionShares,
+          isCurrentHeld: heldStep === s,
+          isCurrentPrice: priceStep === s
+        });
       }
 
-      const stepPct = asset.mode === 'crisis' ? asset.crisisStepPct : asset.normalStepPct;
+      const nextStep = Math.min(maxSteps, heldStep + 1);
+      const nextDropPct = -(stepPct * nextStep);
+      const nextTargetPrice = basePrice * (1 + nextDropPct / 100);
+      const targetHeldSharesAfterNext = Math.round(baseShares * (1 - nextStep * 0.1));
+      const nextActionShares = Math.max(0, Math.abs(heldShares - targetHeldSharesAfterNext));
+
       const reboundStep = Math.max(0, heldStep - 2);
-      const reboundDropPct = Number((reboundStep * stepPct).toFixed(2));
-      const reboundTargetPrice = Math.max(0, asset.basePrice * (1 - reboundDropPct / 100));
-      const remainSharesToBuy = Math.max(0, asset.baseShares - asset.heldShares);
+      const reboundDropPct = -(stepPct * reboundStep);
+      const reboundTargetPrice = basePrice * (1 + reboundDropPct / 100);
 
-      const stockEval = asset.heldShares * asset.currentPrice;
-      const totalAsset = stockEval + (Number(asset.cashBalance) || 0);
-      const shareDiff = asset.baseShares - (asset.initialBaseShares || asset.baseShares);
+      const dropGapPct = currentPrice > 0 ? ((nextTargetPrice - currentPrice) / currentPrice) * 100 : 0;
+      const isDropReached = heldStep < maxSteps && currentPrice > 0 && currentPrice <= nextTargetPrice + 1e-9;
+
+      const reboundGapPct = currentPrice > 0 ? ((reboundTargetPrice - currentPrice) / currentPrice) * 100 : 0;
+      const isReboundReached = heldStep >= 2 && currentPrice > 0 && currentPrice >= reboundTargetPrice - 1e-9;
 
       return {
-        stockPct,
-        cashPct,
+        basePrice,
+        currentPrice,
+        baseShares,
+        initialBaseShares,
+        heldShares,
+        cashBalance,
+        stockValue,
+        totalAssetValue,
+        stockRatioPct,
+        cashRatioPct,
+        evalStockPct,
+        evalCashPct,
         drawdownPct,
-        crisisSteps,
-        normalSteps,
+        stepPct,
+        maxSteps,
         priceStep,
         heldStep,
-        nextDropInfo,
+        tableRows,
+        nextStep,
+        nextDropPct,
+        nextTargetPrice,
+        nextActionShares,
+        targetHeldSharesAfterNext,
         reboundStep,
         reboundDropPct,
         reboundTargetPrice,
-        remainSharesToBuy,
-        stockEval,
-        totalAsset,
-        shareDiff
+        dropGapPct,
+        isDropReached,
+        reboundGapPct,
+        isReboundReached
       };
     }
 
-    function evaluateTargetAlerts(asset) {
-      const m = computeAssetMetrics(asset);
-      const cur = Number(asset.currentPrice) || 0;
-      const dropTarget = (m.nextDropInfo && cur > 0)
-        ? {
-            kind: m.nextDropInfo.actionKind === 'sell' ? 'sell' : 'drop',
-            stepLabel: `${m.nextDropInfo.step}구간`,
-            targetPrice: m.nextDropInfo.targetPrice,
-            gapPct: ((m.nextDropInfo.targetPrice - cur) / cur) * 100,
-            reached: cur <= m.nextDropInfo.targetPrice * 1.0005 && m.nextDropInfo.deltaShares > 0,
-            shares: m.nextDropInfo.deltaShares
-          }
-        : null;
-
-      const reboundTarget = (m.reboundTargetPrice > 0 && cur > 0 && m.remainSharesToBuy > 0)
-        ? {
-            kind: 'rebound',
-            stepLabel: m.reboundStep === 0 ? '전고점(0구간)' : `${m.reboundStep}구간`,
-            targetPrice: m.reboundTargetPrice,
-            gapPct: ((m.reboundTargetPrice - cur) / cur) * 100,
-            reached: cur >= m.reboundTargetPrice * 0.9995,
-            shares: m.remainSharesToBuy
-          }
-        : null;
-
-      return { dropTarget, reboundTarget };
-    }
-
     // -----------------------------------------------------------------------
-    // 8-3. 실시간 시세 조회 (구글 시트 B1~B6 + D1 과거 확정 종가 표 자동 역산)
-    // -----------------------------------------------------------------------
-    function parseFlexibleNumber(val) {
-      if (typeof val === 'number' && !isNaN(val)) return val;
-      if (typeof val === 'string') {
-        const cleaned = val.replace(/[^0-9.\-]/g, '');
-        if (!cleaned) return null;
-        const parsed = Number(cleaned);
-        return isNaN(parsed) ? null : parsed;
-      }
-      return null;
-    }
-
-    async function fetchFallbackUsdKrw() {
-      try {
-        const res = await fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-store' });
-        if (!res.ok) return null;
-        const json = await res.json();
-        const rate = json && json.rates && Number(json.rates.KRW);
-        if (rate && !isNaN(rate) && rate > 500) {
-          return Number(rate.toFixed(1));
-        }
-      } catch (e) {}
-      return null;
-    }
-
-    function normalizeUsMarketDate(dotDateStr) {
-      const d = parseDotDate(formatDotDate(dotDateStr));
-      if (!d) return formatDotDate(dotDateStr);
-      const day = d.getDay();
-      if (day === 0) d.setDate(d.getDate() - 2);
-      if (day === 6) d.setDate(d.getDate() - 1);
-      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-    }
-
-    async function fetchGoogleSheetPrices(silent = false) {
-      const url = (appState.googleSheetUrl || '').trim();
-      if (!url) {
-        const fallbackRate = await fetchFallbackUsdKrw();
-        if (fallbackRate) {
-          appState.usdKrwRate = fallbackRate;
-          renderApp();
-          persistState(true);
-          if (!silent) showToast(`실시간 환율(${fallbackRate.toLocaleString('ko-KR')}원/$) 반영 완료! 주가 연동은 설정에서 URL을 등록해 주세요.`);
-          return { usdkrw: fallbackRate };
-        }
-        if (!silent) {
-          openSettingsModal();
-          showToast('먼저 설정에서 구글 시트 웹 앱 URL을 입력해 주세요.');
-        }
-        return null;
-      }
-      if (isRefreshingPrice) return null;
-
-      isRefreshingPrice = true;
-      const icon = document.getElementById('refreshPriceIcon');
-      if (icon) icon.classList.add('spin-active');
-
-      try {
-        const sep = url.includes('?') ? '&' : '?';
-        const res = await fetch(`${url}${sep}_ts=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-
-        const now = getNowStamp();
-        let updatedCount = 0;
-        let autoAddedDrops = [];
-        let streakSyncNote = '';
-
-        const krNum = parseFlexibleNumber(data.kr);
-        const qldNum = parseFlexibleNumber(data.qld);
-        const fxNum = parseFlexibleNumber(data.usdkrw);
-        const nqPriceNum = parseFlexibleNumber(data.nasdaqPrice);
-        const nqChangeNum = parseFlexibleNumber(data.nasdaqChangePct);
-
-        if (krNum !== null && krNum > 0) {
-          appState.assets.kr.currentPrice = Math.round(krNum);
-          appState.assets.kr.priceUpdatedAt = now;
-          updatedCount++;
-        }
-        if (qldNum !== null && qldNum > 0) {
-          appState.assets.qld.currentPrice = Number(qldNum.toFixed(2));
-          appState.assets.qld.priceUpdatedAt = now;
-          updatedCount++;
-        }
-        if (fxNum !== null && fxNum > 500) {
-          appState.usdKrwRate = Number(fxNum.toFixed(1));
-          data.usdkrw = appState.usdKrwRate;
-          updatedCount++;
-        } else {
-          const fallbackRate = await fetchFallbackUsdKrw();
-          if (fallbackRate) {
-            appState.usdKrwRate = fallbackRate;
-            data.usdkrw = fallbackRate;
-            updatedCount++;
-          }
-        }
-
-        const historyRows = Array.isArray(data.nasdaqHistory)
-          ? data.nasdaqHistory
-              .filter((r) => r && /^\d{4}\.\d{2}\.\d{2}$/.test(formatDotDate(r.date)) && parseFlexibleNumber(r.close) !== null)
-              .map((r) => ({
-                date: formatDotDate(r.date),
-                close: parseFlexibleNumber(r.close),
-                changePct: parseFlexibleNumber(r.changePct)
-              }))
-              .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
-          : [];
-
-        if (historyRows.length > 0) {
-          appState.hasNasdaqHistoryFeed = true;
-          updatedCount++;
-
-          if (!isReadOnlyMode) {
-            historyRows.forEach((row) => {
-              if (
-                typeof row.changePct === 'number' &&
-                row.changePct <= -3.0 &&
-                !appState.nasdaqDrop3Dates.includes(row.date) &&
-                !appState.dismissedDrop3Dates.includes(row.date)
-              ) {
-                appState.nasdaqDrop3Dates.push(row.date);
-                autoAddedDrops.push(row.date);
-              }
-            });
-
-            if (autoAddedDrops.length > 0) {
-              appState.nasdaqDrop3Dates = Array.from(new Set(appState.nasdaqDrop3Dates)).sort();
-              const regAfterHist = evaluateNasdaqRegime();
-              ['kr', 'qld'].forEach((k) => {
-                appState.assets[k].lastDrop3Date = regAfterHist.latestDropDate;
-                appState.assets[k].mode = 'crisis';
-                appState.assets[k].consecutiveUpDays = 0;
-              });
-              appState.crisisAutoExitNotice = null;
-              activeTableTab = 'crisis';
-            }
-
-            const inCrisisMode = appState.assets.kr.mode === 'crisis' || appState.assets.qld.mode === 'crisis';
-            if (inCrisisMode) {
-              const latestDrop = evaluateNasdaqRegime().latestDropDate;
-              const postRows = historyRows.filter(
-                (r) => typeof r.changePct === 'number' && (!latestDrop || r.date > latestDrop)
-              );
-
-              let streak = 0;
-              let lastCheckedDate = latestDrop || '';
-              if (postRows.length > 0) {
-                lastCheckedDate = postRows[postRows.length - 1].date;
-                for (let i = postRows.length - 1; i >= 0; i--) {
-                  if (postRows[i].changePct > 0) {
-                    streak++;
-                  } else {
-                    break;
-                  }
-                }
-              }
-
-              if (data.isNasdaqClosed && nqChangeNum !== null && data.nasdaqTradeDate) {
-                const liveTradeDate = normalizeUsMarketDate(data.nasdaqTradeDate);
-                if (liveTradeDate > lastCheckedDate) {
-                  lastCheckedDate = liveTradeDate;
-                  streak = nqChangeNum > 0 ? streak + 1 : 0;
-                }
-              }
-
-              const clampedStreak = Math.min(8, Math.max(0, streak));
-              const prevStreak = appState.assets.kr.consecutiveUpDays || 0;
-              ['kr', 'qld'].forEach((k) => {
-                appState.assets[k].consecutiveUpDays = clampedStreak;
-              });
-              if (lastCheckedDate) {
-                appState.lastUpStreakTradeDate = lastCheckedDate;
-              }
-              if (clampedStreak > 0 && clampedStreak !== prevStreak) {
-                streakSyncNote = clampedStreak >= 8
-                  ? ' · 🎉 8거래일 연속 상승 달성!'
-                  : ` · 연속상승 ${clampedStreak}/8일`;
-              }
-            }
-          }
-        }
-
-        if (nqChangeNum !== null) {
-          appState.nasdaqChangePct = Number(nqChangeNum.toFixed(2));
-          if (nqPriceNum !== null) {
-            appState.nasdaqPrice = Number(nqPriceNum.toFixed(2));
-          }
-          const tradeDate = data.nasdaqTradeDate ? normalizeUsMarketDate(data.nasdaqTradeDate) : '';
-          appState.nasdaqTradeDate = tradeDate;
-          appState.isNasdaqClosed = Boolean(data.isNasdaqClosed);
-          updatedCount++;
-
-          if (
-            appState.isNasdaqClosed &&
-            appState.nasdaqChangePct <= -3.0 &&
-            /^\d{4}\.\d{2}\.\d{2}$/.test(tradeDate) &&
-            !isReadOnlyMode
-          ) {
-            if (!appState.nasdaqDrop3Dates.includes(tradeDate) && !appState.dismissedDrop3Dates.includes(tradeDate)) {
-              appState.nasdaqDrop3Dates.push(tradeDate);
-              appState.nasdaqDrop3Dates.sort();
-              autoAddedDrops.push(tradeDate);
-              const reg = evaluateNasdaqRegime();
-              ['kr', 'qld'].forEach((k) => {
-                appState.assets[k].lastDrop3Date = reg.latestDropDate;
-                appState.assets[k].mode = 'crisis';
-                appState.assets[k].consecutiveUpDays = 0;
-              });
-              appState.crisisAutoExitNotice = null;
-              appState.lastUpStreakTradeDate = tradeDate;
-              activeTableTab = 'crisis';
-            }
-          } else if (
-            historyRows.length === 0 &&
-            appState.isNasdaqClosed &&
-            /^\d{4}\.\d{2}\.\d{2}$/.test(tradeDate) &&
-            !isReadOnlyMode
-          ) {
-            const latestDrop = evaluateNasdaqRegime().latestDropDate;
-            const inCrisis = appState.assets.kr.mode === 'crisis' || appState.assets.qld.mode === 'crisis';
-            if (inCrisis && (!latestDrop || tradeDate > latestDrop) && appState.lastUpStreakTradeDate !== tradeDate) {
-              appState.lastUpStreakTradeDate = tradeDate;
-              const nextStreak = appState.nasdaqChangePct > 0
-                ? Math.min(8, (appState.assets.kr.consecutiveUpDays || 0) + 1)
-                : 0;
-              ['kr', 'qld'].forEach((k) => {
-                appState.assets[k].consecutiveUpDays = nextStreak;
-              });
-              if (nextStreak > 0) {
-                streakSyncNote = nextStreak >= 8
-                  ? ' · 🎉 8거래일 연속 상승 달성!'
-                  : ` · 연속상승 ${nextStreak}/8일`;
-              }
-            }
-          }
-        }
-
-        if (updatedCount === 0) {
-          throw new Error('유효한 시세 데이터가 없습니다.');
-        }
-
-        const autoExited = checkAutoCrisisExit();
-        renderApp();
-        persistState(true);
-
-        const activeAlerts = evaluateTargetAlerts(getCurrentAsset());
-        const activeBreach = (activeAlerts.dropTarget && activeAlerts.dropTarget.reached && activeAlerts.dropTarget) ||
-                             (activeAlerts.reboundTarget && activeAlerts.reboundTarget.reached && activeAlerts.reboundTarget) || null;
-        const alertSig = activeBreach ? `${appState.activeAsset}_${activeBreach.kind}_${activeBreach.stepLabel}` : '';
-
-        if (autoExited) {
-          showToast('🎉 위기 종료 조건 달성! 평상시 모드로 자동 전환되었습니다.');
-        } else if (autoAddedDrops.length > 0) {
-          const reg = evaluateNasdaqRegime();
-          const modeTxt = reg.regime === 'panic' ? '공황모드' : '위기모드';
-          showToast(`🚨 나스닥 종가 -3% (${autoAddedDrops.join(', ')}) 자동 감지 → [${modeTxt}] 전환`);
-        } else if (activeBreach && alertSig !== lastAlertSignature) {
-          lastAlertSignature = alertSig;
-          showToast(`🔔 [${getCurrentAsset().shortLabel}] ${activeBreach.stepLabel} 목표 체결가 도달!`);
-        } else if (!silent) {
-          showToast(`실시간 시세 반영 완료 (${now}) · 환율 ${appState.usdKrwRate.toLocaleString('ko-KR')}원/$${streakSyncNote}`);
-        }
-        return data;
-      } catch (err) {
-        const fallbackRate = await fetchFallbackUsdKrw();
-        if (fallbackRate) {
-          appState.usdKrwRate = fallbackRate;
-          renderApp();
-          persistState(true);
-        }
-        if (!silent) {
-          showToast(`시세 조회 실패: ${err.message}`);
-        }
-        return null;
-      } finally {
-        isRefreshingPrice = false;
-        if (icon) icon.classList.remove('spin-active');
-      }
-    }
-
-    // -----------------------------------------------------------------------
-    // 8-4. GitHub Gist 클라우드 동기화 및 가족 공유 초대 링크
-    // -----------------------------------------------------------------------
-    async function findExistingGistId(token) {
-      const res = await fetch('https://api.github.com/gists?per_page=30', {
-        headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }
-      });
-      if (!res.ok) throw new Error(`GitHub 인증 오류 (${res.status})`);
-      const list = await res.json();
-      const found = list.find((g) => g.files && g.files[GIST_FILENAME]);
-      return found ? found.id : '';
-    }
-
-    async function pullFromGist(silent = false) {
-      if (!ghConfig.token || isSyncingGh) return false;
-      isSyncingGh = true;
-      try {
-        let gistId = (ghConfig.gistId || '').trim();
-        if (!gistId) {
-          gistId = await findExistingGistId(ghConfig.token);
-          if (!gistId) {
-            isSyncingGh = false;
-            return await pushToGist(silent);
-          }
-          ghConfig.gistId = gistId;
-        }
-        const res = await fetch(`https://api.github.com/gists/${gistId}`, {
-          headers: { Authorization: `Bearer ${ghConfig.token}`, Accept: 'application/vnd.github+json' }
-        });
-        if (!res.ok) throw new Error(`Gist 조회 실패 (${res.status})`);
-        const gist = await res.json();
-        const fileObj = gist.files && gist.files[GIST_FILENAME];
-        if (fileObj && fileObj.content) {
-          appState = normalizeAppState(JSON.parse(fileObj.content));
-          saveStateLocal();
-          activeTableTab = getCurrentAsset().mode === 'normal' ? 'normal' : 'crisis';
-          ghConfig.lastSync = getNowStamp();
-          localStorage.setItem(STORAGE_KEY_GH, JSON.stringify(ghConfig));
-          renderApp();
-          if (!silent) showToast('클라우드에서 최신 데이터를 불러왔습니다.');
-          return true;
-        }
-        return false;
-      } catch (err) {
-        if (!silent) showToast(`불러오기 실패: ${err.message}`);
-        return false;
-      } finally {
-        isSyncingGh = false;
-        updateCloudStatusUI();
-      }
-    }
-
-    async function pushToGist(silent = false) {
-      if (!ghConfig.token || isReadOnlyMode || isSyncingGh) return false;
-      isSyncingGh = true;
-      try {
-        let gistId = (ghConfig.gistId || '').trim();
-        if (!gistId) {
-          gistId = await findExistingGistId(ghConfig.token);
-        }
-        const payload = {
-          description: '리치프로젝트 리밸런싱·말뚝박기 대시보드 데이터',
-          public: false,
-          files: {
-            [GIST_FILENAME]: { content: JSON.stringify(appState, null, 2) }
-          }
-        };
-        const url = gistId ? `https://api.github.com/gists/${gistId}` : 'https://api.github.com/gists';
-        const method = gistId ? 'PATCH' : 'POST';
-        const res = await fetch(url, {
-          method,
-          headers: {
-            Authorization: `Bearer ${ghConfig.token}`,
-            Accept: 'application/vnd.github+json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-        if (!res.ok) throw new Error(`Gist 저장 실패 (${res.status})`);
-        const saved = await res.json();
-        ghConfig.gistId = saved.id;
-        ghConfig.lastSync = getNowStamp();
-        localStorage.setItem(STORAGE_KEY_GH, JSON.stringify(ghConfig));
-        if (!silent) showToast('클라우드에 안전하게 저장되었습니다.');
-        return true;
-      } catch (err) {
-        if (!silent) showToast(`저장 실패: ${err.message}`);
-        return false;
-      } finally {
-        isSyncingGh = false;
-        updateCloudStatusUI();
-      }
-    }
-
-    function updateCloudStatusUI() {
-      const connected = Boolean(ghConfig.token);
-      const dot = document.getElementById('cloudStatusDot');
-      const label = document.getElementById('cloudStatusLabel');
-      const badge = document.getElementById('cloudModalBadge');
-      const lastTxt = document.getElementById('cloudLastSyncText');
-      const connActions = document.getElementById('ghConnectedActions');
-      const inviteHint = document.getElementById('inviteLockedHint');
-      const inviteRow = document.getElementById('inviteButtonsRow');
-
-      if (dot) dot.className = `w-1.5 h-1.5 rounded-full ${connected ? 'bg-emerald-500' : 'bg-slate-400'}`;
-      if (label) label.textContent = connected ? '동기화됨' : '동기화';
-      if (badge) {
-        badge.textContent = connected ? 'GitHub Gist 연결됨' : '브라우저 로컬 저장';
-        badge.className = `px-2 py-0.5 rounded-full text-[11px] font-bold ${connected ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300' : 'bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300'}`;
-      }
-      if (lastTxt) {
-        lastTxt.textContent = connected
-          ? `최근 동기화 : ${ghConfig.lastSync || '연결됨'}`
-          : '토큰 등록 시 비공개 Gist에 자동 동기화됩니다.';
-      }
-      if (connActions) connActions.classList.toggle('hidden', !connected);
-      if (inviteHint) inviteHint.classList.toggle('hidden', connected);
-      if (inviteRow) {
-        inviteRow.classList.toggle('opacity-50', !connected);
-        inviteRow.classList.toggle('pointer-events-none', !connected);
-      }
-    }
-
-    function buildInviteUrl(readOnlyFlag) {
-      const payload = {
-        t: ghConfig.token,
-        g: ghConfig.gistId,
-        r: readOnlyFlag ? 1 : 0,
-        p: appState.editPin || ''
-      };
-      const jsonStr = JSON.stringify(payload);
-      const b64 = btoa(String.fromCharCode(...new TextEncoder().encode(jsonStr)));
-      const baseUrl = window.location.href.split('#')[0];
-      return `${baseUrl}#invite=${encodeURIComponent(b64)}`;
-    }
-
-    async function checkInviteHash() {
-      const hash = window.location.hash || '';
-      if (!hash.startsWith('#invite=')) return false;
-      try {
-        const rawB64 = decodeURIComponent(hash.slice('#invite='.length));
-        const bin = atob(rawB64);
-        const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
-        const info = JSON.parse(new TextDecoder().decode(bytes));
-        if (info && info.t) {
-          ghConfig = { token: info.t, gistId: info.g || '', lastSync: '' };
-          localStorage.setItem(STORAGE_KEY_GH, JSON.stringify(ghConfig));
-          isReadOnlyMode = Boolean(info.r);
-          localStorage.setItem(STORAGE_KEY_READONLY, isReadOnlyMode ? 'true' : 'false');
-          if (typeof info.p === 'string') {
-            appState.editPin = info.p;
-            saveStateLocal();
-          }
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-          await pullFromGist(true);
-          renderApp();
-          showToast(isReadOnlyMode ? '🔒 가족 공유(조회 전용)로 자동 연결되었습니다.' : '✏️ 가족 공유(공동 편집)로 자동 연결되었습니다.');
-          return true;
-        }
-      } catch (e) {}
-      return false;
-    }
-
-    // -----------------------------------------------------------------------
-    // 8-5. D3.js 주가 · 보유 비중 콤보 차트 렌더링
-    // -----------------------------------------------------------------------
-    function buildComboChartSeries(asset) {
-      const m = computeAssetMetrics(asset);
-      if (activeChartMode === 'plan') {
-        const steps = asset.mode === 'crisis' ? m.crisisSteps : m.normalSteps;
-        const points = [];
-        if (asset.mode === 'crisis') {
-          points.push({
-            label: '전고점',
-            price: asset.basePrice,
-            drawdownPct: 0,
-            stockPct: 0,
-            cashPct: 100,
-            isCurrent: false
-          });
-        }
-        steps.forEach((s) => {
-          points.push({
-            label: s.step === 0 ? '0구간' : `${s.step}구간`,
-            price: s.targetPrice,
-            drawdownPct: -s.dropPct,
-            stockPct: s.stockPct,
-            cashPct: s.cashPct,
-            isCurrent: false
-          });
-        });
-        return points;
-      }
-
-      const hist = Array.isArray(asset.history) ? asset.history : [];
-      let runningShares = asset.heldShares;
-      const reversed = [];
-
-      reversed.push({
-        label: '현재시세',
-        price: asset.currentPrice,
-        drawdownPct: m.drawdownPct,
-        stockPct: m.stockPct,
-        cashPct: m.cashPct,
-        isCurrent: true
-      });
-
-      for (let i = hist.length - 1; i >= 0; i--) {
-        const h = hist[i];
-        const sPct = Math.max(0, Math.min(100, Math.round((runningShares / asset.baseShares) * 100)));
-        const dd = ((h.price - asset.basePrice) / asset.basePrice) * 100;
-        reversed.push({
-          label: `${formatDotDate(h.date).slice(5)} ${h.type}`,
-          price: h.price,
-          drawdownPct: dd,
-          stockPct: sPct,
-          cashPct: 100 - sPct,
-          isCurrent: false
-        });
-
-        if (h.type === '매수' || h.type === '전액재매수') {
-          runningShares = Math.max(0, runningShares - (Number(h.shares) || 0));
-        } else if (h.type === '매도') {
-          runningShares += (Number(h.shares) || 0);
-        }
-      }
-
-      return reversed.reverse().slice(-10);
-    }
-
-    function updateChartReadout(pt, asset = getCurrentAsset()) {
-      if (!pt) return;
-      document.getElementById('chartPointTitle').textContent = pt.label;
-      const sign = pt.drawdownPct > 0 ? '+' : '';
-      document.getElementById('chartPointPrice').textContent = `${formatPrice(pt.price, asset)} (${sign}${pt.drawdownPct.toFixed(2)}%)`;
-      document.getElementById('chartPointRatio').textContent = `현금 ${pt.cashPct}% · 주식 ${pt.stockPct}%`;
-    }
-
-    function renderComboChart() {
-      document.querySelectorAll('.chart-mode-btn').forEach((btn) => {
-        const isAct = btn.dataset.chartMode === activeChartMode;
-        btn.className = `chart-mode-btn px-2.5 py-1 rounded-lg text-xs transition ${isAct ? 'font-extrabold bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-2xs' : 'font-bold text-slate-500 dark:text-slate-400'}`;
-      });
-
-      const container = document.getElementById('comboChartContainer');
-      if (!container || typeof d3 === 'undefined') return;
-      container.innerHTML = '';
-
-      const asset = getCurrentAsset();
-      const data = buildComboChartSeries(asset);
-      if (!data.length) return;
-
-      const isDark = document.documentElement.classList.contains('dark');
-      const width = Math.max(300, container.clientWidth || 600);
-      const height = Math.max(200, container.clientHeight || 230);
-      const margin = { top: 18, right: 36, bottom: 26, left: 46 };
-      const innerW = width - margin.left - margin.right;
-      const innerH = height - margin.top - margin.bottom;
-
-      const svg = d3.select(container)
-        .append('svg')
-        .attr('width', width)
-        .attr('height', height)
-        .attr('viewBox', `0 0 ${width} ${height}`)
-        .style('overflow', 'visible');
-
-      const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
-
-      const x = d3.scaleBand()
-        .domain(data.map((_, i) => i))
-        .range([0, innerW])
-        .padding(0.36);
-
-      const yPct = d3.scaleLinear().domain([0, 100]).range([innerH, 0]);
-
-      const minPrice = Math.max(0, d3.min(data, (d) => d.price) * 0.96);
-      const maxPrice = Math.max(1, d3.max(data, (d) => d.price) * 1.03);
-      const yPrice = d3.scaleLinear().domain([minPrice, maxPrice]).range([innerH, 0]);
-
-      [0, 50, 100].forEach((pct) => {
-        g.append('line')
-          .attr('x1', 0)
-          .attr('x2', innerW)
-          .attr('y1', yPct(pct))
-          .attr('y2', yPct(pct))
-          .attr('stroke', isDark ? '#1e293b' : '#f1f5f9')
-          .attr('stroke-width', 1);
-      });
-
-      const rightAxis = d3.axisRight(yPct).tickValues([0, 50, 100]).tickFormat((d) => `${d}%`).tickSize(0);
-      g.append('g')
-        .attr('transform', `translate(${innerW + 4},0)`)
-        .call(rightAxis)
-        .call((ax) => ax.select('.domain').remove())
-        .selectAll('text')
-        .attr('fill', isDark ? '#64748b' : '#94a3b8')
-        .attr('font-size', '10px')
-        .attr('font-weight', '600');
-
-      const leftAxis = d3.axisLeft(yPrice)
-        .ticks(3)
-        .tickFormat((d) => asset.currency === 'USD' ? `$${Math.round(d)}` : `${Math.round(d / 1000)}k`)
-        .tickSize(0);
-      g.append('g')
-        .attr('transform', 'translate(-4,0)')
-        .call(leftAxis)
-        .call((ax) => ax.select('.domain').remove())
-        .selectAll('text')
-        .attr('fill', '#d97706')
-        .attr('font-size', '10px')
-        .attr('font-weight', '700');
-
-      const bars = g.selectAll('.bar-group')
-        .data(data)
-        .enter()
-        .append('g')
-        .attr('class', 'bar-group')
-        .style('cursor', 'pointer')
-        .on('mouseenter click', (_, d) => updateChartReadout(d, asset));
-
-      bars.append('rect')
-        .attr('x', (_, i) => x(i))
-        .attr('y', 0)
-        .attr('width', x.bandwidth())
-        .attr('height', (d) => Math.max(0, yPct(d.stockPct)))
-        .attr('rx', 3)
-        .attr('fill', '#34d399')
-        .attr('opacity', 0.28);
-
-      bars.append('rect')
-        .attr('x', (_, i) => x(i))
-        .attr('y', (d) => yPct(d.stockPct))
-        .attr('width', x.bandwidth())
-        .attr('height', (d) => Math.max(0, innerH - yPct(d.stockPct)))
-        .attr('rx', 3)
-        .attr('fill', '#4f46e5')
-        .attr('opacity', 0.85);
-
-      g.selectAll('.x-lbl')
-        .data(data)
-        .enter()
-        .append('text')
-        .attr('x', (_, i) => x(i) + x.bandwidth() / 2)
-        .attr('y', innerH + 16)
-        .attr('text-anchor', 'middle')
-        .attr('fill', isDark ? '#94a3b8' : '#64748b')
-        .attr('font-size', '9.5px')
-        .attr('font-weight', '600')
-        .text((d, i) => {
-          if (data.length <= 6 || i === 0 || i === data.length - 1 || i % 2 === 0) {
-            return d.label.length > 7 ? d.label.slice(0, 7) : d.label;
-          }
-          return '';
-        });
-
-      const lineGen = d3.line()
-        .x((_, i) => x(i) + x.bandwidth() / 2)
-        .y((d) => yPrice(d.price))
-        .curve(d3.curveMonotoneX);
-
-      g.append('path')
-        .datum(data)
-        .attr('fill', 'none')
-        .attr('stroke', '#f59e0b')
-        .attr('stroke-width', 2.5)
-        .attr('d', lineGen);
-
-      g.selectAll('.price-dot')
-        .data(data)
-        .enter()
-        .append('circle')
-        .attr('cx', (_, i) => x(i) + x.bandwidth() / 2)
-        .attr('cy', (d) => yPrice(d.price))
-        .attr('r', (d) => (d.isCurrent ? 5 : 3.5))
-        .attr('fill', (d) => (d.isCurrent ? '#ef4444' : '#f59e0b'))
-        .attr('stroke', isDark ? '#0f172a' : '#ffffff')
-        .attr('stroke-width', 1.5)
-        .style('cursor', 'pointer')
-        .on('mouseenter click', (_, d) => updateChartReadout(d, asset));
-
-      const defaultPt = data.find((d) => d.isCurrent) || data[data.length - 1];
-      updateChartReadout(defaultPt, asset);
-    }
-
-    // -----------------------------------------------------------------------
-    // 8-6. 전체 화면 UI 렌더링
+    // 8-3. 전체 렌더링 엔진
     // -----------------------------------------------------------------------
     function renderApp() {
       const asset = getCurrentAsset();
-      recalculateHoldingsFromHistory(asset);
-      const metrics = computeAssetMetrics(asset);
+      const m = calculateMetrics(asset);
+      const isCrisis = asset.mode === 'crisis';
       const regimeInfo = evaluateNasdaqRegime();
-      const isZeroRate = appState.interestRegime === 'zero';
 
       document.getElementById('headerTitle').textContent = asset.shortLabel;
       document.getElementById('lastUpdatedText').textContent = `업데이트 : ${asset.lastUpdated}`;
 
-      const priceSyncDot = document.getElementById('priceSyncDot');
-      if (priceSyncDot) {
-        priceSyncDot.className = `w-1.5 h-1.5 rounded-full ${appState.googleSheetUrl ? 'bg-emerald-500' : 'bg-slate-400'}`;
-      }
-
-      document.getElementById('readOnlyHeaderBadge').classList.toggle('hidden', !isReadOnlyMode);
-      document.getElementById('openTradeModalBtn').classList.toggle('hidden', isReadOnlyMode);
-      const roNotice = document.getElementById('readOnlyHeroNotice');
-      roNotice.classList.toggle('hidden', !isReadOnlyMode);
-      roNotice.classList.toggle('inline-flex', isReadOnlyMode);
-      document.getElementById('quickDropActionBtn').classList.toggle('hidden', isReadOnlyMode);
-      document.getElementById('quickReboundBuyBtn').classList.toggle('hidden', isReadOnlyMode);
-      document.getElementById('quickPriceEditTag').classList.toggle('hidden', isReadOnlyMode);
-
-      const kr = appState.assets.kr;
-      const qld = appState.assets.qld;
-      const fx = appState.usdKrwRate || 1390;
-      const krStockVal = kr.heldShares * kr.currentPrice;
-      const krTotalVal = krStockVal + kr.cashBalance;
-      const qldStockValKrw = qld.heldShares * qld.currentPrice * fx;
-      const qldTotalValKrw = qldStockValKrw + qld.cashBalance * fx;
-      const grandTotalKrw = krTotalVal + qldTotalValKrw;
-      const grandStockKrw = krStockVal + qldStockValKrw;
-      const grandStockPct = grandTotalKrw > 0 ? Math.round((grandStockKrw / grandTotalKrw) * 100) : 0;
-      const grandCashPct = 100 - grandStockPct;
-
-      document.getElementById('fxRateBadge').textContent = `환율 ${fx.toLocaleString('ko-KR')}원/$`;
-      document.getElementById('interestRegimeBadge').textContent = isZeroRate
-        ? '제로금리 (25% 말뚝 · QLD 50%)'
-        : '비제로금리 (50% 말뚝 · QLD 100%)';
-      document.getElementById('combinedRatioText').textContent = `통합 현금 ${grandCashPct}% · 주식 ${grandStockPct}%`;
-      document.getElementById('combinedTotalAssetText').textContent = formatMoney(grandTotalKrw, 'KRW');
-      document.getElementById('combinedKrSummary').textContent = `🇰🇷 테크TOP10 : ${formatMoney(krTotalVal, 'KRW')}`;
-      document.getElementById('combinedQldSummary').textContent = `🇺🇸 QLD(환산) : ${formatMoney(qldTotalValKrw, 'KRW')}`;
-      document.getElementById('combinedCashBar').style.width = `${grandCashPct}%`;
-      document.getElementById('combinedStockBar').style.width = `${grandStockPct}%`;
-
-      const nasdaqHeaderBadge = document.getElementById('nasdaqHeaderBadge');
-      if (typeof appState.nasdaqChangePct === 'number') {
-        const pct = appState.nasdaqChangePct;
-        const sign = pct > 0 ? '+' : '';
-        const statusWord = appState.isNasdaqClosed ? '종가' : '장중';
-        nasdaqHeaderBadge.textContent = `나스닥 ${statusWord} ${sign}${pct.toFixed(2)}%`;
-        nasdaqHeaderBadge.className = `px-2 py-0.5 rounded-lg text-[11px] font-extrabold ${
-          pct <= -3.0
-            ? 'bg-rose-500/30 border border-rose-400/50 text-rose-200'
-            : pct > 0
-            ? 'bg-emerald-500/25 border border-emerald-400/30 text-emerald-200'
-            : 'bg-white/10 text-slate-200'
-        }`;
-      } else {
-        nasdaqHeaderBadge.classList.add('hidden');
-      }
-
-      const autoExitBanner = document.getElementById('crisisAutoExitBanner');
-      if (appState.crisisAutoExitNotice && appState.crisisAutoExitNotice.reason) {
-        autoExitBanner.classList.remove('hidden');
-        document.getElementById('crisisAutoExitDesc').textContent =
-          `${appState.crisisAutoExitNotice.reason} (${appState.crisisAutoExitNotice.date}) · 잔여 현금 전액 재매수 후 실제 체결가를 새 전고점(100%)으로 리셋하세요.`;
-      } else {
-        autoExitBanner.classList.add('hidden');
-      }
-
-      const curAlerts = evaluateTargetAlerts(asset);
-      const otherKey = asset.id === 'kr' ? 'qld' : 'kr';
-      const otherAsset = appState.assets[otherKey];
-      const otherAlerts = evaluateTargetAlerts(otherAsset);
-
-      const dropDistanceLabel = document.getElementById('dropDistanceLabel');
-      const dropDistanceText = document.getElementById('dropDistanceText');
-      const reboundDistanceText = document.getElementById('reboundDistanceText');
-
-      dropDistanceLabel.textContent = asset.mode === 'crisis' ? '▼ 다음 매수:' : '▼ 10% 현금화:';
-      if (curAlerts.dropTarget) {
-        const dt = curAlerts.dropTarget;
-        const verb = dt.kind === 'sell' ? '매도' : '매수';
-        dropDistanceText.textContent = dt.reached
-          ? `${dt.stepLabel}(${formatPrice(dt.targetPrice, asset)}) 도달! (${verb} ${dt.shares.toLocaleString()}주)`
-          : `${dt.stepLabel}(${formatPrice(dt.targetPrice, asset)})까지 ${dt.gapPct.toFixed(2)}% 남음`;
-      } else {
-        dropDistanceText.textContent = asset.mode === 'crisis' ? '최종 구간 매수 완료' : '100% 현금화 완료';
-      }
-
-      if (curAlerts.reboundTarget) {
-        const rt = curAlerts.reboundTarget;
-        reboundDistanceText.textContent = rt.reached
-          ? `${rt.stepLabel}(${formatPrice(rt.targetPrice, asset)}) 돌파! (전액 몰빵)`
-          : `${rt.stepLabel}(${formatPrice(rt.targetPrice, asset)})까지 +${rt.gapPct.toFixed(2)}% 남음`;
-      } else {
-        reboundDistanceText.textContent = '100% 주식 보유 중';
-      }
-
-      const alertBanner = document.getElementById('targetAlertBanner');
-      const curBreach = (curAlerts.dropTarget && curAlerts.dropTarget.reached && curAlerts.dropTarget) ||
-                        (curAlerts.reboundTarget && curAlerts.reboundTarget.reached && curAlerts.reboundTarget) || null;
-      const otherBreach = (otherAlerts.dropTarget && otherAlerts.dropTarget.reached && otherAlerts.dropTarget) ||
-                          (otherAlerts.reboundTarget && otherAlerts.reboundTarget.reached && otherAlerts.reboundTarget) || null;
-
-      if (curBreach || otherBreach) {
-        alertBanner.classList.remove('hidden');
-        if (curBreach) {
-          const isRebound = curBreach.kind === 'rebound';
-          const isSell = curBreach.kind === 'sell';
-          alertBanner.className = `rounded-2xl border p-3.5 sm:p-4 shadow-sm transition-all ${
-            isRebound
-              ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50/90 dark:bg-emerald-950/50 text-emerald-950 dark:text-emerald-100'
-              : isSell
-              ? 'border-rose-300 dark:border-rose-700 bg-rose-50/90 dark:bg-rose-950/50 text-rose-950 dark:text-rose-100'
-              : 'border-blue-300 dark:border-blue-700 bg-blue-50/90 dark:bg-blue-950/50 text-blue-950 dark:text-blue-100'
-          }`;
-          document.getElementById('targetAlertBadge').textContent = isRebound ? '▲ 반등 몰빵 도달' : isSell ? '▼ 10% 현금화 도달' : '▼ 말뚝 매수 도달';
-          document.getElementById('targetAlertBadge').className = `px-2 py-0.5 rounded-md text-[10px] font-extrabold text-white shrink-0 ${isRebound ? 'bg-emerald-600' : isSell ? 'bg-rose-600' : 'bg-blue-600'}`;
-          document.getElementById('targetAlertTitle').textContent = `${asset.shortLabel} · ${curBreach.stepLabel} 목표가 도달`;
-          document.getElementById('targetAlertDesc').textContent =
-            `현재가 ${formatPrice(asset.currentPrice, asset)} (목표 ${formatPrice(curBreach.targetPrice, asset)}) · 권장 주문: ${isSell ? '-' : '+'}${curBreach.shares.toLocaleString()}주`;
-          const actBtn = document.getElementById('targetAlertActionBtn');
-          actBtn.dataset.alertKind = curBreach.kind;
-          actBtn.className = `px-3.5 py-2 rounded-xl text-white text-xs font-extrabold shrink-0 transition ${isRebound ? 'bg-emerald-600 hover:bg-emerald-700' : isSell ? 'bg-rose-600 hover:bg-rose-700' : 'bg-blue-600 hover:bg-blue-700'} ${isReadOnlyMode ? 'hidden' : ''}`;
-        } else {
-          alertBanner.className = 'rounded-2xl border border-amber-300 dark:border-amber-700 bg-amber-50/90 dark:bg-amber-950/50 text-amber-950 dark:text-amber-100 p-3.5 sm:p-4 shadow-sm transition-all';
-          document.getElementById('targetAlertBadge').textContent = '다른 종목 알림';
-          document.getElementById('targetAlertBadge').className = 'px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-amber-600 text-white shrink-0';
-          document.getElementById('targetAlertTitle').textContent = `${otherAsset.shortLabel} · ${otherBreach.stepLabel} 목표가 도달`;
-          document.getElementById('targetAlertDesc').textContent =
-            `현재가 ${formatPrice(otherAsset.currentPrice, otherAsset)} (목표 ${formatPrice(otherBreach.targetPrice, otherAsset)})`;
-          document.getElementById('targetAlertActionBtn').classList.add('hidden');
-        }
-
-        const otherBtn = document.getElementById('otherAssetAlertNotice');
-        if (otherBreach) {
-          otherBtn.classList.remove('hidden');
-          otherBtn.dataset.switchAsset = otherKey;
-          otherBtn.textContent = `👉 ${otherAsset.shortLabel} (${otherBreach.stepLabel} 도달) 탭으로 이동하여 확인하기`;
-        } else {
-          otherBtn.classList.add('hidden');
-        }
-      } else {
-        alertBanner.classList.add('hidden');
-      }
-
       document.querySelectorAll('.asset-tab-btn').forEach((btn) => {
-        const isActive = btn.dataset.asset === appState.activeAsset;
-        btn.className = `asset-tab-btn px-3 py-1.5 rounded-lg text-xs transition ${
-          isActive
-            ? 'font-extrabold bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-2xs'
-            : 'font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
+        const active = btn.dataset.asset === appState.activeAsset;
+        btn.className = `asset-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold transition ${
+          active
+            ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-2xs'
+            : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
         }`;
       });
 
-      const modeBtn = document.getElementById('modeBadgeBtn');
+      const modeBadge = document.getElementById('modeBadgeBtn');
       const modeDot = document.getElementById('modeDot');
       const modeLabel = document.getElementById('modeLabel');
-      if (asset.mode === 'crisis') {
-        const isPanic = regimeInfo.regime === 'panic';
-        modeBtn.className = isPanic
-          ? 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 select-none bg-rose-600 text-white shadow-sm'
-          : 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 select-none bg-rose-50 text-rose-700 dark:bg-rose-950/80 dark:text-rose-300 border border-rose-200/80 dark:border-rose-800/60 shadow-2xs';
-        modeDot.className = `w-2 h-2 rounded-full ${isPanic ? 'bg-amber-300 animate-pulse' : 'bg-rose-500'}`;
-        modeLabel.textContent = isPanic ? `🚨 공황모드 (-${asset.maxCrisisDropPct}%)` : `위기모드 (-${asset.maxCrisisDropPct}%)`;
+      if (isCrisis) {
+        modeBadge.className = 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 select-none shadow-2xs bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200/80 dark:border-rose-800/60';
+        modeDot.className = 'w-2 h-2 rounded-full bg-rose-500 animate-pulse';
+        modeLabel.textContent = regimeInfo.regime === 'panic'
+          ? `공황모드 (-${asset.maxCrisisDropPct}%)`
+          : `위기모드 (-${asset.maxCrisisDropPct}%)`;
       } else {
-        modeBtn.className = 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 select-none bg-emerald-50 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs';
+        modeBadge.className = 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 select-none shadow-2xs bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60';
         modeDot.className = 'w-2 h-2 rounded-full bg-emerald-500';
-        modeLabel.textContent = `평상시 (${asset.normalStepPct}%씩 10%현금화)`;
+        modeLabel.textContent = '평상시 (리밸런싱)';
       }
 
-      document.getElementById('currentRatioHeadline').textContent = `현금 ${metrics.cashPct}% / 주식 ${metrics.stockPct}%`;
-      document.getElementById('heldStepBadge').textContent = `보유: ${asset.mode === 'crisis' ? '말뚝' : '평시'} ${metrics.heldStep}구간`;
-      document.getElementById('priceStepBadge').textContent = `주가: ${metrics.priceStep}구간대`;
-      document.getElementById('cashPctLabel').textContent = `현금 비중 ${metrics.cashPct}%`;
-      document.getElementById('stockPctLabel').textContent = `주식 비중 ${metrics.stockPct}% (${asset.heldShares.toLocaleString()}주 / ${asset.baseShares.toLocaleString()}주)`;
-      document.getElementById('cashBar').style.width = `${metrics.cashPct}%`;
-      document.getElementById('stockBar').style.width = `${metrics.stockPct}%`;
+      renderCombinedPortfolioSummary();
+      renderCrisisAutoExitBanner();
+      renderTargetAlertBanner(asset, m);
 
-      document.getElementById('basePriceDisplay').textContent = formatPrice(asset.basePrice, asset);
-      document.getElementById('baseDateDisplay').textContent = formatDotDate(asset.baseDate);
-      document.getElementById('currentPriceDisplay').textContent = formatPrice(asset.currentPrice, asset);
+      document.getElementById('currentRatioHeadline').textContent = `현금 ${m.cashRatioPct}% / 주식 ${m.stockRatioPct}%`;
+      const heldBadge = document.getElementById('heldStepBadge');
+      heldBadge.textContent = m.heldStep === 0
+        ? '보유: 전량 주식 (0구간)'
+        : `보유: ${isCrisis ? '말뚝' : '평시'} ${m.heldStep}구간`;
+      heldBadge.className = `px-2 py-0.5 rounded-lg text-xs font-extrabold ${
+        isCrisis
+          ? 'bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300'
+          : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300'
+      }`;
+      document.getElementById('priceStepBadge').textContent = `주가: ${m.priceStep}구간대`;
+
+      const dropDistLabel = document.getElementById('dropDistanceLabel');
+      const dropDistText = document.getElementById('dropDistanceText');
+      if (m.heldStep >= m.maxSteps) {
+        dropDistLabel.textContent = '▼ 추가 매수:';
+        dropDistText.textContent = `최종 ${m.maxSteps}구간 도달 (현금 0%)`;
+      } else if (m.isDropReached) {
+        dropDistLabel.textContent = isCrisis ? '🚨 매수 도달:' : '🚨 매도 도달:';
+        dropDistText.textContent = `${m.nextStep}구간(${formatPrice(m.nextTargetPrice, asset)}) 돌파 완료!`;
+      } else {
+        dropDistLabel.textContent = isCrisis ? '▼ 다음 매수:' : '▼ 다음 매도:';
+        dropDistText.textContent = `${m.nextStep}구간(${formatPrice(m.nextTargetPrice, asset)})까지 ${m.dropGapPct.toFixed(1)}%`;
+      }
+
+      const reboundDistText = document.getElementById('reboundDistanceText');
+      if (m.heldStep < 2) {
+        reboundDistText.textContent = m.heldStep === 0 ? '이미 주식 100% 보유중' : '2구간 이상 도달 시 활성화';
+      } else if (m.isReboundReached) {
+        reboundDistText.textContent = `🚨 ${m.reboundStep}구간(${formatPrice(m.reboundTargetPrice, asset)}) 돌파!`;
+      } else {
+        reboundDistText.textContent = `${m.reboundStep}구간(${formatPrice(m.reboundTargetPrice, asset)})까지 +${m.reboundGapPct.toFixed(1)}%`;
+      }
+
+      document.getElementById('cashPctLabel').textContent = `현금 비중 ${m.cashRatioPct}%`;
+      document.getElementById('stockPctLabel').textContent = `주식 비중 ${m.stockRatioPct}%`;
+      document.getElementById('cashBar').style.width = `${m.cashRatioPct}%`;
+      document.getElementById('stockBar').style.width = `${m.stockRatioPct}%`;
+
+      document.getElementById('basePriceDisplay').textContent = formatPrice(m.basePrice, asset);
+      document.getElementById('baseDateDisplay').textContent = asset.baseDate;
+      document.getElementById('currentPriceDisplay').textContent = formatPrice(m.currentPrice, asset);
       document.getElementById('priceUpdatedAtDisplay').textContent = asset.priceUpdatedAt;
 
       const ddEl = document.getElementById('drawdownDisplay');
-      const ddSign = metrics.drawdownPct > 0 ? '+' : '';
-      ddEl.textContent = `${ddSign}${metrics.drawdownPct.toFixed(2)}%`;
-      ddEl.className = `text-sm sm:text-base font-extrabold mt-0.5 ${metrics.drawdownPct >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'}`;
-      document.getElementById('baseSharesDisplay').textContent = `기준 ${asset.baseShares.toLocaleString()}주`;
+      ddEl.textContent = `${m.drawdownPct >= 0 ? '+' : ''}${m.drawdownPct.toFixed(2)}%`;
+      ddEl.className = `text-sm sm:text-base font-extrabold mt-0.5 ${
+        m.drawdownPct >= 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'
+      }`;
+      document.getElementById('baseSharesDisplay').textContent = `기준 ${m.baseShares.toLocaleString()}주`;
 
-      document.getElementById('stockEvalDisplay').textContent = formatMoney(metrics.stockEval, asset.currency);
-      document.getElementById('stockEvalSubDisplay').textContent = `${asset.heldShares.toLocaleString()}주 평가`;
-      document.getElementById('cashBalanceDisplay').textContent = formatMoney(asset.cashBalance, asset.currency);
-      document.getElementById('cashBalanceSubDisplay').textContent = `현금 비중 ${metrics.cashPct}%`;
-      document.getElementById('totalAssetDisplay').textContent = formatMoney(metrics.totalAsset, asset.currency);
+      document.getElementById('stockEvalDisplay').textContent = formatMoney(m.stockValue, asset.currency);
+      document.getElementById('stockEvalSubDisplay').textContent = `${m.heldShares.toLocaleString()}주 (평가 ${m.evalStockPct}%)`;
+      document.getElementById('cashBalanceDisplay').textContent = formatMoney(m.cashBalance, asset.currency);
+      document.getElementById('cashBalanceSubDisplay').textContent = `평가 현금 ${m.evalCashPct}%`;
+      document.getElementById('totalAssetDisplay').textContent = formatMoney(m.totalAssetValue, asset.currency);
 
-      const shareGrowthEl = document.getElementById('shareGrowthDisplay');
-      if (metrics.shareDiff > 0) {
-        shareGrowthEl.textContent = `좌수 +${metrics.shareDiff.toLocaleString()}주 증가`;
-        shareGrowthEl.className = 'text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 truncate mt-0.5';
-      } else if (metrics.shareDiff < 0) {
-        shareGrowthEl.textContent = `좌수 ${metrics.shareDiff.toLocaleString()}주`;
-        shareGrowthEl.className = 'text-[10px] font-extrabold text-rose-600 dark:text-rose-400 truncate mt-0.5';
+      const shareDiff = m.baseShares - m.initialBaseShares;
+      const shareGrowthPct = ((m.baseShares - m.initialBaseShares) / m.initialBaseShares) * 100;
+      const growthEl = document.getElementById('shareGrowthDisplay');
+      if (shareDiff > 0) {
+        growthEl.textContent = `좌수 +${shareDiff.toLocaleString()}주 (+${shareGrowthPct.toFixed(1)}%)`;
+      } else if (shareDiff < 0) {
+        growthEl.textContent = `좌수 ${shareDiff.toLocaleString()}주 (${shareGrowthPct.toFixed(1)}%)`;
       } else {
-        shareGrowthEl.textContent = `최초 ${asset.baseShares.toLocaleString()}주 유지`;
-        shareGrowthEl.className = 'text-[10px] font-extrabold text-amber-700 dark:text-amber-300 truncate mt-0.5';
+        growthEl.textContent = `최초 ${m.initialBaseShares.toLocaleString()}주 유지`;
       }
 
-      document.getElementById('totalHoldingsSummary').textContent = `보유 ${asset.heldShares.toLocaleString()}주 / 기준 ${asset.baseShares.toLocaleString()}주`;
+      document.getElementById('totalHoldingsSummary').textContent = `보유 ${m.heldShares.toLocaleString()}주 / 기준 ${m.baseShares.toLocaleString()}주`;
       const accountsGrid = document.getElementById('accountsGrid');
       accountsGrid.innerHTML = asset.subAccounts.map((acc) => `
-        <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/70">
+        <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-extrabold">${acc.name}</span>
-            <span class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400">${Number(acc.shares).toLocaleString()}주</span>
+            <span class="text-xs font-extrabold text-slate-700 dark:text-slate-200">${acc.name}</span>
+            <span class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400">${Number(acc.shares || 0).toLocaleString()}주</span>
           </div>
           <p class="text-[10px] text-slate-400 truncate mt-0.5">${acc.note || ''}</p>
         </div>
       `).join('');
 
-      const nd = metrics.nextDropInfo;
-      const isSellMode = nd.actionKind === 'sell';
-      document.getElementById('nextDropBadgeLabel').textContent = isSellMode ? '▼ 추가 하락 대응 (10% 현금화)' : '▼ 추가 하락 대응 (말뚝 매수)';
-      document.getElementById('nextDropStepLabel').textContent = `다음 ${nd.step}구간 (-${nd.dropPct}%)`;
-      document.getElementById('nextDropPrice').textContent = formatPrice(nd.targetPrice, asset);
-      document.getElementById('nextDropActionText').textContent = nd.deltaShares > 0
-        ? (isSellMode ? `-${nd.deltaShares.toLocaleString()}주 매도 (10% 현금화)` : `+${nd.deltaShares.toLocaleString()}주 매수 (10% 투입)`)
-        : '목표 수량 달성';
-      document.getElementById('nextDropRatioDesc').textContent = `목표 비중 전환 : 현금 ${nd.targetCashPct}% / 주식 ${nd.targetStockPct}% (목표 ${nd.targetShares.toLocaleString()}주)`;
-      document.getElementById('quickDropActionBtn').textContent = isSellMode ? '이 구간 10% 현금화(매도) 입력' : '이 구간 말뚝 매수 입력하기';
+      const nextDropBadge = document.getElementById('nextDropBadgeLabel');
+      const quickDropBtn = document.getElementById('quickDropActionBtn');
+      if (isCrisis) {
+        nextDropBadge.textContent = '▼ 추가 하락 대응 (말뚝박기)';
+        nextDropBadge.className = 'px-2.5 py-1 rounded-lg text-xs font-extrabold bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300';
+        document.getElementById('nextDropStepLabel').textContent = `다음 ${m.nextStep}구간 (${m.nextDropPct}%)`;
+        document.getElementById('nextDropPrice').textContent = formatPrice(m.nextTargetPrice, asset);
+        document.getElementById('nextDropActionText').textContent = m.heldStep >= m.maxSteps ? '최종 구간 도달' : `+${m.nextActionShares.toLocaleString()}주 매수`;
+        document.getElementById('nextDropRatioDesc').textContent = `목표 비중 전환 : 현금 ${100 - m.nextStep * 10}% / 주식 ${m.nextStep * 10}% (누적 ${m.targetHeldSharesAfterNext.toLocaleString()}주)`;
+        quickDropBtn.textContent = '이 구간 매수 입력하기';
+        quickDropBtn.className = 'w-full py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold transition';
+      } else {
+        nextDropBadge.textContent = '▼ 하락 시 10% 현금화 (리밸런싱)';
+        nextDropBadge.className = 'px-2.5 py-1 rounded-lg text-xs font-extrabold bg-rose-50 text-rose-700 dark:bg-rose-950/70 dark:text-rose-300';
+        document.getElementById('nextDropStepLabel').textContent = `다음 ${m.nextStep}구간 (${m.nextDropPct}%)`;
+        document.getElementById('nextDropPrice').textContent = formatPrice(m.nextTargetPrice, asset);
+        document.getElementById('nextDropActionText').textContent = `-${m.nextActionShares.toLocaleString()}주 매도`;
+        document.getElementById('nextDropRatioDesc').textContent = `목표 비중 전환 : 현금 ${m.nextStep * 10}% / 주식 ${100 - m.nextStep * 10}% (잔여 ${m.targetHeldSharesAfterNext.toLocaleString()}주)`;
+        quickDropBtn.textContent = '이 구간 매도 입력하기';
+        quickDropBtn.className = 'w-full py-2.5 px-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold transition';
+      }
 
-      document.getElementById('reboundTargetStepLabel').textContent = metrics.reboundStep === 0 ? '전고점 (0구간) 도달 시' : `${metrics.reboundStep}구간 (-${metrics.reboundDropPct}%) 도달 시`;
-      document.getElementById('reboundTargetPrice').textContent = formatPrice(metrics.reboundTargetPrice, asset);
-      document.getElementById('reboundActionText').textContent = metrics.remainSharesToBuy > 0
-        ? `현금 ${metrics.cashPct}% 전액 몰빵 (+${metrics.remainSharesToBuy.toLocaleString()}주)`
-        : '100% 주식 보유 중';
+      document.getElementById('reboundTargetStepLabel').textContent = `${m.reboundStep}구간 (${m.reboundDropPct === 0 ? '전고점' : m.reboundDropPct + '%'}) 도달 시`;
+      document.getElementById('reboundTargetPrice').textContent = formatPrice(m.reboundTargetPrice, asset);
+      document.getElementById('reboundActionText').textContent = m.cashRatioPct > 0 ? `현금 ${m.cashRatioPct}% 전액 몰빵` : '주식 100% 보유중';
+      document.getElementById('reboundWarningNote').textContent = isCrisis
+        ? '• 한 달+1일(공황 두 달+1일) 경과 전 반등 몰빵 후 3구간 이하 재하락 시 전량 매도 후 재진입'
+        : '• 반등 전액 매수 체결 시 해당 매수 단가로 기준가(전고가) 자동 리셋';
 
       renderCrisisTracker(asset, regimeInfo);
-      renderStepTable(asset, metrics);
+      renderStepsTable(asset, m);
       renderTradeHistory(asset);
-      renderComboChart();
-      updateCloudStatusUI();
+      renderComboChart(asset, m);
+      applyReadOnlyUi();
+      renderAutoRefreshBadge();
+    }
+
+    function renderCombinedPortfolioSummary() {
+      const kr = appState.assets.kr;
+      const qld = appState.assets.qld;
+      const fx = Number(appState.usdKrwRate) || 1390;
+
+      const krM = calculateMetrics(kr);
+      const qldM = calculateMetrics(qld);
+
+      const qldStockKrw = qldM.stockValue * fx;
+      const qldCashKrw = qldM.cashBalance * fx;
+      const qldTotalKrw = qldM.totalAssetValue * fx;
+
+      const totalStockKrw = krM.stockValue + qldStockKrw;
+      const totalCashKrw = krM.cashBalance + qldCashKrw;
+      const grandTotalKrw = totalStockKrw + totalCashKrw;
+
+      const cashPct = grandTotalKrw > 0 ? Math.round((totalCashKrw / grandTotalKrw) * 100) : 50;
+      const stockPct = 100 - cashPct;
+
+      document.getElementById('fxRateBadge').textContent = `환율 ${Math.round(fx).toLocaleString()}원/$`;
+
+      const regimeBadge = document.getElementById('interestRegimeBadge');
+      if (regimeBadge) {
+        const isZero = appState.interestRegime === 'zero';
+        regimeBadge.textContent = isZero ? '제로금리 (25% 말뚝 · QLD 50%)' : '비제로금리 (50% 말뚝 · QLD 100%)';
+        regimeBadge.className = isZero
+          ? 'px-2 py-0.5 rounded-lg bg-sky-500/25 border border-sky-400/30 text-sky-200 text-[11px] font-extrabold'
+          : 'px-2 py-0.5 rounded-lg bg-amber-500/25 border border-amber-400/30 text-amber-200 text-[11px] font-extrabold';
+      }
+
+      document.getElementById('combinedRatioText').textContent = `통합 현금 ${cashPct}% · 주식 ${stockPct}%`;
+      document.getElementById('combinedTotalAssetText').textContent = formatMoney(grandTotalKrw, 'KRW');
+      document.getElementById('combinedKrSummary').textContent = `🇰🇷 테크TOP10 : ${formatMoney(krM.totalAssetValue, 'KRW')} (현금 ${krM.cashRatioPct}%)`;
+      document.getElementById('combinedQldSummary').textContent = `🇺🇸 QLD(환산) : ${formatMoney(qldTotalKrw, 'KRW')} (현금 ${qldM.cashRatioPct}%)`;
+      document.getElementById('combinedCashBar').style.width = `${cashPct}%`;
+      document.getElementById('combinedStockBar').style.width = `${stockPct}%`;
+
+      const nasdaqBadge = document.getElementById('nasdaqHeaderBadge');
+      if (appState.nasdaqPrice || appState.nasdaqChangePct !== null) {
+        nasdaqBadge.classList.remove('hidden');
+        const pct = Number(appState.nasdaqChangePct);
+        const pctStr = !isNaN(pct) ? ` (${pct >= 0 ? '+' : ''}${pct.toFixed(2)}%)` : '';
+        const pStr = appState.nasdaqPrice ? Number(appState.nasdaqPrice).toLocaleString('en-US', { maximumFractionDigits: 2 }) : '';
+        nasdaqBadge.textContent = `나스닥 ${pStr}${pctStr}`;
+      } else {
+        nasdaqBadge.classList.add('hidden');
+      }
+    }
+
+    function renderCrisisAutoExitBanner() {
+      const banner = document.getElementById('crisisAutoExitBanner');
+      if (!banner) return;
+      if (!appState.crisisAutoExitNotice) {
+        banner.classList.add('hidden');
+        return;
+      }
+      banner.classList.remove('hidden');
+      document.getElementById('crisisAutoExitDesc').textContent =
+        `${appState.crisisAutoExitNotice.reason} (${appState.crisisAutoExitNotice.date}) — 잔여 현금을 일괄 재매수하고 체결 단가로 새 전고점을 리셋하세요.`;
+    }
+
+    function renderTargetAlertBanner(asset, m) {
+      const banner = document.getElementById('targetAlertBanner');
+      const badge = document.getElementById('targetAlertBadge');
+      const title = document.getElementById('targetAlertTitle');
+      const desc = document.getElementById('targetAlertDesc');
+      const actionBtn = document.getElementById('targetAlertActionBtn');
+      const otherBtn = document.getElementById('otherAssetAlertNotice');
+
+      const otherKey = appState.activeAsset === 'kr' ? 'qld' : 'kr';
+      const otherAsset = appState.assets[otherKey];
+      const otherM = calculateMetrics(otherAsset);
+      const otherTriggered = otherM.isDropReached || otherM.isReboundReached;
+
+      if (otherTriggered) {
+        otherBtn.classList.remove('hidden');
+        otherBtn.textContent = `👉 ${otherAsset.shortLabel} 종목도 목표가 도달! 터치하여 확인`;
+        otherBtn.onclick = () => {
+          appState.activeAsset = otherKey;
+          activeTableTab = otherAsset.mode;
+          renderApp();
+        };
+      } else {
+        otherBtn.classList.add('hidden');
+      }
+
+      const isCrisis = asset.mode === 'crisis';
+      if (!m.isDropReached && !m.isReboundReached) {
+        banner.classList.add('hidden');
+        return;
+      }
+
+      banner.classList.remove('hidden');
+      if (m.isReboundReached) {
+        banner.className = 'rounded-2xl border border-emerald-300 dark:border-emerald-700 bg-emerald-50/95 dark:bg-emerald-950/60 text-emerald-950 dark:text-emerald-100 p-3.5 sm:p-4 shadow-sm transition-all';
+        badge.className = 'px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-emerald-600 text-white shrink-0';
+        badge.textContent = '▲ 반등 몰빵 도달';
+        title.textContent = `${asset.shortLabel} ${m.reboundStep}구간 (${formatPrice(m.reboundTargetPrice, asset)}) 돌파!`;
+        desc.textContent = `현재가 ${formatPrice(m.currentPrice, asset)} · 잔여 현금 ${m.cashRatioPct}% 전액 재매수 및 새 전고점 리셋 타이밍입니다.`;
+        actionBtn.className = 'px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shrink-0 transition';
+        actionBtn.textContent = '전액 몰빵 입력';
+        actionBtn.onclick = () => document.getElementById('quickReboundBuyBtn').click();
+      } else {
+        banner.className = 'rounded-2xl border border-rose-300 dark:border-rose-700 bg-rose-50/95 dark:bg-rose-950/60 text-rose-950 dark:text-rose-100 p-3.5 sm:p-4 shadow-sm transition-all';
+        badge.className = 'px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-rose-600 text-white shrink-0';
+        badge.textContent = isCrisis ? '▼ 말뚝 매수 도달' : '▼ 분할 매도 도달';
+        title.textContent = `${asset.shortLabel} ${m.nextStep}구간 (${formatPrice(m.nextTargetPrice, asset)}) 도달!`;
+        desc.textContent = isCrisis
+          ? `현재가 ${formatPrice(m.currentPrice, asset)} · +${m.nextActionShares.toLocaleString()}주 추가 매수(주식 ${m.nextStep * 10}%) 타이밍입니다.`
+          : `현재가 ${formatPrice(m.currentPrice, asset)} · -${m.nextActionShares.toLocaleString()}주 10% 현금화 타이밍입니다.`;
+        actionBtn.className = 'px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold shrink-0 transition';
+        actionBtn.textContent = isCrisis ? '매수 입력' : '매도 입력';
+        actionBtn.onclick = () => document.getElementById('quickDropActionBtn').click();
+      }
     }
 
     function renderCrisisTracker(asset, regimeInfo) {
-      const manualDetails = document.getElementById('manualDrop3Details');
-      if (manualDetails) manualDetails.classList.toggle('hidden', isReadOnlyMode);
-
-      const pill = document.getElementById('crisisTrackerModePill');
-      if (asset.mode === 'normal') {
-        pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 shrink-0';
-        pill.textContent = '평상시 (정상)';
-      } else if (regimeInfo.regime === 'panic') {
-        pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-600 text-white animate-pulse shrink-0';
-        pill.textContent = `🚨 공황 (1달 내 ${regimeInfo.countIn31Days}회)`;
+      const modePill = document.getElementById('crisisTrackerModePill');
+      if (regimeInfo.regime === 'panic') {
+        modePill.textContent = `공황 위기 (1달 내 ${regimeInfo.countIn31Days}회)`;
+        modePill.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300 shrink-0';
+      } else if (regimeInfo.regime === 'crisis') {
+        modePill.textContent = `일반 위기 (1달 내 ${regimeInfo.countIn31Days}/4회)`;
+        modePill.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300 shrink-0';
       } else {
-        pill.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300 shrink-0';
-        pill.textContent = '일반 위기';
+        modePill.textContent = '평상시 (정상)';
+        modePill.className = 'px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 shrink-0';
       }
 
       const chipsEl = document.getElementById('drop3HistoryChips');
       const dates = appState.nasdaqDrop3Dates || [];
       if (!dates.length) {
-        chipsEl.innerHTML = '<span class="text-[11px] font-semibold text-slate-400">미지정 (정상)</span>';
+        chipsEl.innerHTML = `<span class="text-[11px] font-semibold text-slate-400">기록 없음</span>`;
       } else {
-        chipsEl.innerHTML = dates.map((d, idx) => {
-          const isLatest = idx === dates.length - 1;
-          const delBtn = isReadOnlyMode ? '' : `<button type="button" data-del-drop3="${d}" title="삭제" class="ml-1 opacity-80 hover:opacity-100 text-[9px]">✕</button>`;
-          return `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-extrabold ${isLatest ? 'bg-rose-600 text-white' : 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300'}">${d}${delBtn}</span>`;
-        }).join('');
+        chipsEl.innerHTML = dates.map((d) => `
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-rose-100/90 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-[11px] font-extrabold">
+            ${d}
+            <button type="button" data-remove-drop3="${d}" class="remove-drop3-btn hover:text-rose-950 dark:hover:text-white ml-0.5">×</button>
+          </span>
+        `).join('');
+        chipsEl.querySelectorAll('.remove-drop3-btn').forEach((btn) => {
+          btn.addEventListener('click', () => removeNasdaqDrop3Date(btn.dataset.removeDrop3));
+        });
       }
 
-      const nqText = document.getElementById('nasdaqLiveValueText');
-      if (typeof appState.nasdaqChangePct === 'number') {
-        const pct = appState.nasdaqChangePct;
-        const sign = pct > 0 ? '+' : '';
-        const tag = appState.isNasdaqClosed ? '종가' : '장중';
-        const td = appState.nasdaqTradeDate ? ` (${appState.nasdaqTradeDate.slice(5)})` : '';
-        nqText.textContent = `🇺🇸 IXIC ${tag} ${sign}${pct.toFixed(2)}%${td}`;
-        nqText.className = `text-[11px] font-extrabold ${pct <= -3.0 ? 'text-rose-600 dark:text-rose-400' : pct > 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400'}`;
+      const liveEl = document.getElementById('nasdaqLiveValueText');
+      if (appState.nasdaqPrice || appState.nasdaqChangePct !== null) {
+        const pct = Number(appState.nasdaqChangePct);
+        const pctStr = !isNaN(pct) ? ` ${pct >= 0 ? '+' : ''}${pct.toFixed(2)}%` : '';
+        const pStr = appState.nasdaqPrice ? Number(appState.nasdaqPrice).toLocaleString('en-US', { maximumFractionDigits: 2 }) : '';
+        const dateTag = appState.nasdaqTradeDate ? ` (${appState.nasdaqTradeDate.slice(5)})` : '';
+        liveEl.textContent = `🇺🇸 IXIC ${pStr}${pctStr}${dateTag}`;
+        liveEl.className = `text-[11px] font-extrabold ${!isNaN(pct) && pct <= -3 ? 'text-rose-600' : 'text-slate-600 dark:text-slate-300'}`;
       } else {
-        nqText.textContent = '🇺🇸 IXIC 미연동';
-        nqText.className = 'text-[11px] font-bold text-slate-400';
+        liveEl.textContent = appState.nasdaqTradeDate ? `🇺🇸 기준일 ~${appState.nasdaqTradeDate}` : '🇺🇸 IXIC 미연동';
+        liveEl.className = 'text-[11px] font-bold text-slate-400';
       }
 
-      const exitCard = document.getElementById('activeExitCard');
-      const ruleLbl = document.getElementById('activeExitRuleLabel');
-      const ddayBadge = document.getElementById('activeExitDdayBadge');
-      const dateTxt = document.getElementById('activeExitDateText');
+      const activeExitCard = document.getElementById('activeExitCard');
+      const activeRuleLabel = document.getElementById('activeExitRuleLabel');
+      const activeBadge = document.getElementById('activeExitDdayBadge');
+      const activeDateText = document.getElementById('activeExitDateText');
 
-      if (regimeInfo.activeExitDate) {
-        const dd = calcDdayInfo(regimeInfo.activeExitDate);
-        const isPanic = regimeInfo.regime === 'panic';
-        exitCard.className = `p-3 rounded-xl flex flex-col justify-between space-y-1 border ${
-          isPanic
-            ? 'bg-rose-50/80 dark:bg-rose-950/35 border-rose-300 dark:border-rose-800'
-            : 'bg-indigo-50/70 dark:bg-indigo-950/30 border-indigo-200/80 dark:border-indigo-800/60'
+      if (!regimeInfo.activeExitDate) {
+        activeExitCard.className = 'p-3 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/70 flex flex-col justify-between space-y-1';
+        activeRuleLabel.textContent = '종료 예정일';
+        activeBadge.textContent = '정상';
+        activeBadge.className = 'px-1.5 py-0.5 rounded-md text-[10px] font-extrabold bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 shrink-0';
+        activeDateText.textContent = '-';
+      } else if (regimeInfo.regime === 'panic') {
+        const dInfo = calcDdayInfo(regimeInfo.activeExitDate);
+        activeExitCard.className = 'p-3 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/60 flex flex-col justify-between space-y-1';
+        activeRuleLabel.textContent = '공황 종료 (+2개월 1일)';
+        activeBadge.textContent = dInfo.label;
+        activeBadge.className = `px-1.5 py-0.5 rounded-md text-[10px] font-extrabold shrink-0 ${
+          dInfo.isCompleted ? 'bg-emerald-100 text-emerald-700' : 'bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300'
         }`;
-        ruleLbl.textContent = isPanic ? '공황 종료 (+2개월 1일)' : '종료 예정 (+1개월 1일)';
-        ddayBadge.textContent = dd.label;
-        dateTxt.textContent = regimeInfo.activeExitDate;
+        activeDateText.textContent = regimeInfo.activeExitDate;
       } else {
-        exitCard.className = 'p-3 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/70 flex flex-col justify-between space-y-1';
-        ruleLbl.textContent = '위기 종료 예정일';
-        ddayBadge.textContent = '해당없음';
-        dateTxt.textContent = '-';
+        const dInfo = calcDdayInfo(regimeInfo.activeExitDate);
+        activeExitCard.className = 'p-3 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-800/60 flex flex-col justify-between space-y-1';
+        activeRuleLabel.textContent = '종료 예정 (+1개월 1일)';
+        activeBadge.textContent = dInfo.label;
+        activeBadge.className = `px-1.5 py-0.5 rounded-md text-[10px] font-extrabold shrink-0 ${
+          dInfo.isCompleted ? 'bg-emerald-100 text-emerald-700' : 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300'
+        }`;
+        activeDateText.textContent = regimeInfo.activeExitDate;
       }
 
       const streak = asset.consecutiveUpDays || 0;
       document.getElementById('upStreakCountBadge').textContent = `${streak} / 8일`;
+      const roleTag = document.getElementById('upStreakRoleTag');
+      if (roleTag) {
+        roleTag.textContent = asset.mode === 'crisis' ? '즉시해제 조건' : '위기시 적용';
+        roleTag.className = `px-1.5 py-0.5 rounded text-[9px] font-extrabold shrink-0 ${
+          asset.mode === 'crisis'
+            ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
+            : 'bg-slate-200/80 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+        }`;
+      }
+
       const dotsEl = document.getElementById('upStreakDots');
       dotsEl.innerHTML = Array.from({ length: 8 }, (_, i) => {
         const filled = i < streak;
@@ -2369,16 +1754,16 @@
         if (asset.mode === 'normal') {
           autoHint.textContent = '평상시 모드 (감시 대기)';
         } else if (appState.lastUpStreakTradeDate) {
-          const srcLabel = appState.hasNasdaqHistoryFeed ? 'D1 자동역산' : '종가 기준';
-          autoHint.textContent = `${srcLabel} (~${appState.lastUpStreakTradeDate.slice(5)})`;
+          autoHint.textContent = `확정 종가 기준 (~${appState.lastUpStreakTradeDate.slice(5)})`;
         } else {
           autoHint.textContent = '나스닥 확정 종가 자동 역산';
         }
       }
     }
 
-    function renderStepTable(asset, metrics) {
-      const isCrisisTab = activeTableTab === 'crisis';
+    function renderStepsTable(asset, m) {
+      const showCrisisTable = activeTableTab === 'crisis';
+      const isAssetCrisis = asset.mode === 'crisis';
 
       document.querySelectorAll('.table-tab-btn').forEach((btn) => {
         const active = btn.dataset.tableTab === activeTableTab;
@@ -2389,225 +1774,428 @@
         }`;
       });
 
-      document.getElementById('crisisTabActiveBadge').classList.toggle('hidden', asset.mode !== 'crisis');
-      document.getElementById('normalTabActiveBadge').classList.toggle('hidden', asset.mode === 'crisis');
+      document.getElementById('crisisTabActiveBadge').classList.toggle('hidden', !isAssetCrisis);
+      document.getElementById('normalTabActiveBadge').classList.toggle('hidden', isAssetCrisis);
 
-      const titleEl = document.getElementById('activeTableTitle');
-      const subEl = document.getElementById('activeTableSubtitle');
-      const lastColEl = document.getElementById('activeTableLastColHeader');
-      const tbody = document.getElementById('activeTableBody');
-      const levTag = asset.leverage === 2 ? ' · 2x 레버리지' : '';
+      const stepPct = showCrisisTable ? (Number(asset.crisisStepPct) || 5) : (Number(asset.normalStepPct) || 2.5);
+      const maxSteps = showCrisisTable
+        ? Math.max(1, Math.round((Number(asset.maxCrisisDropPct) || 50) / stepPct))
+        : 10;
 
-      if (isCrisisTab) {
-        titleEl.textContent = `■ 말뚝박기 표 (위기시 · 간격 ${asset.crisisStepPct}%${levTag})`;
-        subEl.textContent = `-${asset.maxCrisisDropPct}% 말뚝박기 기준 (${asset.crisisStepPct}% 하락마다 10%씩 분할 매수)`;
-        lastColEl.textContent = '누적 매수';
+      document.getElementById('activeTableTitle').textContent = showCrisisTable
+        ? '■ 말뚝박기 표 (위기시)'
+        : '■ 리밸런싱 표 (평상시)';
+      document.getElementById('activeTableSubtitle').textContent = showCrisisTable
+        ? `-${asset.maxCrisisDropPct}% 말뚝박기 기준 (${stepPct}% 하락마다 10%씩 분할 매수)`
+        : `전고점 대비 ${stepPct}% 하락마다 10%씩 현금화 (평시 리밸런싱)`;
+      document.getElementById('activeTableLastColHeader').textContent = showCrisisTable ? '누적 매수' : '누적 매도';
 
-        tbody.innerHTML = metrics.crisisSteps.map((row) => {
-          const isHeld = asset.mode === 'crisis' && metrics.heldStep === row.step;
-          const isPassed = asset.currentPrice <= row.targetPrice * 1.0001;
-          const rowCls = isHeld
-            ? 'bg-amber-50/80 dark:bg-amber-950/30 font-extrabold'
-            : isPassed
-            ? 'bg-blue-50/40 dark:bg-blue-950/20'
-            : '';
-          const badge = isHeld
-            ? '<span class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-amber-200/90 dark:bg-amber-900 text-amber-900 dark:text-amber-200">보유</span>'
-            : '';
-          return `
-            <tr class="${rowCls}">
-              <td class="py-2.5 px-3 font-bold">${row.step}구간${badge}</td>
-              <td class="py-2.5 px-3 text-rose-600 dark:text-rose-400 font-bold">-${row.dropPct}%</td>
-              <td class="py-2.5 px-3 font-extrabold">${formatPrice(row.targetPrice, asset)}</td>
-              <td class="py-2.5 px-3 text-slate-600 dark:text-slate-300 font-semibold">${row.cashPct}% : ${row.stockPct}%</td>
-              <td class="py-2.5 px-3 text-right font-extrabold text-indigo-600 dark:text-indigo-400">${row.cumShares.toLocaleString()}주</td>
-            </tr>
-          `;
-        }).join('');
-      } else {
-        titleEl.textContent = `■ 리밸런싱 표 (평시 · 간격 ${asset.normalStepPct}%${levTag})`;
-        subEl.textContent = `전고점 대비 ${asset.normalStepPct}% 하락마다 주식 10%씩 매도(현금화)`;
-        lastColEl.textContent = '목표 보유';
+      const rows = [];
+      for (let s = 1; s <= maxSteps; s++) {
+        const dropPct = -(stepPct * s);
+        const targetPrice = m.basePrice * (1 + dropPct / 100);
+        const cashPct = showCrisisTable ? (100 - s * 10) : (s * 10);
+        const stockPct = 100 - cashPct;
+        const actionShares = Math.round(m.baseShares * (s * 0.1));
+        const isCurrentHeld = (isAssetCrisis === showCrisisTable) && (m.heldStep === s);
+        const isCurrentPrice = (isAssetCrisis === showCrisisTable) && (m.priceStep === s);
 
-        tbody.innerHTML = metrics.normalSteps.map((row) => {
-          const isHeld = asset.mode === 'normal' && metrics.heldStep === row.step;
-          const isPassed = asset.currentPrice <= row.targetPrice * 1.0001;
-          const rowCls = isHeld
-            ? 'bg-emerald-50/80 dark:bg-emerald-950/30 font-extrabold'
-            : isPassed
-            ? 'bg-blue-50/40 dark:bg-blue-950/20'
-            : '';
-          const badge = isHeld
-            ? '<span class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-emerald-200/90 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-200">보유</span>'
-            : '';
-          return `
-            <tr class="${rowCls}">
-              <td class="py-2.5 px-3 font-bold">${row.step}구간${badge}</td>
-              <td class="py-2.5 px-3 text-rose-600 dark:text-rose-400 font-bold">-${row.dropPct}%</td>
-              <td class="py-2.5 px-3 font-extrabold">${formatPrice(row.targetPrice, asset)}</td>
-              <td class="py-2.5 px-3 text-slate-600 dark:text-slate-300 font-semibold">${row.cashPct}% : ${row.stockPct}%</td>
-              <td class="py-2.5 px-3 text-right font-extrabold text-indigo-600 dark:text-indigo-400">${row.targetShares.toLocaleString()}주</td>
-            </tr>
-          `;
-        }).join('');
+        rows.push(`
+          <tr class="${isCurrentHeld ? 'bg-amber-50/90 dark:bg-amber-950/35 font-extrabold' : 'hover:bg-slate-50/70 dark:hover:bg-slate-800/40'}">
+            <td class="py-2.5 px-3">
+              <div class="flex items-center gap-1.5">
+                <span class="font-extrabold">${s}구간</span>
+                ${isCurrentHeld ? '<span class="px-1.5 py-0.5 rounded bg-amber-500 text-white text-[10px] font-extrabold">보유</span>' : ''}
+                ${isCurrentPrice ? '<span class="px-1.5 py-0.5 rounded bg-indigo-600 text-white text-[10px] font-extrabold">현재가</span>' : ''}
+              </div>
+            </td>
+            <td class="py-2.5 px-3 font-bold text-rose-600 dark:text-rose-400">${dropPct}%</td>
+            <td class="py-2.5 px-3 font-extrabold">${formatPrice(targetPrice, asset)}</td>
+            <td class="py-2.5 px-3">
+              <span class="text-emerald-600 dark:text-emerald-400 font-bold">현 ${cashPct}%</span>
+              <span class="text-slate-400 mx-0.5">:</span>
+              <span class="text-indigo-600 dark:text-indigo-400 font-bold">주 ${stockPct}%</span>
+            </td>
+            <td class="py-2.5 px-3 text-right font-bold text-slate-700 dark:text-slate-200">${actionShares.toLocaleString()}주 (${s * 10}%)</td>
+          </tr>
+        `);
       }
+      document.getElementById('activeTableBody').innerHTML = rows.join('');
     }
 
     function renderTradeHistory(asset) {
-      const listEl = document.getElementById('tradeHistoryList');
-      const items = (asset.history || []).slice().reverse();
-      document.getElementById('historyCountBadge').textContent = `총 ${items.length}건`;
+      const list = Array.isArray(asset.history) ? asset.history.slice().reverse() : [];
+      document.getElementById('historyCountBadge').textContent = `총 ${list.length}건`;
+      const container = document.getElementById('tradeHistoryList');
 
-      if (!items.length) {
-        listEl.innerHTML = '<div class="p-6 text-center text-xs text-slate-400">등록된 매매 이력이 없습니다.</div>';
+      if (!list.length) {
+        container.innerHTML = `<p class="text-xs text-slate-400 py-6 text-center">기록된 매매 이력이 없습니다.</p>`;
         return;
       }
 
-      listEl.innerHTML = items.map((h) => {
-        const isBaseType = h.type === '전고가갱신' || h.type === '기준가';
-        const displayType = isBaseType ? '전고가갱신' : h.type;
-        const typeColor =
-          h.type === '매수' || h.type === '전액재매수'
-            ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
-            : h.type === '매도'
-            ? 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300'
-            : h.type === '추가입금'
-            ? 'bg-violet-100 text-violet-700 dark:bg-violet-950 dark:text-violet-300'
-            : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300';
+      container.innerHTML = list.map((item) => {
+        let badgeStyle = 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300';
+        if (item.type === '매수') badgeStyle = 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300';
+        else if (item.type === '전액재매수') badgeStyle = 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300';
+        else if (item.type === '매도') badgeStyle = 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300';
+        else if (item.type === '추가입금') badgeStyle = 'bg-violet-100 text-violet-700 dark:bg-violet-950 dark:text-violet-300';
+        else if (item.type === '전고가갱신') badgeStyle = 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300';
 
-        const accQtyText = h.shares > 0
-          ? `(${h.account || '전체'} · ${Number(h.shares).toLocaleString()}주)`
-          : `(${h.account || '전체'})`;
-
-        const deleteControls = isReadOnlyMode
-          ? ''
-          : pendingDeleteId === h.id
-          ? `<div class="flex items-center gap-1 shrink-0">
-               <button type="button" data-confirm-del="${h.id}" class="px-2 py-1 rounded-lg bg-rose-600 text-white text-[11px] font-extrabold">삭제확인</button>
-               <button type="button" data-cancel-del="${h.id}" class="px-2 py-1 rounded-lg bg-slate-200 dark:bg-slate-700 text-[11px] font-bold">취소</button>
-             </div>`
-          : `<button type="button" data-ask-del="${h.id}" title="이력 삭제" class="px-2 py-1 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/50 text-xs font-bold shrink-0">🗑️</button>`;
-
+        const isConfirming = pendingDeleteId === item.id;
         return `
-          <div class="p-3.5 rounded-xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/70 flex items-center justify-between gap-2">
-            <div class="min-w-0 space-y-1">
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/70 flex items-center justify-between gap-2">
+            <div class="min-w-0 space-y-0.5">
               <div class="flex flex-wrap items-center gap-1.5">
-                <span class="text-xs font-extrabold text-slate-700 dark:text-slate-200">${formatDotDate(h.date)}</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-extrabold ${typeColor}">${displayType}</span>
-                <span class="text-xs font-extrabold text-slate-900 dark:text-white">${formatPrice(h.price, asset)}</span>
-                <span class="text-xs font-medium text-slate-500 dark:text-slate-400">${accQtyText}</span>
+                <span class="text-xs font-extrabold text-slate-700 dark:text-slate-200">${item.date}</span>
+                <span class="px-2 py-0.5 rounded-md text-[11px] font-extrabold ${badgeStyle}">${item.type}</span>
+                <span class="text-xs font-extrabold">${formatPrice(item.price, asset)}</span>
+                <span class="text-xs text-slate-500">(${item.account} · ${Number(item.shares || 0).toLocaleString()}주)</span>
               </div>
-              ${h.note ? `<p class="text-xs text-slate-600 dark:text-slate-300 truncate">${h.note}</p>` : ''}
+              ${item.note ? `<p class="text-[11px] text-slate-500 dark:text-slate-400 truncate">${item.note}</p>` : ''}
             </div>
-            ${deleteControls}
+            <div class="shrink-0">
+              ${isReadOnlyMode ? '' : isConfirming ? `
+                <div class="flex items-center gap-1">
+                  <button type="button" data-confirm-del="${item.id}" class="confirm-del-btn px-2 py-1 rounded-lg bg-rose-600 text-white text-[11px] font-extrabold">삭제확인</button>
+                  <button type="button" class="cancel-del-btn px-2 py-1 rounded-lg bg-slate-200 dark:bg-slate-700 text-[11px] font-bold">취소</button>
+                </div>
+              ` : `
+                <button type="button" data-ask-del="${item.id}" class="ask-del-btn px-2 py-1 rounded-lg text-slate-400 hover:text-rose-600 text-xs font-bold">🗑️</button>
+              `}
+            </div>
           </div>
         `;
       }).join('');
+
+      container.querySelectorAll('.ask-del-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          pendingDeleteId = btn.dataset.askDel;
+          renderTradeHistory(getCurrentAsset());
+        });
+      });
+      container.querySelectorAll('.cancel-del-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          pendingDeleteId = null;
+          renderTradeHistory(getCurrentAsset());
+        });
+      });
+      container.querySelectorAll('.confirm-del-btn').forEach((btn) => {
+        btn.addEventListener('click', () => deleteTradeItem(btn.dataset.confirmDel));
+      });
+    }
+
+    function renderComboChart(asset, m) {
+      const container = document.getElementById('comboChartContainer');
+      if (!container || typeof d3 === 'undefined') return;
+      container.innerHTML = '';
+
+      const points = [];
+      if (activeChartMode === 'history') {
+        points.push({
+          label: '전고점',
+          sub: asset.baseDate,
+          price: m.basePrice,
+          stockPct: 100,
+          cashPct: 0
+        });
+        let runningHeld = m.initialBaseShares;
+        (asset.history || []).forEach((h) => {
+          const qty = Math.max(0, Math.round(Number(h.shares) || 0));
+          if (h.type === '매수' || h.type === '전액재매수' || h.type === '추가입금') runningHeld += qty;
+          else if (h.type === '매도') runningHeld = Math.max(0, runningHeld - qty);
+          const sPct = Math.min(100, Math.max(0, Math.round((runningHeld / m.baseShares) * 100)));
+          points.push({
+            label: h.date.slice(5),
+            sub: `${h.date} (${h.type})`,
+            price: Number(h.price) || m.currentPrice,
+            stockPct: sPct,
+            cashPct: 100 - sPct
+          });
+        });
+        points.push({
+          label: '현재가',
+          sub: asset.priceUpdatedAt,
+          price: m.currentPrice,
+          stockPct: m.stockRatioPct,
+          cashPct: m.cashRatioPct
+        });
+      } else {
+        points.push({
+          label: '0구간',
+          sub: '전고점 (0%)',
+          price: m.basePrice,
+          stockPct: 100,
+          cashPct: 0
+        });
+        m.tableRows.forEach((r) => {
+          points.push({
+            label: `${r.step}구간`,
+            sub: `${r.step}구간 (${r.dropPct}%)`,
+            price: r.targetPrice,
+            stockPct: r.stockPct,
+            cashPct: r.cashPct
+          });
+        });
+      }
+
+      const width = Math.max(280, container.clientWidth || 600);
+      const height = Math.max(200, container.clientHeight || 240);
+      const margin = { top: 18, right: 16, bottom: 26, left: 48 };
+      const innerW = width - margin.left - margin.right;
+      const innerH = height - margin.top - margin.bottom;
+
+      const svg = d3.select(container)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+
+      const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+      const x = d3.scaleBand()
+        .domain(points.map((_, i) => i))
+        .range([0, innerW])
+        .padding(0.32);
+
+      const yPct = d3.scaleLinear().domain([0, 100]).range([innerH, 0]);
+      const prices = points.map((d) => d.price);
+      const minP = Math.min(...prices) * 0.94;
+      const maxP = Math.max(...prices) * 1.04;
+      const yPrice = d3.scaleLinear().domain([minP, maxP]).range([innerH, 0]);
+
+      g.append('g')
+        .call(d3.axisLeft(yPrice).ticks(4).tickFormat((d) => asset.currency === 'USD' ? `$${Math.round(d)}` : `${Math.round(d / 1000)}k`))
+        .selectAll('text')
+        .attr('fill', '#94a3b8')
+        .style('font-size', '10px');
+
+      g.selectAll('.domain, .tick line').attr('stroke', 'rgba(148,163,184,0.25)');
+
+      g.selectAll('.bar-cash')
+        .data(points)
+        .enter()
+        .append('rect')
+        .attr('x', (_, i) => x(i))
+        .attr('y', (d) => yPct(100))
+        .attr('width', x.bandwidth())
+        .attr('height', (d) => Math.max(0, yPct(d.stockPct) - yPct(100)))
+        .attr('rx', 3)
+        .attr('fill', 'rgba(52, 211, 153, 0.35)');
+
+      g.selectAll('.bar-stock')
+        .data(points)
+        .enter()
+        .append('rect')
+        .attr('x', (_, i) => x(i))
+        .attr('y', (d) => yPct(d.stockPct))
+        .attr('width', x.bandwidth())
+        .attr('height', (d) => Math.max(0, innerH - yPct(d.stockPct)))
+        .attr('rx', 3)
+        .attr('fill', 'rgba(79, 70, 229, 0.72)');
+
+      const line = d3.line()
+        .x((_, i) => x(i) + x.bandwidth() / 2)
+        .y((d) => yPrice(d.price))
+        .curve(d3.curveMonotoneX);
+
+      g.append('path')
+        .datum(points)
+        .attr('fill', 'none')
+        .attr('stroke', '#f59e0b')
+        .attr('stroke-width', 2.5)
+        .attr('d', line);
+
+      g.selectAll('.price-dot')
+        .data(points)
+        .enter()
+        .append('circle')
+        .attr('cx', (_, i) => x(i) + x.bandwidth() / 2)
+        .attr('cy', (d) => yPrice(d.price))
+        .attr('r', 4)
+        .attr('fill', '#f59e0b')
+        .attr('stroke', '#ffffff')
+        .attr('stroke-width', 1.5);
+
+      const stepSkip = points.length > 9 ? 2 : 1;
+      g.append('g')
+        .attr('transform', `translate(0,${innerH})`)
+        .call(d3.axisBottom(x).tickFormat((i) => (i % stepSkip === 0 ? points[i].label : '')))
+        .selectAll('text')
+        .attr('fill', '#94a3b8')
+        .style('font-size', '10px');
+
+      const updateReadout = (d) => {
+        const dd = ((d.price - m.basePrice) / m.basePrice) * 100;
+        document.getElementById('chartPointTitle').textContent = d.sub;
+        document.getElementById('chartPointPrice').textContent = `${formatPrice(d.price, asset)} (${dd >= 0 ? '+' : ''}${dd.toFixed(1)}%)`;
+        document.getElementById('chartPointRatio').textContent = `현금 ${d.cashPct}% · 주식 ${d.stockPct}%`;
+      };
+      if (points.length) updateReadout(points[points.length - 1]);
+
+      g.selectAll('.hover-zone')
+        .data(points)
+        .enter()
+        .append('rect')
+        .attr('x', (_, i) => x(i))
+        .attr('y', 0)
+        .attr('width', x.bandwidth())
+        .attr('height', innerH)
+        .attr('fill', 'transparent')
+        .style('cursor', 'pointer')
+        .on('mouseenter click touchstart', (_, d) => updateReadout(d));
     }
 
     // -----------------------------------------------------------------------
-    // 8-7. 모달 열기/닫기 및 사용자 인터랙션 핸들러
+    // 8-4. 매매 이력 추가 · 삭제 및 설정 모달 로직
     // -----------------------------------------------------------------------
-    function openModal(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.remove('hidden');
-      el.classList.add('flex');
-    }
-
-    function closeModal(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.add('hidden');
-      el.classList.remove('flex');
-    }
-
     function openTradeModal(preset = {}) {
       if (isReadOnlyMode) {
-        showToast('조회 전용 모드에서는 매매를 입력할 수 없습니다.');
+        showToast('🔒 조회 전용 모드입니다. 동기화 메뉴에서 잠금을 해제해 주세요.');
         return;
       }
       const asset = getCurrentAsset();
+      const modal = document.getElementById('tradeModal');
       document.getElementById('tradeModalTitle').textContent = `${asset.shortLabel} 매매 체결 입력`;
-      document.getElementById('tradeDateInput').value = getTodayIso();
+      document.getElementById('tradeDateInput').value = preset.date || getTodayIso();
       document.getElementById('tradeTypeInput').value = preset.type || '매수';
 
-      const accSel = document.getElementById('tradeAccountInput');
-      accSel.innerHTML = asset.subAccounts
-        .map((a) => `<option value="${a.name}">${a.name} (${a.shares}주)</option>`)
-        .join('') + '<option value="전체">전체</option>';
+      const accSelect = document.getElementById('tradeAccountInput');
+      const accNames = ['전체', ...asset.subAccounts.map((a) => a.name)];
+      accSelect.innerHTML = accNames.map((n) => `<option value="${n}">${n}</option>`).join('');
+      if (preset.account && accNames.includes(preset.account)) {
+        accSelect.value = preset.account;
+      } else if (asset.subAccounts.length === 1) {
+        accSelect.value = asset.subAccounts[0].name;
+      }
 
-      const defaultPrice = preset.price !== undefined
-        ? (asset.currency === 'USD' ? Number(preset.price).toFixed(2) : Math.round(preset.price))
-        : asset.currentPrice;
-      document.getElementById('tradePriceInput').value = defaultPrice;
+      document.getElementById('tradePriceLabel').textContent = `체결 단가 (${asset.unitSuffix})`;
+      document.getElementById('tradePriceInput').value = preset.price !== undefined ? preset.price : asset.currentPrice;
       document.getElementById('tradeSharesInput').value = preset.shares !== undefined ? preset.shares : '';
-      document.getElementById('tradeNoteInput').value = preset.note || '';
       document.getElementById('tradeDepositInput').value = '';
+      document.getElementById('tradeNoteInput').value = preset.note || '';
 
-      syncTradeTypeFields();
-      openModal('tradeModal');
+      updateTradeModalTypeUi();
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
     }
 
-    function syncTradeTypeFields() {
+    function closeTradeModal() {
+      const modal = document.getElementById('tradeModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function updateTradeModalTypeUi() {
       const type = document.getElementById('tradeTypeInput').value;
       const asset = getCurrentAsset();
-      const depWrap = document.getElementById('depositFieldWrap');
-      const priceLbl = document.getElementById('tradePriceLabel');
-      const sharesLbl = document.getElementById('tradeSharesLabel');
-      const sharesInp = document.getElementById('tradeSharesInput');
-
-      depWrap.classList.toggle('hidden', type !== '추가입금');
-
-      if (type === '추가입금') {
-        document.getElementById('tradeDepositLabel').textContent = `추가 입금액 (${asset.unitSuffix})`;
-        priceLbl.textContent = `현재 주가 (${asset.unitSuffix})`;
-        sharesLbl.textContent = '즉시 비중맞춤 매수 수량 (주)';
-        sharesInp.required = false;
-        updateDepositHint();
-      } else if (type === '전고가갱신' || type === '기준가') {
-        priceLbl.textContent = `새 기준가 (${asset.unitSuffix})`;
-        sharesLbl.textContent = '체결 수량 (0주 또는 추가매수 주수)';
-        sharesInp.value = 0;
-        sharesInp.required = false;
-      } else {
-        priceLbl.textContent = `체결 단가 (${asset.unitSuffix})`;
-        sharesLbl.textContent = '체결 수량 (주)';
-        sharesInp.required = true;
-      }
+      const depositWrap = document.getElementById('depositFieldWrap');
+      document.getElementById('tradeDepositLabel').textContent = `추가 입금액 (${asset.unitSuffix})`;
+      depositWrap.classList.toggle('hidden', type !== '추가입금');
     }
 
-    function updateDepositHint() {
+    function recalcDepositShares() {
+      if (document.getElementById('tradeTypeInput').value !== '추가입금') return;
       const asset = getCurrentAsset();
-      const metrics = computeAssetMetrics(asset);
-      const dep = Number(document.getElementById('tradeDepositInput').value) || 0;
-      const price = Number(document.getElementById('tradePriceInput').value) || asset.currentPrice || 1;
-      const hintEl = document.getElementById('depositCalcHint');
-      if (dep <= 0 || price <= 0) {
-        hintEl.textContent = '입금액과 현재 주가를 입력하면 100% 기준 수량 증가분과 현재 비율 유지용 매수 수량이 자동 계산됩니다.';
-        return;
+      const m = calculateMetrics(asset);
+      const deposit = Math.max(0, Number(document.getElementById('tradeDepositInput').value) || 0);
+      const price = Math.max(0.0001, Number(document.getElementById('tradePriceInput').value) || asset.currentPrice);
+
+      const addedBaseShares = Math.round(deposit / m.basePrice);
+      const buySharesToKeepRatio = Math.round((deposit * (m.stockRatioPct / 100)) / price);
+      document.getElementById('tradeSharesInput').value = buySharesToKeepRatio;
+      document.getElementById('depositCalcHint').textContent =
+        `기준 수량 +${addedBaseShares.toLocaleString()}주 증액 · 현재 주식비중(${m.stockRatioPct}%) 유지를 위해 ${buySharesToKeepRatio.toLocaleString()}주 매수 반영`;
+    }
+
+    function handleTradeSubmit(e) {
+      e.preventDefault();
+      if (isReadOnlyMode) return;
+      const asset = getCurrentAsset();
+      const date = formatDotDate(document.getElementById('tradeDateInput').value);
+      const type = document.getElementById('tradeTypeInput').value;
+      const account = document.getElementById('tradeAccountInput').value;
+      const price = Math.max(0, Number(document.getElementById('tradePriceInput').value) || 0);
+      const shares = Math.max(0, Math.round(Number(document.getElementById('tradeSharesInput').value) || 0));
+      const note = document.getElementById('tradeNoteInput').value.trim();
+
+      if (type === '추가입금') {
+        const deposit = Math.max(0, Number(document.getElementById('tradeDepositInput').value) || 0);
+        const addedBase = Math.round(deposit / asset.basePrice);
+        asset.baseShares += addedBase;
+        asset.cashBalance = Math.max(0, asset.cashBalance + deposit - shares * price);
+      } else if (type === '매수') {
+        asset.cashBalance = Math.max(0, asset.cashBalance - shares * price);
+      } else if (type === '전액재매수') {
+        asset.cashBalance = Math.max(0, asset.cashBalance - shares * price);
+        if (price > 0) {
+          asset.basePrice = price;
+          asset.baseDate = date;
+        }
+      } else if (type === '매도') {
+        asset.cashBalance += shares * price;
+      } else if (type === '전고가갱신') {
+        if (price > 0) {
+          asset.basePrice = price;
+          asset.baseDate = date;
+        }
       }
-      const addBaseShares = Math.round(dep / price);
-      const buyNowShares = Math.round((addBaseShares * metrics.stockPct) / 100);
-      document.getElementById('tradeSharesInput').value = buyNowShares;
-      hintEl.textContent = `기준 수량 +${addBaseShares.toLocaleString()}주 증가 → 현재 주식 비중(${metrics.stockPct}%) 유지를 위해 즉시 +${buyNowShares.toLocaleString()}주 매수 권장`;
+
+      if (price > 0) {
+        asset.currentPrice = price;
+        asset.priceUpdatedAt = date;
+      }
+      asset.lastUpdated = date;
+
+      asset.history.push({
+        id: `${asset.id}-${Date.now()}`,
+        date,
+        type,
+        account,
+        price,
+        shares,
+        note
+      });
+
+      recalculateHoldingsFromHistory(asset);
+      closeTradeModal();
+      showToast(`✅ ${asset.shortLabel} ${type} 내역이 반영되었습니다.`);
+      persistAndSync();
+    }
+
+    function deleteTradeItem(tradeId) {
+      if (isReadOnlyMode) return;
+      const asset = getCurrentAsset();
+      const target = asset.history.find((h) => h.id === tradeId);
+      if (!target) return;
+
+      const qty = Math.max(0, Math.round(Number(target.shares) || 0));
+      const px = Math.max(0, Number(target.price) || 0);
+      if (target.type === '매수' || target.type === '전액재매수') {
+        asset.cashBalance += qty * px;
+      } else if (target.type === '매도') {
+        asset.cashBalance = Math.max(0, asset.cashBalance - qty * px);
+      }
+
+      asset.history = asset.history.filter((h) => h.id !== tradeId);
+      pendingDeleteId = null;
+      recalculateHoldingsFromHistory(asset);
+      showToast('🗑️ 매매 이력이 삭제되고 보유 수량이 재계산되었습니다.');
+      persistAndSync();
     }
 
     function openSettingsModal() {
       if (isReadOnlyMode) {
-        showToast('조회 전용 모드에서는 설정을 변경할 수 없습니다.');
+        showToast('🔒 조회 전용 모드입니다. 동기화 메뉴에서 잠금을 해제해 주세요.');
         return;
       }
       const asset = getCurrentAsset();
       document.getElementById('settingsModalTitle').textContent = `${asset.shortLabel} 기준 & 시세 연동 설정`;
       document.getElementById('settingInterestRegimeInput').value = appState.interestRegime || 'nonzero';
       document.getElementById('settingGoogleSheetUrlInput').value = appState.googleSheetUrl || '';
-      document.getElementById('googleSheetTestResult').classList.add('hidden');
       document.getElementById('settingBasePriceLabel').textContent = `기준가(전고가) (${asset.unitSuffix})`;
       document.getElementById('settingBasePriceInput').value = asset.basePrice;
       document.getElementById('settingBaseDateInput').value = formatIsoDate(asset.baseDate);
       document.getElementById('settingBaseSharesInput').value = asset.baseShares;
-      document.getElementById('settingInitialBaseSharesInput').value = asset.initialBaseShares || asset.baseShares;
+      document.getElementById('settingInitialBaseSharesInput').value = asset.initialBaseShares;
       document.getElementById('settingCashBalanceLabel').textContent = `현금 예수금 (${asset.unitSuffix})`;
       document.getElementById('settingCashBalanceInput').value = asset.cashBalance;
       document.getElementById('settingModeInput').value = asset.mode;
@@ -2615,451 +2203,636 @@
       document.getElementById('settingCrisisStepInput').value = asset.crisisStepPct;
       document.getElementById('settingMaxCrisisDropInput').value = asset.maxCrisisDropPct;
 
-      openModal('settingsModal');
+      const modal = document.getElementById('settingsModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
     }
 
-    function openCloudModal() {
-      document.getElementById('ghTokenInput').value = ghConfig.token || '';
-      document.getElementById('ghGistIdInput').value = ghConfig.gistId || '';
-      document.getElementById('editPinSettingInput').value = appState.editPin || '';
-      const toggleBtn = document.getElementById('toggleReadOnlyBtn');
-      toggleBtn.textContent = isReadOnlyMode ? '켜짐 (잠금)' : '꺼짐 (편집중)';
-      document.getElementById('editPinConfigBox').classList.toggle('hidden', isReadOnlyMode);
-      document.getElementById('editPinLockedNotice').classList.toggle('hidden', !isReadOnlyMode);
-      updateCloudStatusUI();
-      openModal('cloudModal');
+    function closeSettingsModal() {
+      const modal = document.getElementById('settingsModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
     }
 
-    function openQuickPriceModal() {
-      if (isReadOnlyMode) {
-        showToast('조회 전용 모드에서는 주가를 수정할 수 없습니다.');
-        return;
+    function saveSettingsFromModal() {
+      if (isReadOnlyMode) return;
+      const asset = getCurrentAsset();
+      const newRegime = document.getElementById('settingInterestRegimeInput').value;
+      const regimeChanged = newRegime !== appState.interestRegime;
+      if (regimeChanged) {
+        applyInterestRegimeToAssets(newRegime);
       }
-      const asset = getCurrentAsset();
-      document.getElementById('quickPriceModalTitle').textContent = `${asset.shortLabel} 현재 주가 업데이트`;
-      document.getElementById('quickPriceInputLabel').textContent = `현재 주가 (${asset.unitSuffix})`;
-      document.getElementById('quickPriceInput').value = asset.currentPrice;
-      document.getElementById('quickPriceDateInput').value = getTodayIso();
-      updateQuickPricePreview();
-      openModal('quickPriceModal');
+
+      appState.googleSheetUrl = document.getElementById('settingGoogleSheetUrlInput').value.trim();
+      asset.basePrice = Math.max(0.0001, Number(document.getElementById('settingBasePriceInput').value) || asset.basePrice);
+      asset.baseDate = formatDotDate(document.getElementById('settingBaseDateInput').value) || asset.baseDate;
+      asset.baseShares = Math.max(1, Math.round(Number(document.getElementById('settingBaseSharesInput').value) || asset.baseShares));
+      asset.initialBaseShares = Math.max(1, Math.round(Number(document.getElementById('settingInitialBaseSharesInput').value) || asset.initialBaseShares));
+      asset.cashBalance = Math.max(0, Number(document.getElementById('settingCashBalanceInput').value) ?? asset.cashBalance);
+      asset.mode = document.getElementById('settingModeInput').value;
+
+      if (!regimeChanged) {
+        asset.normalStepPct = Math.max(0.5, Number(document.getElementById('settingNormalStepInput').value) || asset.normalStepPct);
+        asset.crisisStepPct = Math.max(0.5, Number(document.getElementById('settingCrisisStepInput').value) || asset.crisisStepPct);
+        asset.maxCrisisDropPct = Math.max(5, Number(document.getElementById('settingMaxCrisisDropInput').value) || asset.maxCrisisDropPct);
+      }
+
+      recalculateHoldingsFromHistory(asset);
+      activeTableTab = asset.mode;
+      closeSettingsModal();
+      showToast('✅ 설정이 저장되었습니다.');
+      persistAndSync();
     }
 
-    function updateQuickPricePreview() {
-      const asset = getCurrentAsset();
-      const val = Number(document.getElementById('quickPriceInput').value) || 0;
-      const dd = ((val - asset.basePrice) / asset.basePrice) * 100;
-      const sign = dd > 0 ? '+' : '';
-      document.getElementById('quickPreviewDrawdown').textContent = `${sign}${dd.toFixed(2)}%`;
-
-      const tempAsset = Object.assign({}, asset, { currentPrice: val });
-      const m = computeAssetMetrics(tempAsset);
-      document.getElementById('quickPreviewStep').textContent = `주가 ${m.priceStep}구간대 (보유: ${m.heldStep}구간)`;
+    // -----------------------------------------------------------------------
+    // 8-5. 실시간 시세 · 환율 · 나스닥 종가 자동 연동 엔진
+    // -----------------------------------------------------------------------
+    function parseFlexibleNumber(val) {
+      if (typeof val === 'number' && !isNaN(val)) return val;
+      if (typeof val === 'string') {
+        const cleaned = val.replace(/[^0-9.\-]/g, '');
+        const n = Number(cleaned);
+        if (!isNaN(n) && cleaned.trim() !== '') return n;
+      }
+      return null;
     }
 
-    function applyAutoRefreshTimer() {
+    async function fetchFallbackUsdKrw() {
+      try {
+        const res = await fetch('https://open.er-api.com/v6/latest/USD', { cache: 'no-store' });
+        if (!res.ok) return null;
+        const json = await res.json();
+        const rate = json && json.rates && Number(json.rates.KRW);
+        return rate && !isNaN(rate) && rate > 500 ? Number(rate.toFixed(2)) : null;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    async function fetchGoogleSheetPrices(customUrl, isTest = false) {
+      if (isRefreshingPrice) return;
+      const url = (customUrl !== undefined ? customUrl : appState.googleSheetUrl || '').trim();
+      isRefreshingPrice = true;
+      const icon = document.getElementById('refreshPriceIcon');
+      const dot = document.getElementById('priceSyncDot');
+      if (icon) icon.classList.add('spin-active');
+
+      try {
+        let updatedParts = [];
+        let gotSheetData = false;
+
+        if (url) {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          gotSheetData = true;
+          const todayDot = formatDotDate(getTodayIso());
+
+          const krPx = parseFlexibleNumber(data.kr);
+          if (krPx && krPx > 0) {
+            appState.assets.kr.currentPrice = krPx;
+            appState.assets.kr.priceUpdatedAt = todayDot;
+            appState.assets.kr.lastUpdated = todayDot;
+            updatedParts.push(`테크TOP10 ${Math.round(krPx).toLocaleString()}원`);
+          }
+
+          const qldPx = parseFlexibleNumber(data.qld);
+          if (qldPx && qldPx > 0) {
+            appState.assets.qld.currentPrice = Number(qldPx.toFixed(2));
+            appState.assets.qld.priceUpdatedAt = todayDot;
+            appState.assets.qld.lastUpdated = todayDot;
+            updatedParts.push(`QLD $${qldPx.toFixed(2)}`);
+          }
+
+          const fx = parseFlexibleNumber(data.usdkrw);
+          if (fx && fx > 500) {
+            appState.usdKrwRate = fx;
+            updatedParts.push(`환율 ${Math.round(fx).toLocaleString()}원`);
+          } else {
+            const backupFx = await fetchFallbackUsdKrw();
+            if (backupFx) {
+              appState.usdKrwRate = backupFx;
+              updatedParts.push(`환율 ${Math.round(backupFx).toLocaleString()}원`);
+            }
+          }
+
+          const nPrice = parseFlexibleNumber(data.nasdaqPrice);
+          const nPct = parseFlexibleNumber(data.nasdaqChangePct);
+          const nDate = formatDotDate(data.nasdaqTradeDate || '');
+          if (nPrice && nPrice > 0) appState.nasdaqPrice = nPrice;
+          if (nPct !== null) appState.nasdaqChangePct = nPct;
+          if (nDate) appState.nasdaqTradeDate = nDate;
+          if (typeof data.isNasdaqClosed === 'boolean') appState.isNasdaqClosed = data.isNasdaqClosed;
+
+          // D1 과거 종가 표 + B4~B6 당일 확정 종가 병합 처리
+          const histRows = Array.isArray(data.nasdaqHistory) ? data.nasdaqHistory.slice() : [];
+          if (nDate && nPrice && nPrice > 0 && nPct !== null) {
+            const existingIdx = histRows.findIndex((r) => formatDotDate(r.date) === nDate);
+            if (existingIdx >= 0) {
+              histRows[existingIdx].close = nPrice;
+              histRows[existingIdx].changePct = nPct;
+            } else if (data.isNasdaqClosed) {
+              histRows.push({ date: nDate, close: nPrice, changePct: nPct });
+            }
+          }
+
+          if (histRows.length > 0) {
+            appState.hasNasdaqHistoryFeed = true;
+            histRows.sort((a, b) => (formatDotDate(a.date) < formatDotDate(b.date) ? -1 : 1));
+            histRows.forEach((row) => {
+              const rDate = formatDotDate(row.date);
+              const rPct = parseFlexibleNumber(row.changePct);
+              if (rDate && rPct !== null && rPct <= -3 && !(appState.dismissedDrop3Dates || []).includes(rDate)) {
+                registerNasdaqDrop3Date(rDate, { silent: true });
+              }
+            });
+
+            let streak = 0;
+            for (let i = histRows.length - 1; i >= 0; i--) {
+              const rPct = parseFlexibleNumber(histRows[i].changePct);
+              if (rPct === null) continue;
+              if (rPct > 0) streak++;
+              else break;
+            }
+            const lastRowDate = formatDotDate(histRows[histRows.length - 1].date);
+            appState.lastUpStreakTradeDate = lastRowDate;
+            ['kr', 'qld'].forEach((k) => {
+              appState.assets[k].consecutiveUpDays = Math.min(8, streak);
+            });
+          } else if (nDate && nPct !== null && data.isNasdaqClosed) {
+            if (nPct <= -3 && !(appState.dismissedDrop3Dates || []).includes(nDate)) {
+              registerNasdaqDrop3Date(nDate, { silent: true });
+            }
+            if (appState.lastUpStreakTradeDate !== nDate) {
+              appState.lastUpStreakTradeDate = nDate;
+              ['kr', 'qld'].forEach((k) => {
+                appState.assets[k].consecutiveUpDays = nPct > 0
+                  ? Math.min(8, (appState.assets[k].consecutiveUpDays || 0) + 1)
+                  : 0;
+              });
+            }
+          }
+        } else {
+          const backupFx = await fetchFallbackUsdKrw();
+          if (backupFx) {
+            appState.usdKrwRate = backupFx;
+            updatedParts.push(`환율 ${Math.round(backupFx).toLocaleString()}원/$`);
+          }
+        }
+
+        checkAutoCrisisExit();
+        if (dot) dot.className = `w-1.5 h-1.5 rounded-full ${gotSheetData ? 'bg-emerald-500' : 'bg-blue-500'}`;
+
+        const summaryMsg = updatedParts.length ? `✅ 갱신 완료 (${updatedParts.join(' · ')})` : '✅ 최신 상태 확인 완료';
+        if (isTest) {
+          const resEl = document.getElementById('googleSheetTestResult');
+          if (resEl) {
+            resEl.classList.remove('hidden');
+            resEl.className = 'text-[11px] font-bold p-2 rounded-lg bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300';
+            resEl.textContent = summaryMsg;
+          }
+        } else {
+          showToast(summaryMsg);
+        }
+        persistAndSync();
+      } catch (err) {
+        if (dot) dot.className = 'w-1.5 h-1.5 rounded-full bg-rose-500';
+        const errMsg = `⚠️ 시세 조회 실패: ${err.message || '네트워크 오류'}`;
+        if (isTest) {
+          const resEl = document.getElementById('googleSheetTestResult');
+          if (resEl) {
+            resEl.classList.remove('hidden');
+            resEl.className = 'text-[11px] font-bold p-2 rounded-lg bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300';
+            resEl.textContent = errMsg;
+          }
+        } else {
+          showToast(errMsg);
+        }
+      } finally {
+        isRefreshingPrice = false;
+        if (icon) icon.classList.remove('spin-active');
+      }
+    }
+
+    function renderAutoRefreshBadge() {
+      const dot = document.getElementById('autoRefreshDot');
+      const label = document.getElementById('autoRefreshLabel');
+      if (!dot || !label) return;
+      if (autoRefreshMinutes > 0) {
+        dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse';
+        label.textContent = `자동:${autoRefreshMinutes}분`;
+      } else {
+        dot.className = 'w-1.5 h-1.5 rounded-full bg-slate-400';
+        label.textContent = '자동:끔';
+      }
+    }
+
+    function setAutoRefreshInterval(mins) {
+      autoRefreshMinutes = mins;
+      localStorage.setItem(STORAGE_KEY_AUTO_REFRESH, String(mins));
       if (autoRefreshTimerId) {
         clearInterval(autoRefreshTimerId);
         autoRefreshTimerId = null;
       }
-      const btn = document.getElementById('autoRefreshBtn');
-      const dot = document.getElementById('autoRefreshDot');
-      const lbl = document.getElementById('autoRefreshLabel');
-      if (!btn || !dot || !lbl) return;
-
-      if (autoRefreshMinutes > 0) {
+      if (mins > 0) {
         autoRefreshTimerId = setInterval(() => {
-          if (appState.googleSheetUrl && !document.hidden) {
-            fetchGoogleSheetPrices(true);
+          fetchGoogleSheetPrices();
+        }, mins * 60 * 1000);
+      }
+      renderAutoRefreshBadge();
+    }
+
+    // -----------------------------------------------------------------------
+    // 8-6. 로컬 저장 & GitHub Gist 클라우드 동기화 & 잠금(PIN) 관리
+    // -----------------------------------------------------------------------
+    function saveLocalState() {
+      try {
+        localStorage.setItem(STORAGE_KEY_STATE, JSON.stringify(appState));
+      } catch (_) {}
+    }
+
+    function loadLocalState() {
+      try {
+        let raw = localStorage.getItem(STORAGE_KEY_STATE);
+        if (!raw) {
+          for (const k of LEGACY_STATE_KEYS) {
+            raw = localStorage.getItem(k);
+            if (raw) break;
           }
-        }, autoRefreshMinutes * 60 * 1000);
-        btn.className = 'px-2 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 text-[11px] font-extrabold flex items-center gap-1 transition';
-        dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse';
-        lbl.textContent = `자동:${autoRefreshMinutes}분`;
+        }
+        if (raw) {
+          appState = normalizeAppState(JSON.parse(raw));
+        } else {
+          appState = normalizeAppState(DEFAULT_APP_STATE);
+        }
+      } catch (_) {
+        appState = normalizeAppState(DEFAULT_APP_STATE);
+      }
+      activeTableTab = getCurrentAsset().mode;
+    }
+
+    function loadGhConfig() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_GH);
+        if (raw) ghConfig = Object.assign({ token: '', gistId: '', lastSync: '' }, JSON.parse(raw));
+        isReadOnlyMode = localStorage.getItem(STORAGE_KEY_READONLY) === '1';
+      } catch (_) {}
+    }
+
+    function saveGhConfig() {
+      try {
+        localStorage.setItem(STORAGE_KEY_GH, JSON.stringify(ghConfig));
+      } catch (_) {}
+    }
+
+    function updateCloudBadgeUi() {
+      const dot = document.getElementById('cloudStatusDot');
+      const label = document.getElementById('cloudStatusLabel');
+      const modalBadge = document.getElementById('cloudModalBadge');
+      const lastSyncText = document.getElementById('cloudLastSyncText');
+      const connectedActions = document.getElementById('ghConnectedActions');
+      const inviteHint = document.getElementById('inviteLockedHint');
+      const inviteBtns = document.getElementById('inviteButtonsRow');
+
+      const hasConn = Boolean(ghConfig.token && ghConfig.gistId);
+      if (hasConn) {
+        if (dot) dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500';
+        if (label) label.textContent = '동기화됨';
+        if (modalBadge) {
+          modalBadge.textContent = 'GitHub Gist 연결됨';
+          modalBadge.className = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-700';
+        }
+        if (lastSyncText) lastSyncText.textContent = `마지막 동기화 : ${ghConfig.lastSync || '방금 전'} (ID: ${ghConfig.gistId.slice(0, 8)}...)`;
+        if (connectedActions) connectedActions.classList.remove('hidden');
+        if (inviteHint) inviteHint.classList.add('hidden');
+        if (inviteBtns) inviteBtns.classList.remove('opacity-50', 'pointer-events-none');
       } else {
-        btn.className = 'px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 text-[11px] font-extrabold flex items-center gap-1 transition';
-        dot.className = 'w-1.5 h-1.5 rounded-full bg-slate-400';
-        lbl.textContent = '자동:끔';
+        if (dot) dot.className = 'w-1.5 h-1.5 rounded-full bg-slate-400';
+        if (label) label.textContent = '동기화';
+        if (modalBadge) {
+          modalBadge.textContent = '브라우저 로컬 저장';
+          modalBadge.className = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700';
+        }
+        if (lastSyncText) lastSyncText.textContent = '토큰 등록 시 비공개 Gist에 자동 동기화됩니다.';
+        if (connectedActions) connectedActions.classList.add('hidden');
+        if (inviteHint) inviteHint.classList.remove('hidden');
+        if (inviteBtns) inviteBtns.classList.add('opacity-50', 'pointer-events-none');
       }
     }
 
-    function bindEvents() {
-      document.getElementById('themeToggleBtn').addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('rich_project_theme_v1', isDark ? 'dark' : 'light');
-        renderComboChart();
-      });
+    async function pushToGist(silent = true) {
+      if (!ghConfig.token || isReadOnlyMode || isSyncingGh) return;
+      isSyncingGh = true;
+      try {
+        const headers = {
+          Authorization: `token ${ghConfig.token}`,
+          Accept: 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        };
+        const body = JSON.stringify({
+          description: 'Rich Project Dashboard Sync Data',
+          public: false,
+          files: {
+            [GIST_FILENAME]: { content: JSON.stringify(appState, null, 2) }
+          }
+        });
 
-      document.getElementById('refreshPriceBtn').addEventListener('click', () => fetchGoogleSheetPrices(false));
-      document.getElementById('autoRefreshBtn').addEventListener('click', () => {
-        autoRefreshMinutes = autoRefreshMinutes === 0 ? 1 : autoRefreshMinutes === 1 ? 5 : 0;
-        localStorage.setItem(STORAGE_KEY_AUTO_REFRESH, String(autoRefreshMinutes));
-        applyAutoRefreshTimer();
-        showToast(autoRefreshMinutes > 0
-          ? `장중 자동 시세 새로고침(${autoRefreshMinutes}분)이 켜졌습니다.`
-          : '장중 자동 시세 새로고침이 꺼졌습니다.');
-      });
-
-      document.getElementById('openCloudModalBtn').addEventListener('click', openCloudModal);
-      document.getElementById('openSettingsModalBtn').addEventListener('click', openSettingsModal);
-
-      document.getElementById('copySamsungNoteBtn').addEventListener('click', async () => {
-        const asset = getCurrentAsset();
-        const m = computeAssetMetrics(asset);
-        const nd = m.nextDropInfo;
-        const nextLine = nd.actionKind === 'sell'
-          ? `• 다음 대응 : ${nd.step}구간(${formatPrice(nd.targetPrice, asset)}) 도달 시 -${nd.deltaShares.toLocaleString()}주 매도(10% 현금화)`
-          : `• 다음 대응 : ${nd.step}구간(${formatPrice(nd.targetPrice, asset)}) 도달 시 +${nd.deltaShares.toLocaleString()}주 매수(10% 투입)`;
-        const text = [
-          `[리치프로젝트 · ${asset.shortLabel}] (${asset.lastUpdated})`,
-          `• 금리 체제 : ${appState.interestRegime === 'zero' ? '제로금리(25% 말뚝)' : '비제로금리(50% 말뚝)'}`,
-          `• 현재 비중 : 현금 ${m.cashPct}% : 주식 ${m.stockPct}%`,
-          `• 기준가(전고가) : ${formatPrice(asset.basePrice, asset)} (${asset.baseDate})`,
-          `• 현재가 : ${formatPrice(asset.currentPrice, asset)} (${m.drawdownPct.toFixed(2)}%)`,
-          `• 보유 수량 : ${asset.heldShares.toLocaleString()}주 / 기준 ${asset.baseShares.toLocaleString()}주`,
-          `• 총 평가자산 : ${formatMoney(m.totalAsset, asset.currency)} (주식 ${formatMoney(m.stockEval, asset.currency)} + 현금 ${formatMoney(asset.cashBalance, asset.currency)})`,
-          nextLine
-        ].join('\n');
-
-        try {
-          await navigator.clipboard.writeText(text);
-          showToast('삼성노트 요약 양식이 복사되었습니다.');
-        } catch (e) {
-          showToast('복사 권한이 차단되어 있습니다.');
+        let res;
+        if (ghConfig.gistId) {
+          res = await fetch(`https://api.github.com/gists/${ghConfig.gistId}`, { method: 'PATCH', headers, body });
+        } else {
+          res = await fetch('https://api.github.com/gists', { method: 'POST', headers, body });
         }
-      });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        ghConfig.gistId = data.id;
+        ghConfig.lastSync = getNowStamp();
+        saveGhConfig();
+        updateCloudBadgeUi();
+        if (!silent) showToast('☁️ 클라우드(Gist)에 저장 완료!');
+      } catch (err) {
+        if (!silent) showToast(`⚠️ 클라우드 저장 실패: ${err.message}`);
+      } finally {
+        isSyncingGh = false;
+      }
+    }
 
+    async function pullFromGist(silent = true) {
+      if (!ghConfig.token || !ghConfig.gistId || isSyncingGh) return;
+      isSyncingGh = true;
+      try {
+        const res = await fetch(`https://api.github.com/gists/${ghConfig.gistId}`, {
+          headers: {
+            Authorization: `token ${ghConfig.token}`,
+            Accept: 'application/vnd.github+json'
+          },
+          cache: 'no-store'
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const file = data.files && data.files[GIST_FILENAME];
+        if (file && file.content) {
+          appState = normalizeAppState(JSON.parse(file.content));
+          saveLocalState();
+          ghConfig.lastSync = getNowStamp();
+          saveGhConfig();
+          updateCloudBadgeUi();
+          renderApp();
+          if (!silent) showToast('☁️ 클라우드에서 최신 데이터를 불러왔습니다.');
+        }
+      } catch (err) {
+        if (!silent) showToast(`⚠️ 클라우드 불러오기 실패: ${err.message}`);
+      } finally {
+        isSyncingGh = false;
+      }
+    }
+
+    function persistAndSync() {
+      saveLocalState();
+      renderApp();
+      if (ghConfig.token && !isReadOnlyMode) {
+        pushToGist(true);
+      }
+    }
+
+    function applyReadOnlyUi() {
+      const badge = document.getElementById('readOnlyHeaderBadge');
+      const openTradeBtn = document.getElementById('openTradeModalBtn');
+      const readOnlyNotice = document.getElementById('readOnlyHeroNotice');
+      const toggleBtn = document.getElementById('toggleReadOnlyBtn');
+      const pinConfigBox = document.getElementById('editPinConfigBox');
+      const pinLockedNotice = document.getElementById('editPinLockedNotice');
+
+      if (badge) badge.classList.toggle('hidden', !isReadOnlyMode);
+      if (openTradeBtn) openTradeBtn.classList.toggle('hidden', isReadOnlyMode);
+      if (readOnlyNotice) {
+        readOnlyNotice.classList.toggle('hidden', !isReadOnlyMode);
+        readOnlyNotice.classList.toggle('flex', isReadOnlyMode);
+      }
+      if (toggleBtn) toggleBtn.textContent = isReadOnlyMode ? '켜짐 (잠금)' : '꺼짐';
+      if (pinConfigBox) pinConfigBox.classList.toggle('hidden', isReadOnlyMode);
+      if (pinLockedNotice) pinLockedNotice.classList.toggle('hidden', !isReadOnlyMode);
+    }
+
+    function copyTextFallback(text, successMsg) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg);
+      } catch (_) {
+        showToast('복사에 실패했습니다.');
+      }
+      document.body.removeChild(ta);
+    }
+
+    function buildSamsungNoteSummary() {
+      const kr = appState.assets.kr;
+      const qld = appState.assets.qld;
+      const krM = calculateMetrics(kr);
+      const qldM = calculateMetrics(qld);
+      const reg = evaluateNasdaqRegime();
+      return [
+        `[리치프로젝트 현황 · ${formatDotDate(getTodayIso())}]`,
+        `■ 나스닥 위기 상태: ${reg.regime === 'panic' ? '공황위기' : reg.regime === 'crisis' ? '일반위기' : '평상시'} (종료예정 ${reg.activeExitDate || '-'}, 연속상승 ${kr.consecutiveUpDays}/8일)`,
+        ``,
+        `1. 미국테크TOP10 (${kr.mode === 'crisis' ? '위기' : '평시'})`,
+        `- 기준가: ${formatPrice(krM.basePrice, kr)} (${kr.baseDate}) / 현재가: ${formatPrice(krM.currentPrice, kr)} (${krM.drawdownPct.toFixed(2)}%)`,
+        `- 비중: 현금 ${krM.cashRatioPct}% / 주식 ${krM.stockRatioPct}% (${krM.heldShares.toLocaleString()}주 / 기준 ${krM.baseShares.toLocaleString()}주)`,
+        `- 다음 목표: ${krM.nextStep}구간 ${formatPrice(krM.nextTargetPrice, kr)} (${kr.mode === 'crisis' ? '+' : '-'}${krM.nextActionShares.toLocaleString()}주) · 반등몰빵 ${formatPrice(krM.reboundTargetPrice, kr)}`,
+        ``,
+        `2. QLD 2x (${qld.mode === 'crisis' ? '위기' : '평시'})`,
+        `- 기준가: ${formatPrice(qldM.basePrice, qld)} (${qld.baseDate}) / 현재가: ${formatPrice(qldM.currentPrice, qld)} (${qldM.drawdownPct.toFixed(2)}%)`,
+        `- 비중: 현금 ${qldM.cashRatioPct}% / 주식 ${qldM.stockRatioPct}% (${qldM.heldShares.toLocaleString()}주 / 기준 ${qldM.baseShares.toLocaleString()}주)`,
+        `- 다음 목표: ${qldM.nextStep}구간 ${formatPrice(qldM.nextTargetPrice, qld)} (${qld.mode === 'crisis' ? '+' : '-'}${qldM.nextActionShares.toLocaleString()}주) · 반등몰빵 ${formatPrice(qldM.reboundTargetPrice, qld)}`
+      ].join('\n');
+    }
+
+    function applyInviteParamsFromUrl() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token');
+        const gist = params.get('gist');
+        const ro = params.get('ro');
+        if (token && gist) {
+          ghConfig.token = token;
+          ghConfig.gistId = gist;
+          saveGhConfig();
+        }
+        if (ro === '1') {
+          isReadOnlyMode = true;
+          localStorage.setItem(STORAGE_KEY_READONLY, '1');
+        }
+      } catch (_) {}
+    }
+
+    // -----------------------------------------------------------------------
+    // 8-7. 전체 이벤트 바인딩 & 초기화
+    // -----------------------------------------------------------------------
+    function bindAllEvents() {
+      // 종목 전환 탭
       document.querySelectorAll('.asset-tab-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
           appState.activeAsset = btn.dataset.asset;
+          activeTableTab = getCurrentAsset().mode;
           pendingDeleteId = null;
-          activeTableTab = getCurrentAsset().mode === 'normal' ? 'normal' : 'crisis';
+          saveLocalState();
           renderApp();
-          saveStateLocal();
         });
       });
 
+      // 구간표 서브탭 전환
+      document.querySelectorAll('.table-tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeTableTab = btn.dataset.tableTab;
+          renderStepsTable(getCurrentAsset(), calculateMetrics(getCurrentAsset()));
+        });
+      });
+
+      // 차트 모드 전환
+      document.querySelectorAll('.chart-mode-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeChartMode = btn.dataset.chartMode;
+          document.querySelectorAll('.chart-mode-btn').forEach((b) => {
+            const act = b.dataset.chartMode === activeChartMode;
+            b.className = `chart-mode-btn px-2.5 py-1 rounded-lg text-xs transition ${
+              act
+                ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-extrabold shadow-2xs'
+                : 'text-slate-500 dark:text-slate-400 font-bold'
+            }`;
+          });
+          const asset = getCurrentAsset();
+          renderComboChart(asset, calculateMetrics(asset));
+        });
+      });
+
+      // 다크모드 전환
+      document.getElementById('themeToggleBtn').addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('rich_project_theme', isDark ? 'dark' : 'light');
+        const asset = getCurrentAsset();
+        renderComboChart(asset, calculateMetrics(asset));
+      });
+
+      // 시세 새로고침 & 자동 갱신
+      document.getElementById('refreshPriceBtn').addEventListener('click', () => fetchGoogleSheetPrices());
+      document.getElementById('autoRefreshBtn').addEventListener('click', () => {
+        const next = autoRefreshMinutes === 0 ? 1 : autoRefreshMinutes === 1 ? 5 : 0;
+        setAutoRefreshInterval(next);
+        showToast(next > 0 ? `⏱️ ${next}분 간격 자동 시세 갱신 켜짐` : '⏱️ 자동 시세 갱신 꺼짐');
+      });
+
+      // 삼성노트 양식 복사
+      document.getElementById('copySamsungNoteBtn').addEventListener('click', () => {
+        copyTextFallback(buildSamsungNoteSummary(), '📋 삼성노트 요약 양식이 복사되었습니다.');
+      });
+
+      // 위기 종료 배너 닫기
       document.getElementById('dismissCrisisAutoExitBtn').addEventListener('click', () => {
         appState.crisisAutoExitNotice = null;
-        renderApp();
-        persistState(true);
+        persistAndSync();
       });
 
-      document.getElementById('targetAlertActionBtn').addEventListener('click', (e) => {
-        const asset = getCurrentAsset();
-        const m = computeAssetMetrics(asset);
-        const kind = e.currentTarget.dataset.alertKind;
-        if (kind === 'rebound') {
-          openTradeModal({
-            type: '전액재매수',
-            price: asset.currentPrice,
-            shares: m.remainSharesToBuy,
-            note: '반등 목표 돌파 전액 몰빵 (새 전고점 리셋)'
-          });
-        } else if (kind === 'sell') {
-          openTradeModal({
-            type: '매도',
-            price: asset.currentPrice,
-            shares: m.nextDropInfo.deltaShares,
-            note: `평시 ${m.nextDropInfo.step}구간 도달 10% 현금화 매도`
-          });
-        } else {
-          openTradeModal({
-            type: '매수',
-            price: asset.currentPrice,
-            shares: m.nextDropInfo.deltaShares,
-            note: `말뚝박기 ${m.nextDropInfo.step}구간 목표가 도달 10% 매수`
-          });
-        }
-      });
-
-      document.getElementById('otherAssetAlertNotice').addEventListener('click', (e) => {
-        const targetKey = e.currentTarget.dataset.switchAsset;
-        if (targetKey && appState.assets[targetKey]) {
-          appState.activeAsset = targetKey;
-          activeTableTab = getCurrentAsset().mode === 'normal' ? 'normal' : 'crisis';
-          renderApp();
-        }
-      });
-
+      // 매매 입력 모달 열기/닫기
       document.getElementById('openTradeModalBtn').addEventListener('click', () => openTradeModal());
-      document.getElementById('openQuickPriceModalBtn').addEventListener('click', openQuickPriceModal);
+      document.getElementById('closeTradeModalBtn').addEventListener('click', closeTradeModal);
+      document.getElementById('cancelTradeModalBtn').addEventListener('click', closeTradeModal);
+      document.getElementById('tradeTypeInput').addEventListener('change', () => {
+        updateTradeModalTypeUi();
+        recalcDepositShares();
+      });
+      document.getElementById('tradeDepositInput').addEventListener('input', recalcDepositShares);
+      document.getElementById('tradePriceInput').addEventListener('input', recalcDepositShares);
+      document.getElementById('tradeForm').addEventListener('submit', handleTradeSubmit);
 
+      // 수량 빠른 선택 버튼
+      document.querySelectorAll('.quick-qty-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const asset = getCurrentAsset();
+          const m = calculateMetrics(asset);
+          const pct = btn.dataset.pct;
+          if (pct === 'remain') {
+            const px = Math.max(0.0001, Number(document.getElementById('tradePriceInput').value) || asset.currentPrice);
+            document.getElementById('tradeSharesInput').value = Math.floor(asset.cashBalance / px);
+          } else {
+            document.getElementById('tradeSharesInput').value = Math.round(m.baseShares * (Number(pct) / 100));
+          }
+        });
+      });
+
+      // 다음 액션 카드 퀵 버튼
       document.getElementById('quickDropActionBtn').addEventListener('click', () => {
         const asset = getCurrentAsset();
-        const m = computeAssetMetrics(asset);
-        const nd = m.nextDropInfo;
-        if (nd.actionKind === 'sell') {
-          openTradeModal({
-            type: '매도',
-            price: nd.targetPrice,
-            shares: nd.deltaShares,
-            note: `평시 ${nd.step}구간(-${nd.dropPct}%) 10% 현금화 매도`
-          });
-        } else {
-          openTradeModal({
-            type: '매수',
-            price: nd.targetPrice,
-            shares: nd.deltaShares,
-            note: `말뚝박기 ${nd.step}구간(-${nd.dropPct}%) 10% 추가 매수`
-          });
-        }
+        const m = calculateMetrics(asset);
+        const isCrisis = asset.mode === 'crisis';
+        openTradeModal({
+          type: isCrisis ? '매수' : '매도',
+          price: Number(m.nextTargetPrice.toFixed(asset.decimals)),
+          shares: m.nextActionShares,
+          note: isCrisis
+            ? `말뚝박기 ${m.nextStep}구간 (${m.nextDropPct}%) 분할 매수`
+            : `평시 리밸런싱 ${m.nextStep}구간 (${m.nextDropPct}%) 매도`
+        });
       });
 
       document.getElementById('quickReboundBuyBtn').addEventListener('click', () => {
         const asset = getCurrentAsset();
-        const m = computeAssetMetrics(asset);
+        const m = calculateMetrics(asset);
+        const targetPx = Number(m.reboundTargetPrice.toFixed(asset.decimals));
+        const maxShares = targetPx > 0 ? Math.floor(asset.cashBalance / targetPx) : 0;
         openTradeModal({
           type: '전액재매수',
-          price: m.reboundTargetPrice,
-          shares: m.remainSharesToBuy,
-          note: `반등 ${m.reboundStep}구간 돌파 전액 몰빵 (새 전고점 리셋)`
+          price: targetPx,
+          shares: maxShares,
+          note: `V자 반등 (${m.reboundStep}구간 도달) · 잔여 현금 전액 몰빵 및 새 전고점 리셋`
         });
       });
 
+      // 급락일 수동 보정
       document.getElementById('addDrop3DateBtn').addEventListener('click', () => {
-        const raw = document.getElementById('lastDrop3DateInput').value;
-        const dot = formatDotDate(raw);
-        if (!/^\d{4}\.\d{2}\.\d{2}$/.test(dot)) {
-          showToast('날짜를 선택해 주세요.');
-          return;
-        }
-        if (!appState.nasdaqDrop3Dates.includes(dot)) {
-          appState.nasdaqDrop3Dates.push(dot);
-          appState.nasdaqDrop3Dates.sort();
-        }
-        appState.dismissedDrop3Dates = appState.dismissedDrop3Dates.filter((d) => d !== dot);
-        const reg = evaluateNasdaqRegime();
-        ['kr', 'qld'].forEach((k) => {
-          appState.assets[k].lastDrop3Date = reg.latestDropDate;
-          appState.assets[k].mode = 'crisis';
-          appState.assets[k].consecutiveUpDays = 0;
-        });
-        appState.crisisAutoExitNotice = null;
-        activeTableTab = 'crisis';
-        checkAutoCrisisExit();
-        renderApp();
-        persistState(true);
-        showToast(`${dot} 급락일 반영 (${reg.regime === 'panic' ? '🚨 공황모드' : '⚠️ 위기모드'})`);
+        if (isReadOnlyMode) return showToast('🔒 조회 전용 모드입니다.');
+        const val = document.getElementById('lastDrop3DateInput').value;
+        if (!val) return showToast('날짜를 선택해 주세요.');
+        registerNasdaqDrop3Date(val);
+        persistAndSync();
       });
-
       document.getElementById('setTodayDrop3Btn').addEventListener('click', () => {
-        document.getElementById('lastDrop3DateInput').value = getTodayIso();
-        document.getElementById('addDrop3DateBtn').click();
+        if (isReadOnlyMode) return showToast('🔒 조회 전용 모드입니다.');
+        registerNasdaqDrop3Date(getTodayIso());
+        persistAndSync();
       });
-
       document.getElementById('clearAllDrop3Btn').addEventListener('click', () => {
-        appState.dismissedDrop3Dates = Array.from(new Set([...appState.dismissedDrop3Dates, ...appState.nasdaqDrop3Dates]));
+        if (isReadOnlyMode) return showToast('🔒 조회 전용 모드입니다.');
         appState.nasdaqDrop3Dates = [];
         ['kr', 'qld'].forEach((k) => {
-          appState.assets[k].lastDrop3Date = '';
           appState.assets[k].mode = 'normal';
+          appState.assets[k].lastDrop3Date = '';
           appState.assets[k].consecutiveUpDays = 0;
         });
         activeTableTab = 'normal';
-        renderApp();
-        persistState(true);
         showToast('급락일이 모두 초기화되었습니다.');
+        persistAndSync();
       });
 
-      document.getElementById('drop3HistoryChips').addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-del-drop3]');
-        if (!btn) return;
-        const targetDate = btn.dataset.delDrop3;
-        appState.nasdaqDrop3Dates = appState.nasdaqDrop3Dates.filter((d) => d !== targetDate);
-        if (!appState.dismissedDrop3Dates.includes(targetDate)) {
-          appState.dismissedDrop3Dates.push(targetDate);
-        }
-        const reg = evaluateNasdaqRegime();
-        ['kr', 'qld'].forEach((k) => {
-          appState.assets[k].lastDrop3Date = reg.latestDropDate;
-          if (!reg.latestDropDate) {
-            appState.assets[k].mode = 'normal';
-            appState.assets[k].consecutiveUpDays = 0;
-          }
-        });
-        if (!reg.latestDropDate) activeTableTab = 'normal';
-        renderApp();
-        persistState(true);
-        showToast(`${targetDate} 급락일이 삭제되었습니다.`);
+      // 설정 모달
+      document.getElementById('openSettingsModalBtn').addEventListener('click', openSettingsModal);
+      document.getElementById('closeSettingsModalBtn').addEventListener('click', closeSettingsModal);
+      document.getElementById('saveSettingsBtn').addEventListener('click', saveSettingsFromModal);
+      document.getElementById('testGoogleSheetBtn').addEventListener('click', () => {
+        const url = document.getElementById('settingGoogleSheetUrlInput').value.trim();
+        appState.googleSheetUrl = url;
+        fetchGoogleSheetPrices(url, true);
       });
-
-      document.querySelectorAll('.chart-mode-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          activeChartMode = btn.dataset.chartMode;
-          renderComboChart();
-        });
-      });
-
-      document.querySelectorAll('.table-tab-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          activeTableTab = btn.dataset.tableTab;
-          renderStepTable(getCurrentAsset(), computeAssetMetrics(getCurrentAsset()));
-        });
-      });
-
-      document.getElementById('tradeHistoryList').addEventListener('click', (e) => {
-        const askBtn = e.target.closest('[data-ask-del]');
-        const cancelBtn = e.target.closest('[data-cancel-del]');
-        const confirmBtn = e.target.closest('[data-confirm-del]');
-
-        if (askBtn) {
-          pendingDeleteId = askBtn.dataset.askDel;
-          renderTradeHistory(getCurrentAsset());
-          return;
-        }
-        if (cancelBtn) {
-          pendingDeleteId = null;
-          renderTradeHistory(getCurrentAsset());
-          return;
-        }
-        if (confirmBtn) {
-          const delId = confirmBtn.dataset.confirmDel;
-          const asset = getCurrentAsset();
-          const idx = asset.history.findIndex((h) => h.id === delId);
-          if (idx > -1) {
-            const item = asset.history[idx];
-            const qty = Number(item.shares) || 0;
-            const amount = qty * (Number(item.price) || 0);
-            const acc = asset.subAccounts.find((s) => s.name === item.account) || asset.subAccounts[0];
-
-            if (item.type === '매수' || item.type === '전액재매수') {
-              asset.heldShares = Math.max(0, asset.heldShares - qty);
-              asset.cashBalance += amount;
-              if (acc) acc.shares = Math.max(0, acc.shares - qty);
-            } else if (item.type === '매도') {
-              asset.heldShares += qty;
-              asset.cashBalance = Math.max(0, asset.cashBalance - amount);
-              if (acc) acc.shares += qty;
-            }
-            asset.history.splice(idx, 1);
-          }
-          pendingDeleteId = null;
-          renderApp();
-          persistState(true);
-          showToast('매매 이력이 삭제되었습니다.');
-        }
-      });
-
-      document.getElementById('tradeTypeInput').addEventListener('change', syncTradeTypeFields);
-      document.getElementById('tradeDepositInput').addEventListener('input', updateDepositHint);
-      document.getElementById('tradePriceInput').addEventListener('input', () => {
-        if (document.getElementById('tradeTypeInput').value === '추가입금') updateDepositHint();
-      });
-
-      document.querySelectorAll('.quick-qty-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const asset = getCurrentAsset();
-          const pct = btn.dataset.pct;
-          const shares = pct === 'remain'
-            ? Math.max(0, asset.baseShares - asset.heldShares)
-            : Math.round((asset.baseShares * Number(pct)) / 100);
-          document.getElementById('tradeSharesInput').value = shares;
-        });
-      });
-
-      document.getElementById('tradeForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const asset = getCurrentAsset();
-        const dateDot = formatDotDate(document.getElementById('tradeDateInput').value);
-        const type = document.getElementById('tradeTypeInput').value;
-        const account = document.getElementById('tradeAccountInput').value;
-        const price = Number(document.getElementById('tradePriceInput').value) || 0;
-        const shares = Math.max(0, Math.round(Number(document.getElementById('tradeSharesInput').value) || 0));
-        const deposit = Math.max(0, Number(document.getElementById('tradeDepositInput').value) || 0);
-        let note = document.getElementById('tradeNoteInput').value.trim();
-
-        if ((type === '매수' || type === '전액재매수' || type === '매도') && shares <= 0) {
-          showToast('체결 수량을 1주 이상 입력해 주세요.');
-          return;
-        }
-
-        const acc = asset.subAccounts.find((s) => s.name === account) || asset.subAccounts[0];
-
-        if (type === '전고가갱신' || type === '기준가') {
-          asset.basePrice = price;
-          asset.baseDate = dateDot;
-          asset.currentPrice = price;
-          asset.priceUpdatedAt = dateDot;
-          if (shares > 0) {
-            asset.heldShares += shares;
-            asset.baseShares += shares;
-            asset.cashBalance = Math.max(0, asset.cashBalance - shares * price);
-            if (acc) acc.shares += shares;
-          }
-          if (!note) note = `전고가 갱신 (${formatPrice(price, asset)})`;
-        } else if (type === '추가입금') {
-          if (deposit <= 0 || price <= 0) {
-            showToast('추가 입금액과 현재 주가를 입력해 주세요.');
-            return;
-          }
-          const addBase = Math.round(deposit / price);
-          asset.baseShares += addBase;
-          asset.cashBalance += deposit;
-          if (shares > 0) {
-            const cost = shares * price;
-            asset.heldShares += shares;
-            asset.cashBalance = Math.max(0, asset.cashBalance - cost);
-            if (acc) acc.shares += shares;
-          }
-          if (!note) note = `시드 증액 +${formatMoney(deposit, asset.currency)} (기준 +${addBase}주, 매수 +${shares}주)`;
-        } else if (type === '전액재매수') {
-          asset.heldShares += shares;
-          asset.cashBalance = Math.max(0, asset.cashBalance - shares * price);
-          if (acc) acc.shares += shares;
-          asset.basePrice = price;
-          asset.baseDate = dateDot;
-          asset.currentPrice = price;
-          asset.priceUpdatedAt = dateDot;
-          if (!note) note = `전액 몰빵 완료 · 체결가(${formatPrice(price, asset)}) 새 전고점(100%) 리셋`;
-        } else if (type === '매수') {
-          asset.heldShares += shares;
-          asset.cashBalance = Math.max(0, asset.cashBalance - shares * price);
-          if (acc) acc.shares += shares;
-        } else if (type === '매도') {
-          asset.heldShares = Math.max(0, asset.heldShares - shares);
-          asset.cashBalance += shares * price;
-          if (acc) acc.shares = Math.max(0, acc.shares - shares);
-        }
-
-        asset.lastUpdated = dateDot;
-        asset.history.push({
-          id: `${asset.id}-${Date.now()}`,
-          date: dateDot,
-          type,
-          account,
-          price,
-          shares,
-          note
-        });
-
-        closeModal('tradeModal');
-        renderApp();
-        persistState(true);
-        showToast(type === '전액재매수'
-          ? `${asset.shortLabel} 전액 몰빵 및 새 전고점(${formatPrice(price, asset)}) 리셋 완료!`
-          : `${asset.shortLabel} ${type} 내역이 반영되었습니다.`);
-      });
-
-      document.getElementById('closeTradeModalBtn').addEventListener('click', () => closeModal('tradeModal'));
-      document.getElementById('cancelTradeModalBtn').addEventListener('click', () => closeModal('tradeModal'));
-
-      document.getElementById('settingInterestRegimeInput').addEventListener('change', (e) => {
-        const isZero = e.target.value === 'zero';
-        const asset = getCurrentAsset();
-        const isQld = asset.id === 'qld';
-        document.getElementById('settingMaxCrisisDropInput').value = isZero ? (isQld ? 50 : 25) : (isQld ? 100 : 50);
-        document.getElementById('settingCrisisStepInput').value = isZero ? (isQld ? 5 : 2.5) : (isQld ? 10 : 5);
-        document.getElementById('settingNormalStepInput').value = isQld ? 5 : 2.5;
-      });
-
-      document.getElementById('copyGasCodeBtn').addEventListener('click', async () => {
+      document.getElementById('copyGasCodeBtn').addEventListener('click', () => {
         const gasCode = `function doGet() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheets()[0];
-  var tz = ss.getSpreadsheetTimeZone();
-
-  function readNum(cellA1) {
-    var v = sheet.getRange(cellA1).getValue();
+  function readNum(a1) {
+    var v = sheet.getRange(a1).getValue();
     if (typeof v === "number" && !isNaN(v)) return v;
     if (typeof v === "string") {
       var n = Number(v.replace(/[^0-9.\\-]/g, ""));
@@ -3067,17 +2840,14 @@
     }
     return null;
   }
-
   var kr = readNum("B1");
   var qld = readNum("B2");
   var usdkrw = readNum("B3");
   var nasdaqPrice = readNum("B4");
   var nasdaqChangePct = readNum("B5");
   var nasdaqTradeTime = sheet.getRange("B6").getValue();
-
   var nasdaqTradeDate = "";
   var isNasdaqClosed = false;
-
   if (nasdaqTradeTime instanceof Date && !isNaN(nasdaqTradeTime.getTime())) {
     nasdaqTradeDate = Utilities.formatDate(nasdaqTradeTime, "America/New_York", "yyyy.MM.dd");
     var tradeHHmm = Number(Utilities.formatDate(nasdaqTradeTime, "America/New_York", "HHmm"));
@@ -3087,7 +2857,6 @@
       isNasdaqClosed = true;
     }
   }
-
   var histRange = sheet.getRange("D2:E50").getValues();
   var rawRows = [];
   for (var i = 0; i < histRange.length; i++) {
@@ -3095,15 +2864,12 @@
     var cVal = histRange[i][1];
     if (dVal instanceof Date && !isNaN(dVal.getTime()) && typeof cVal === "number" && !isNaN(cVal) && cVal > 0) {
       rawRows.push({
-        date: Utilities.formatDate(dVal, tz, "yyyy.MM.dd"),
+        date: Utilities.formatDate(dVal, "America/New_York", "yyyy.MM.dd"),
         close: cVal
       });
     }
   }
-  rawRows.sort(function(a, b) {
-    return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0);
-  });
-
+  rawRows.sort(function(a, b) { return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0); });
   var nasdaqHistory = [];
   for (var j = 0; j < rawRows.length; j++) {
     var pct = null;
@@ -3116,289 +2882,195 @@
       changePct: pct
     });
   }
-
-  var result = {
-    kr: kr,
-    qld: qld,
-    usdkrw: usdkrw,
-    nasdaqPrice: nasdaqPrice,
-    nasdaqChangePct: nasdaqChangePct,
-    nasdaqTradeDate: nasdaqTradeDate,
-    isNasdaqClosed: isNasdaqClosed,
-    nasdaqHistory: nasdaqHistory,
-    updatedAt: new Date().toISOString()
-  };
-
-  return ContentService
-    .createTextOutput(JSON.stringify(result))
-    .setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify({
+    kr: kr, qld: qld, usdkrw: usdkrw,
+    nasdaqPrice: nasdaqPrice, nasdaqChangePct: nasdaqChangePct,
+    nasdaqTradeDate: nasdaqTradeDate, isNasdaqClosed: isNasdaqClosed,
+    nasdaqHistory: nasdaqHistory, updatedAt: new Date().toISOString()
+  })).setMimeType(ContentService.MimeType.JSON);
 }`;
-        try {
-          await navigator.clipboard.writeText(gasCode);
-          showToast('Apps Script 코드가 클립보드에 복사되었습니다.');
-        } catch (e) {
-          showToast('복사에 실패했습니다.');
-        }
-      });
-
-      document.getElementById('testGoogleSheetBtn').addEventListener('click', async () => {
-        const url = document.getElementById('settingGoogleSheetUrlInput').value.trim();
-        const resEl = document.getElementById('googleSheetTestResult');
-        if (!url) {
-          showToast('웹 앱 URL을 먼저 입력해 주세요.');
-          return;
-        }
-        appState.googleSheetUrl = url;
-        resEl.className = 'text-[11px] font-bold p-2 rounded-lg bg-blue-100 text-blue-700';
-        resEl.textContent = '시세 조회 중...';
-        resEl.classList.remove('hidden');
-
-        const data = await fetchGoogleSheetPrices(true);
-        if (data) {
-          const histLen = Array.isArray(data.nasdaqHistory) ? data.nasdaqHistory.length : 0;
-          resEl.className = 'text-[11px] font-bold p-2 rounded-lg bg-emerald-100 text-emerald-800';
-          resEl.textContent = `연결 성공! KR: ${data.kr ?? '-'} / QLD: ${data.qld ?? '-'} / 환율: ${appState.usdKrwRate} / D1 과거종가: ${histLen}일치`;
-        } else {
-          resEl.className = 'text-[11px] font-bold p-2 rounded-lg bg-rose-100 text-rose-700';
-          resEl.textContent = '연결 실패: 웹 앱 URL 또는 배포 권한(모든 사용자)을 확인해 주세요.';
-        }
-      });
-
-      document.getElementById('saveSettingsBtn').addEventListener('click', () => {
-        const selectedRegime = document.getElementById('settingInterestRegimeInput').value;
-        applyInterestRegimeToAssets(selectedRegime);
-
-        const asset = getCurrentAsset();
-        appState.googleSheetUrl = document.getElementById('settingGoogleSheetUrlInput').value.trim();
-
-        asset.basePrice = Number(document.getElementById('settingBasePriceInput').value) || asset.basePrice;
-        asset.baseDate = formatDotDate(document.getElementById('settingBaseDateInput').value) || asset.baseDate;
-        asset.baseShares = Math.max(1, Math.round(Number(document.getElementById('settingBaseSharesInput').value) || asset.baseShares));
-        asset.initialBaseShares = Math.max(1, Math.round(Number(document.getElementById('settingInitialBaseSharesInput').value) || asset.baseShares));
-        asset.cashBalance = Math.max(0, Number(document.getElementById('settingCashBalanceInput').value) ?? asset.cashBalance);
-
-        asset.mode = document.getElementById('settingModeInput').value;
-        asset.normalStepPct = Number(document.getElementById('settingNormalStepInput').value) || asset.normalStepPct;
-        asset.crisisStepPct = Number(document.getElementById('settingCrisisStepInput').value) || asset.crisisStepPct;
-        asset.maxCrisisDropPct = Number(document.getElementById('settingMaxCrisisDropInput').value) || asset.maxCrisisDropPct;
-
-        recalculateHoldingsFromHistory(asset);
-        activeTableTab = asset.mode === 'normal' ? 'normal' : 'crisis';
-        closeModal('settingsModal');
-        renderApp();
-        persistState(true);
-        showToast('설정이 저장되었습니다.');
+        copyTextFallback(gasCode, '📋 최신 Apps Script 코드가 복사되었습니다.');
       });
 
       document.getElementById('resetDefaultBtn').addEventListener('click', () => {
+        if (isReadOnlyMode) return;
         const key = appState.activeAsset;
         appState.assets[key] = deepClone(DEFAULT_APP_STATE.assets[key]);
-        applyInterestRegimeToAssets(appState.interestRegime);
-        closeModal('settingsModal');
-        renderApp();
-        persistState(true);
-        showToast('현재 종목 데이터가 기본값으로 초기화되었습니다.');
+        recalculateHoldingsFromHistory(appState.assets[key]);
+        closeSettingsModal();
+        showToast('현재 종목이 기본 데이터로 복원되었습니다.');
+        persistAndSync();
       });
 
-      document.getElementById('closeSettingsModalBtn').addEventListener('click', () => closeModal('settingsModal'));
+      // 현재 주가 빠른 수정 모달
+      document.getElementById('openQuickPriceModalBtn').addEventListener('click', () => {
+        if (isReadOnlyMode) return showToast('🔒 조회 전용 모드입니다.');
+        const asset = getCurrentAsset();
+        document.getElementById('quickPriceModalTitle').textContent = `${asset.shortLabel} 현재 주가 업데이트`;
+        document.getElementById('quickPriceInputLabel').textContent = `현재 주가 (${asset.unitSuffix})`;
+        document.getElementById('quickPriceInput').value = asset.currentPrice;
+        document.getElementById('quickPriceDateInput').value = getTodayIso();
+        const modal = document.getElementById('quickPriceModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
+      const closeQuickPrice = () => {
+        const modal = document.getElementById('quickPriceModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+      document.getElementById('closeQuickPriceModalBtn').addEventListener('click', closeQuickPrice);
+      document.getElementById('cancelQuickPriceModalBtn').addEventListener('click', closeQuickPrice);
+      document.getElementById('quickPriceInput').addEventListener('input', () => {
+        const asset = getCurrentAsset();
+        const px = Math.max(0, Number(document.getElementById('quickPriceInput').value) || 0);
+        const dd = ((px - asset.basePrice) / asset.basePrice) * 100;
+        const stepPct = asset.mode === 'crisis' ? asset.crisisStepPct : asset.normalStepPct;
+        const step = px >= asset.basePrice ? 0 : Math.floor(Math.abs(dd) / stepPct);
+        document.getElementById('quickPreviewDrawdown').textContent = `${dd >= 0 ? '+' : ''}${dd.toFixed(2)}%`;
+        document.getElementById('quickPreviewStep').textContent = `${step}구간대`;
+      });
+      document.getElementById('quickPriceForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const asset = getCurrentAsset();
+        const px = Math.max(0.0001, Number(document.getElementById('quickPriceInput').value) || asset.currentPrice);
+        const dt = formatDotDate(document.getElementById('quickPriceDateInput').value);
+        asset.currentPrice = px;
+        asset.priceUpdatedAt = dt;
+        asset.lastUpdated = dt;
+        closeQuickPrice();
+        showToast(`✅ ${asset.shortLabel} 현재가가 반영되었습니다.`);
+        persistAndSync();
+      });
 
+      // 클라우드 동기화 모달
+      document.getElementById('openCloudModalBtn').addEventListener('click', () => {
+        document.getElementById('ghTokenInput').value = ghConfig.token || '';
+        document.getElementById('ghGistIdInput').value = ghConfig.gistId || '';
+        document.getElementById('editPinSettingInput').value = appState.editPin || '';
+        updateCloudBadgeUi();
+        applyReadOnlyUi();
+        const modal = document.getElementById('cloudModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
+      document.getElementById('closeCloudModalBtn').addEventListener('click', () => {
+        const modal = document.getElementById('cloudModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      });
+      document.getElementById('copyGhTokenUrlBtn').addEventListener('click', () => {
+        copyTextFallback('https://github.com/settings/tokens/new?scopes=gist&description=RichProjectDashboard', '🔗 GitHub 토큰 발급 주소가 복사되었습니다.');
+      });
+      document.getElementById('connectGhSyncBtn').addEventListener('click', async () => {
+        const token = document.getElementById('ghTokenInput').value.trim();
+        const gistId = document.getElementById('ghGistIdInput').value.trim();
+        if (!token) return showToast('GitHub Token을 입력해 주세요.');
+        ghConfig.token = token;
+        ghConfig.gistId = gistId;
+        saveGhConfig();
+        if (gistId) await pullFromGist(false);
+        else await pushToGist(false);
+      });
+      document.getElementById('forcePullGhBtn').addEventListener('click', () => pullFromGist(false));
+      document.getElementById('forcePushGhBtn').addEventListener('click', () => pushToGist(false));
+      document.getElementById('disconnectGhBtn').addEventListener('click', () => {
+        ghConfig = { token: '', gistId: '', lastSync: '' };
+        saveGhConfig();
+        updateCloudBadgeUi();
+        showToast('클라우드 연결이 해제되었습니다.');
+      });
+
+      // 조회 전용 잠금 & PIN
+      document.getElementById('saveEditPinBtn').addEventListener('click', () => {
+        appState.editPin = document.getElementById('editPinSettingInput').value.trim();
+        showToast(appState.editPin ? '🔑 편집 해제 비밀번호(PIN)가 저장되었습니다.' : '🔑 비밀번호가 해제되었습니다.');
+        persistAndSync();
+      });
       document.getElementById('toggleReadOnlyBtn').addEventListener('click', () => {
         if (!isReadOnlyMode) {
           isReadOnlyMode = true;
-          localStorage.setItem(STORAGE_KEY_READONLY, 'true');
-          closeModal('cloudModal');
+          localStorage.setItem(STORAGE_KEY_READONLY, '1');
+          applyReadOnlyUi();
           renderApp();
-          showToast('🔒 조회 전용 잠금 모드가 활성화되었습니다.');
-        } else {
-          if (appState.editPin) {
-            closeModal('cloudModal');
-            document.getElementById('unlockPinInput').value = '';
-            document.getElementById('unlockPinError').classList.add('hidden');
-            openModal('pinUnlockModal');
-          } else {
-            isReadOnlyMode = false;
-            localStorage.setItem(STORAGE_KEY_READONLY, 'false');
-            closeModal('cloudModal');
-            renderApp();
-            showToast('✏️ 편집 모드로 전환되었습니다.');
-          }
-        }
-      });
-
-      document.getElementById('pinUnlockForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const entered = document.getElementById('unlockPinInput').value.trim();
-        if (entered === appState.editPin) {
+          showToast('🔒 조회 전용 모드로 전환되었습니다.');
+        } else if (!appState.editPin) {
           isReadOnlyMode = false;
-          localStorage.setItem(STORAGE_KEY_READONLY, 'false');
-          closeModal('pinUnlockModal');
+          localStorage.setItem(STORAGE_KEY_READONLY, '0');
+          applyReadOnlyUi();
           renderApp();
           showToast('🔓 편집 모드로 전환되었습니다.');
+        } else {
+          document.getElementById('unlockPinInput').value = '';
+          document.getElementById('unlockPinError').classList.add('hidden');
+          const m = document.getElementById('pinUnlockModal');
+          m.classList.remove('hidden');
+          m.classList.add('flex');
+        }
+      });
+      const closePinModal = () => {
+        const m = document.getElementById('pinUnlockModal');
+        m.classList.add('hidden');
+        m.classList.remove('flex');
+      };
+      document.getElementById('closePinUnlockModalBtn').addEventListener('click', closePinModal);
+      document.getElementById('cancelPinUnlockBtn').addEventListener('click', closePinModal);
+      document.getElementById('pinUnlockForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('unlockPinInput').value.trim();
+        if (input === appState.editPin) {
+          isReadOnlyMode = false;
+          localStorage.setItem(STORAGE_KEY_READONLY, '0');
+          closePinModal();
+          applyReadOnlyUi();
+          renderApp();
+          showToast('🔓 편집 모드 잠금이 해제되었습니다.');
         } else {
           document.getElementById('unlockPinError').classList.remove('hidden');
         }
       });
 
-      document.getElementById('closePinUnlockModalBtn').addEventListener('click', () => closeModal('pinUnlockModal'));
-      document.getElementById('cancelPinUnlockBtn').addEventListener('click', () => closeModal('pinUnlockModal'));
-
-      document.getElementById('saveEditPinBtn').addEventListener('click', () => {
-        appState.editPin = document.getElementById('editPinSettingInput').value.trim();
-        persistState(true);
-        showToast(appState.editPin ? '편집 해제 PIN이 저장되었습니다.' : '편집 해제 PIN이 해제되었습니다.');
+      // 가족 초대 링크 복사
+      document.getElementById('copyReadOnlyInviteBtn').addEventListener('click', () => {
+        const base = window.location.href.split('?')[0];
+        const link = `${base}?token=${encodeURIComponent(ghConfig.token)}&gist=${encodeURIComponent(ghConfig.gistId)}&ro=1`;
+        copyTextFallback(link, '🔒 가족 조회전용 초대 링크가 복사되었습니다.');
+      });
+      document.getElementById('copyEditableInviteBtn').addEventListener('click', () => {
+        const base = window.location.href.split('?')[0];
+        const link = `${base}?token=${encodeURIComponent(ghConfig.token)}&gist=${encodeURIComponent(ghConfig.gistId)}`;
+        copyTextFallback(link, '✏️ 공동편집 초대 링크가 복사되었습니다.');
       });
 
-      document.getElementById('copyReadOnlyInviteBtn').addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(buildInviteUrl(true));
-          showToast('🔒 조회 전용 가족 공유 링크가 복사되었습니다.');
-        } catch (e) {}
-      });
-
-      document.getElementById('copyEditableInviteBtn').addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(buildInviteUrl(false));
-          showToast('✏️ 공동 편집 공유 링크가 복사되었습니다.');
-        } catch (e) {}
-      });
-
-      document.getElementById('copyGhTokenUrlBtn').addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText('https://github.com/settings/tokens/new?scopes=gist&description=RichProject_Dashboard');
-          showToast('GitHub 토큰 발급 페이지 주소가 복사되었습니다.');
-        } catch (e) {}
-      });
-
-      document.getElementById('connectGhSyncBtn').addEventListener('click', async () => {
-        const token = document.getElementById('ghTokenInput').value.trim();
-        const gistId = document.getElementById('ghGistIdInput').value.trim();
-        if (!token) {
-          showToast('GitHub Token을 입력해 주세요.');
-          return;
-        }
-        ghConfig = { token, gistId, lastSync: '' };
-        localStorage.setItem(STORAGE_KEY_GH, JSON.stringify(ghConfig));
-        await pullFromGist(false);
-      });
-
-      document.getElementById('forcePullGhBtn').addEventListener('click', () => pullFromGist(false));
-      document.getElementById('forcePushGhBtn').addEventListener('click', () => pushToGist(false));
-      document.getElementById('disconnectGhBtn').addEventListener('click', () => {
-        ghConfig = { token: '', gistId: '', lastSync: '' };
-        localStorage.setItem(STORAGE_KEY_GH, JSON.stringify(ghConfig));
-        updateCloudStatusUI();
-        showToast('클라우드 동기화 연결이 해제되었습니다.');
-      });
-      document.getElementById('closeCloudModalBtn').addEventListener('click', () => closeModal('cloudModal'));
-
-      document.getElementById('quickPriceInput').addEventListener('input', updateQuickPricePreview);
-      document.getElementById('quickPriceForm').addEventListener('submit', (e) => {
-        e.preventDefault();
+      window.addEventListener('resize', () => {
         const asset = getCurrentAsset();
-        const val = Number(document.getElementById('quickPriceInput').value) || 0;
-        const dt = formatDotDate(document.getElementById('quickPriceDateInput').value);
-        if (val <= 0) return;
-        asset.currentPrice = asset.currency === 'USD' ? Number(val.toFixed(2)) : Math.round(val);
-        asset.priceUpdatedAt = dt;
-        asset.lastUpdated = dt;
-        closeModal('quickPriceModal');
-        renderApp();
-        persistState(true);
-        showToast(`${asset.shortLabel} 현재 주가가 반영되었습니다.`);
+        renderComboChart(asset, calculateMetrics(asset));
       });
-      document.getElementById('closeQuickPriceModalBtn').addEventListener('click', () => closeModal('quickPriceModal'));
-      document.getElementById('cancelQuickPriceModalBtn').addEventListener('click', () => closeModal('quickPriceModal'));
-
-      ['tradeModal', 'settingsModal', 'cloudModal', 'quickPriceModal', 'pinUnlockModal'].forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.addEventListener('click', (e) => {
-            if (e.target === el) closeModal(id);
-          });
-        }
-      });
-
-      window.addEventListener('resize', () => renderComboChart());
     }
 
-    // -----------------------------------------------------------------------
-    // 8-8. 초기 부트스트랩
-    // -----------------------------------------------------------------------
-    (async function initApp() {
-      const savedTheme = localStorage.getItem('rich_project_theme_v1');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    window.addEventListener('DOMContentLoaded', async () => {
+      if (localStorage.getItem('rich_project_theme') === 'dark') {
         document.documentElement.classList.add('dark');
       }
+      loadGhConfig();
+      applyInviteParamsFromUrl();
+      loadLocalState();
+      updateCloudBadgeUi();
+      bindAllEvents();
 
-      try {
-        const manifestObj = {
-          name: '리치프로젝트 리밸런싱·말뚝박기 대시보드',
-          short_name: '리치대시보드',
-          start_url: '.',
-          display: 'standalone',
-          background_color: '#0f172a',
-          theme_color: '#4f46e5'
-        };
-        const blob = new Blob([JSON.stringify(manifestObj)], { type: 'application/json' });
-        const link = document.getElementById('pwaManifestLink');
-        if (link) link.href = URL.createObjectURL(blob);
-      } catch (e) {}
+      const savedAuto = Number(localStorage.getItem(STORAGE_KEY_AUTO_REFRESH) || 0);
+      if (savedAuto > 0) setAutoRefreshInterval(savedAuto);
 
-      try {
-        let rawState = localStorage.getItem(STORAGE_KEY_STATE);
-        if (!rawState) {
-          for (const legacyKey of LEGACY_STATE_KEYS) {
-            const found = localStorage.getItem(legacyKey);
-            if (found) {
-              rawState = found;
-              break;
-            }
-          }
-        }
-        if (rawState) {
-          appState = normalizeAppState(JSON.parse(rawState));
-          saveStateLocal();
-        }
-      } catch (e) {}
-
-      try {
-        const rawGh = localStorage.getItem(STORAGE_KEY_GH);
-        if (rawGh) {
-          ghConfig = Object.assign(ghConfig, JSON.parse(rawGh));
-        }
-      } catch (e) {}
-
-      isReadOnlyMode = localStorage.getItem(STORAGE_KEY_READONLY) === 'true';
-      autoRefreshMinutes = Number(localStorage.getItem(STORAGE_KEY_AUTO_REFRESH)) || 0;
-      activeTableTab = getCurrentAsset().mode === 'normal' ? 'normal' : 'crisis';
-
-      bindEvents();
-      applyAutoRefreshTimer();
+      checkAutoCrisisExit();
       renderApp();
 
-      const invited = await checkInviteHash();
-      if (!invited && ghConfig.token) {
+      if (ghConfig.token && ghConfig.gistId) {
         await pullFromGist(true);
       }
-
-      if (checkAutoCrisisExit()) {
-        renderApp();
-        persistState(true);
-        showToast('🎉 위기 종료 조건 달성! 평상시 모드로 자동 전환되었습니다.');
-      }
-
       if (appState.googleSheetUrl) {
-        fetchGoogleSheetPrices(true);
-      } else {
-        fetchFallbackUsdKrw().then((rate) => {
-          if (rate) {
-            appState.usdKrwRate = rate;
-            renderApp();
-            saveStateLocal();
-          }
-        });
+        await fetchGoogleSheetPrices();
       }
-    })();
+    });
   </script>
 </body>
   </html>
