@@ -1,0 +1,1559 @@
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>미국테크TOP10 & QLD 통합 운용 대시보드</title>
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="리치대시보드" />
+  <link id="pwaManifestLink" rel="manifest" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* 모바일 가로 스크롤 방지 및 커스텀 스크롤바 */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen transition-colors duration-200 pb-24">
+
+  <!-- 상단 고정 헤더 -->
+  <header class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-3 sm:px-5 py-3 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 min-w-0">
+        <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-extrabold text-sm shadow-sm shrink-0">
+          RP
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5">
+            <h1 id="headerTitle" class="text-base sm:text-lg font-extrabold tracking-tight truncate">미국테크TOP10</h1>
+            <span id="versionBadge" class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 shrink-0">v35</span>
+          </div>
+          <p id="lastUpdatedText" class="text-[11px] text-slate-500 dark:text-slate-400 truncate">업데이트 : 2026.11.20</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <!-- GitHub Gist 클라우드 동기화 버튼 -->
+        <button id="openCloudModalBtn" type="button" title="깃허브 클라우드 동기화 설정" class="px-2.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center gap-1.5 transition">
+          <span id="cloudStatusDot" class="w-2 h-2 rounded-full bg-slate-400"></span>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span id="cloudStatusLabel" class="hidden md:inline">동기화</span>
+        </button>
+
+        <!-- 삼성노트 복사 버튼 -->
+        <button id="copySamsungNoteBtn" type="button" class="px-2.5 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 text-xs font-bold flex items-center gap-1.5 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+          <span class="hidden sm:inline">삼성노트 복사</span>
+          <span class="sm:hidden">복사</span>
+        </button>
+
+        <!-- 기준 설정 버튼 -->
+        <button id="openSettingsModalBtn" type="button" title="기준가 및 계좌 설정" class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </button>
+
+        <!-- 다크모드 토글 -->
+        <button id="themeToggleBtn" type="button" aria-label="테마 전환" class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition">
+          <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg id="moonIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 종목 전환 탭 & 운용 모드 바 -->
+    <div class="max-w-4xl mx-auto px-3 sm:px-5 pb-2.5 flex items-center justify-between gap-2">
+      <div class="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200/70 dark:border-slate-700/70">
+        <button type="button" data-asset="ustech" class="asset-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold transition">
+          🇰🇷 미국테크TOP10
+        </button>
+        <button type="button" data-asset="qld" class="asset-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold transition">
+          🇺🇸 QLD (2x)
+        </button>
+      </div>
+
+      <button id="modeBadgeBtn" type="button" title="클릭하여 위기모드 / 평상시 모드 전환" class="px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition shadow-2xs">
+        <span id="modeDot" class="w-2 h-2 rounded-full"></span>
+        <span id="modeLabel">위기모드 (-50%)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 메인 컨테이너 -->
+  <main class="max-w-4xl mx-auto px-3 sm:px-5 pt-4 space-y-4">
+
+    <!-- 1. 핵심 요약 대시보드 카드 -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">포트폴리오 실시간 상태</span>
+          <div class="flex items-baseline gap-2 mt-0.5">
+            <h2 id="currentRatioHeadline" class="text-xl sm:text-2xl font-extrabold tracking-tight">현금 70% / 주식 30%</h2>
+            <span id="currentStepBadge" class="px-2 py-0.5 rounded-lg text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300">말뚝 3구간</span>
+          </div>
+        </div>
+        <button id="openTradeModalBtn" type="button" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white text-xs sm:text-sm font-extrabold shadow-md shadow-indigo-500/20 flex items-center gap-1.5 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <span>매매 입력</span>
+        </button>
+      </div>
+
+      <!-- 현금 vs 주식 비중 바 -->
+      <div class="space-y-1.5">
+        <div class="flex justify-between text-xs font-bold">
+          <span id="cashPctLabel" class="text-emerald-600 dark:text-emerald-400">현금 비중 70%</span>
+          <span id="stockPctLabel" class="text-indigo-600 dark:text-indigo-400">주식 비중 30% (2,031주 / 6,769주)</span>
+        </div>
+        <div class="w-full h-3.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden flex p-0.5">
+          <div id="cashBar" class="h-full bg-emerald-500 rounded-l-full transition-all duration-300" style="width: 70%"></div>
+          <div id="stockBar" class="h-full bg-indigo-600 rounded-r-full transition-all duration-300" style="width: 30%"></div>
+        </div>
+      </div>
+
+      <!-- 3대 핵심 지표 그리드 -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3">
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60">
+          <p class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">기준가(전고가)</p>
+          <p id="basePriceDisplay" class="text-sm sm:text-base font-extrabold mt-0.5">17,345원</p>
+          <p id="baseDateDisplay" class="text-[10px] text-slate-400 mt-0.5">2026.10.06</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60">
+          <p class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">최근 확인 주가</p>
+          <p id="lastPriceDisplay" class="text-sm sm:text-base font-extrabold mt-0.5">14,620원</p>
+          <p id="lastPriceDateDisplay" class="text-[10px] text-slate-400 mt-0.5">2026.11.20</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60">
+          <p class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">전고가 대비</p>
+          <p id="drawdownDisplay" class="text-sm sm:text-base font-extrabold text-rose-600 dark:text-rose-400 mt-0.5">-15.71%</p>
+          <p id="targetSharesDisplay" class="text-[10px] text-slate-400 mt-0.5">목표 6,769주</p>
+        </div>
+      </div>
+
+      <!-- 계좌별 보유 현황 -->
+      <div class="pt-1">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xs font-extrabold text-slate-600 dark:text-slate-300">■ 계좌별 보유 현황</h3>
+          <span id="totalHoldingsSummary" class="text-xs font-bold text-indigo-600 dark:text-indigo-400">합계 2,031주</span>
+        </div>
+        <div id="accountsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <!-- JS 동적 렌더링 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 다음 액션 가이드 카드 (추가 하락 / V자 반등 / 위기 종료) -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+      <!-- ▼ 추가 하락 대응 -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs flex flex-col justify-between space-y-3">
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300">▼ 추가 하락 대응</span>
+            <span id="nextDropStepLabel" class="text-xs font-bold text-slate-400">다음 4구간 (-20%)</span>
+          </div>
+          <div class="flex items-baseline justify-between pt-1">
+            <div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">다음 목표 체결가</p>
+              <p id="nextDropPrice" class="text-xl font-extrabold text-blue-600 dark:text-blue-400">13,876원</p>
+            </div>
+            <div class="text-right">
+              <p class="text-xs text-slate-500 dark:text-slate-400">실행 수량 (10%)</p>
+              <p id="nextDropActionText" class="text-sm font-extrabold">+677주 매수</p>
+            </div>
+          </div>
+          <p id="nextDropRatioDesc" class="text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/70 p-2.5 rounded-xl">
+            목표 비중 전환 : 현금 60% / 주식 40% (누적 2,708주)
+          </p>
+        </div>
+        <button id="quickDropBuyBtn" type="button" class="w-full py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold transition flex items-center justify-center gap-1.5">
+          <span>이 구간 매수 입력하기</span>
+        </button>
+      </div>
+
+      <!-- ▲ V자 반등 & 위기 종료 -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs flex flex-col justify-between space-y-3">
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300">▲ V자 반등 대응 (2구간 상승)</span>
+            <span id="reboundTargetStepLabel" class="text-xs font-bold text-slate-400">1구간 (-5%) 도달 시</span>
+          </div>
+          <div class="flex items-baseline justify-between pt-1">
+            <div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">반등 재매수 기준가</p>
+              <p id="reboundTargetPrice" class="text-xl font-extrabold text-emerald-600 dark:text-emerald-400">16,478원</p>
+            </div>
+            <div class="text-right">
+              <p class="text-xs text-slate-500 dark:text-slate-400">실행 내용</p>
+              <p id="reboundActionText" class="text-sm font-extrabold">현금 70% 전액 매수</p>
+            </div>
+          </div>
+          <div class="text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/70 p-2.5 rounded-xl space-y-1">
+            <p id="reboundRedropRule">• 재하락 시 : 직전 말뚝(3구간 14,743원)보다 1구간 추가 하락(4구간 13,876원) 시 비율대로 매도 후 재개</p>
+            <p id="crisisEndRule" class="text-slate-500 dark:text-slate-400">• 위기 종료 : 마지막 -3% 후 1개월+1일 경과 (26.12.07 이후) 또는 공황 시 2개월+1일 / 8거래일 연속 상승</p>
+          </div>
+        </div>
+        <button id="quickReboundBuyBtn" type="button" class="w-full py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold transition flex items-center justify-center gap-1.5">
+          <span>V자 반등 전액 재매수 입력</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. 구간표 섹션 (말뚝박기 위기시 / 평상시 리밸런싱 전환) -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs space-y-3">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h3 id="tableSectionTitle" class="text-sm sm:text-base font-extrabold">■ 말뚝박기 표 (위기시 · 간격 5%)</h3>
+          <p id="tableSectionSubtitle" class="text-xs text-slate-500 dark:text-slate-400">비(非)제로금리 환경 -50% 말뚝박기 기준</p>
+        </div>
+        <div class="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold">
+          <button type="button" id="showCrisisTableBtn" class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs transition">
+            위기시 (5%)
+          </button>
+          <button type="button" id="showNormalTableBtn" class="px-2.5 py-1 rounded-lg text-slate-500 dark:text-slate-400 transition">
+            평상시 (2.5%)
+          </button>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-200/80 dark:border-slate-800">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-slate-50 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 border-b border-slate-200/80 dark:border-slate-800">
+              <th class="py-2.5 px-3 font-bold">구간</th>
+              <th class="py-2.5 px-3 font-bold">하락률</th>
+              <th class="py-2.5 px-3 font-bold">목표가</th>
+              <th class="py-2.5 px-3 font-bold">현금 : 주식</th>
+              <th id="tableSharesColHeader" class="py-2.5 px-3 font-bold text-right">누적 매수</th>
+            </tr>
+          </thead>
+          <tbody id="gridTableBody" class="divide-y divide-slate-100 dark:divide-slate-800/80">
+            <!-- JS 동적 렌더링 -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. 매매 이력 타임라인 -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs space-y-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-sm sm:text-base font-extrabold">■ 매매 이력</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">체결 내역을 추가하거나 삭제하면 상단 보유 수량·비중이 즉시 재계산됩니다.</p>
+        </div>
+        <span id="historyCountBadge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">총 12건</span>
+      </div>
+
+      <div id="tradeHistoryList" class="space-y-2">
+        <!-- JS 동적 렌더링 -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 모달 1: 매매 입력 -->
+  <div id="tradeModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-3xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+      <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="tradeModalTitle" class="text-base font-extrabold">매매 체결 입력</h3>
+        <button type="button" class="close-modal p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="tradeForm" class="p-5 space-y-4 overflow-y-auto">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">체결 일자</label>
+            <input type="date" id="tradeDateInput" required class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">매매 구분</label>
+            <select id="tradeTypeInput" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="buy">추가 매수 (말뚝박기)</option>
+              <option value="sell">분할 매도 (리밸런싱/위기)</option>
+              <option value="rebound_all">전액 재매수 (V자 반등/위기종료)</option>
+              <option value="new_high">전고가 갱신 (기준가 변경)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">체결 계좌</label>
+            <select id="tradeAccountInput" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <!-- JS 동적 렌더링 -->
+            </select>
+          </div>
+          <div>
+            <label id="tradePriceLabel" class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">체결 단가 (원)</label>
+            <input type="number" id="tradePriceInput" step="any" min="0" required placeholder="13876" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300">체결 수량 (주)</label>
+            <div class="flex gap-1">
+              <button type="button" data-pct="10" class="quick-qty-btn px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-[11px] font-bold hover:bg-indigo-100 dark:hover:bg-indigo-950">10%</button>
+              <button type="button" data-pct="20" class="quick-qty-btn px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-[11px] font-bold hover:bg-indigo-100 dark:hover:bg-indigo-950">20%</button>
+              <button type="button" data-pct="remain" class="quick-qty-btn px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[11px] font-bold">잔여현금 전액</button>
+            </div>
+          </div>
+          <input type="number" id="tradeSharesInput" step="1" min="0" required placeholder="677" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">메모 (선택)</label>
+          <input type="text" id="tradeNoteInput" placeholder="예: 말뚝박기 4구간 돌파 10% 추가 매수" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <div class="pt-2 flex gap-2">
+          <button type="button" class="close-modal flex-1 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold">취소</button>
+          <button type="submit" class="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-extrabold shadow-md shadow-indigo-500/20">저장 및 업데이트</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 모달 2: 기준 설정 -->
+  <div id="settingsModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-3xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+      <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <h3 id="settingsModalTitle" class="text-base font-extrabold">운용 기준 설정</h3>
+        <button type="button" class="close-modal p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-4 overflow-y-auto">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label id="settingBasePriceLabel" class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">기준가(전고가)</label>
+            <input type="number" id="settingBasePriceInput" step="any" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">전고가 기준일</label>
+            <input type="date" id="settingBaseDateInput" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">100% 기준 총 수량 (주)</label>
+            <input type="number" id="settingTotalSharesInput" step="1" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">가이드 버전 번호</label>
+            <input type="number" id="settingVersionInput" step="1" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">운용 계좌 목록 (쉼표로 구분)</label>
+          <input type="text" id="settingAccountsInput" placeholder="연저펀1, 연저펀2, ISA, IRP" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">위기 종료 예상일 안내</label>
+          <input type="text" id="settingCrisisEndInput" placeholder="2026.12.07 이후" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <button id="saveSettingsBtn" type="button" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-extrabold shadow-md shadow-indigo-500/20 transition">
+          설정 저장하기
+        </button>
+
+        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <span id="resetDefaultLabel" class="text-xs text-slate-500">기본 데이터로 되돌리기</span>
+          <button id="resetDefaultBtn" type="button" class="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/50 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 text-xs font-bold transition">
+            현재 종목 초기화
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 모달 3: GitHub Gist 클라우드 동기화 -->
+  <div id="cloudModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-3xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+      <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-slate-800 dark:text-white" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <h3 class="text-base font-extrabold">깃허브 클라우드 동기화</h3>
+        </div>
+        <button type="button" class="close-modal p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="p-5 space-y-4 overflow-y-auto">
+        <!-- 현재 연결 상태 박스 -->
+        <div id="cloudConnectionBox" class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700/80 space-y-1">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 dark:text-slate-400">동기화 상태</span>
+            <span id="cloudModalBadge" class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300">브라우저 로컬 저장</span>
+          </div>
+          <p id="cloudLastSyncText" class="text-xs text-slate-600 dark:text-slate-300">토큰을 한 번만 등록하면 비공개 Gist에 자동 저장됩니다.</p>
+        </div>
+
+        <!-- 초간단 3단계 안내 -->
+        <div class="p-3.5 rounded-xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-900/50 space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
+          <p class="font-extrabold text-indigo-700 dark:text-indigo-300">1회 연결 방법 (30초 완료)</p>
+          <p>1. 아래 버튼으로 주소를 복사해 브라우저(크롬·삼성인터넷)에 붙여넣거나 깃허브에서 토큰을 발급받으세요.</p>
+          <div class="flex flex-wrap gap-2">
+            <button id="copyGhTokenUrlBtn" type="button" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-xs transition">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <span>토큰 발급 주소 복사하기</span>
+            </button>
+            <a href="https://github.com/settings/tokens/new?scopes=gist&description=RichProject_Dashboard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-2 rounded-lg bg-white dark:bg-slate-800 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 font-bold hover:bg-indigo-50 transition">
+              <span>새 창 열기</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+          </div>
+          <div class="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/60 border border-indigo-100 dark:border-indigo-900/40 text-[11px] text-slate-600 dark:text-slate-400 space-y-0.5">
+            <p class="font-bold text-slate-700 dark:text-slate-300">직접 메뉴로 찾아가는 경로:</p>
+            <p>GitHub 로그인 → 프로필 → <strong>Settings</strong> → 맨 아래 <strong>Developer settings</strong> → <strong>Personal access tokens</strong> → <strong>Tokens (classic)</strong> → <strong>Generate new token (classic)</strong> → Expiration은 <strong>No expiration</strong>, 권한은 <strong>gist</strong> 하나만 체크 후 발급</p>
+          </div>
+          <p>2. 복사한 토큰(<code class="font-mono text-indigo-600 dark:text-indigo-400">ghp_...</code>)을 아래 칸에 붙여넣고 <strong>[연결 및 자동 동기화 시작]</strong> 클릭</p>
+        </div>
+
+        <!-- 토큰 및 Gist ID 입력 -->
+        <div class="space-y-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">GitHub Personal Access Token</label>
+            <input type="password" id="ghTokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">연결된 비공개 Gist ID <span class="font-normal text-slate-400">(자동 생성/탐색)</span></label>
+            <input type="text" id="ghGistIdInput" placeholder="비워두면 자동으로 찾거나 새로 생성합니다" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono text-slate-600 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          </div>
+        </div>
+
+        <button id="connectGhSyncBtn" type="button" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-extrabold shadow-md shadow-indigo-500/20 transition">
+          연결 및 자동 동기화 시작
+        </button>
+
+        <!-- 수동 동기화 및 연결 해제 버튼 -->
+        <div id="ghConnectedActions" class="hidden pt-2 border-t border-slate-200 dark:border-slate-800 space-y-2">
+          <div class="grid grid-cols-2 gap-2">
+            <button id="forcePullGhBtn" type="button" class="py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold transition">
+              클라우드 → 불러오기
+            </button>
+            <button id="forcePushGhBtn" type="button" class="py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold transition">
+              현재데이터 → 덮어쓰기
+            </button>
+          </div>
+          <button id="disconnectGhBtn" type="button" class="w-full py-2 text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline">
+            이 기기에서 클라우드 연결 해제
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 토스트 알림 배너 -->
+  <div id="toastBanner" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-2xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs sm:text-sm font-bold shadow-xl opacity-0 pointer-events-none transition-all duration-200 max-w-[92vw] text-center">
+    알림 메시지
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. 초기 상태 데이터 (미국테크TOP10 v35 기준 & QLD 초기 템플릿)
+    // =========================================================================
+    const DEFAULT_APP_STATE = {
+      activeAsset: 'ustech',
+      assets: {
+        ustech: {
+          id: 'ustech',
+          headerTitle: '미국테크TOP10',
+          currency: 'KRW',
+          version: 35,
+          lastUpdated: '2026.11.20',
+          mode: 'crisis', // 'crisis' | 'normal'
+          basePrice: 17345,
+          baseDate: '2026-10-06',
+          lastCheckedPrice: 14620,
+          lastCheckedDate: '2026.11.20',
+          totalTargetShares: 6769,
+          crisisEndHint: '2026.12.07 이후',
+          accounts: [
+            { name: '연저펀1', shares: 677, note: '11.20 3구간 매수 반영' },
+            { name: '연저펀2', shares: 0, note: '매도 완료' },
+            { name: 'ISA', shares: 1354, note: '기존 잔여 보유' },
+            { name: 'IRP', shares: 0, note: '매도 완료' },
+          ],
+          history: [
+            { id: 'u1', date: '2026.07.20', type: 'sell', account: '전체', price: 17310, shares: 677, afterCash: 10, afterStock: 90, note: '평시 1구간 10% 매도' },
+            { id: 'u2', date: '2026.07.24', type: 'sell', account: '전체', price: 16840, shares: 677, afterCash: 20, afterStock: 80, note: '평시 2구간 10% 매도' },
+            { id: 'u3', date: '2026.07.28', type: 'sell', account: '전체', price: 16450, shares: 677, afterCash: 30, afterStock: 70, note: '평시 3구간 10% 매도' },
+            { id: 'u4', date: '2026.08.05', type: 'rebound_all', account: '전체', price: 16911, shares: 2031, afterCash: 0, afterStock: 100, note: '3구간 → 1구간 상승 · 현금 30% 전액 재매수' },
+            { id: 'u5', date: '2026.08.21', type: 'sell', account: '전체', price: 16685, shares: 677, afterCash: 10, afterStock: 90, note: '평시 2구간 10% 매도' },
+            { id: 'u6', date: '2026.09.14', type: 'sell', account: '전체', price: 16240, shares: 677, afterCash: 20, afterStock: 80, note: '평시 3구간 10% 매도' },
+            { id: 'u7', date: '2026.09.21', type: 'rebound_all', account: '전체', price: 16911, shares: 1354, afterCash: 0, afterStock: 100, note: '3구간 → 1구간 상승 · 현금 20% 전액 재매수' },
+            { id: 'u8', date: '2026.10.06', type: 'new_high', account: '연저펀1', price: 17345, shares: 32, afterCash: 0, afterStock: 100, note: '전고가 갱신 · 연저펀1 32주 추가 매수' },
+            { id: 'u9', date: '2026.10.23', type: 'sell', account: '전체', price: 16050, shares: 677, afterCash: 10, afterStock: 90, note: '1구간 기회 놓친 후 지연 10% 매도' },
+            { id: 'u10', date: '2026.11.05', type: 'sell', account: '전체', price: 15950, shares: 677, afterCash: 20, afterStock: 80, note: '10% 매도' },
+            { id: 'u11', date: '2026.11.06', type: 'sell', account: '전체', price: 15390, shares: 4061, afterCash: 80, afterStock: 20, note: '나스닥 -5% 위기룰 전환 · 말뚝 2구간 60% 매도' },
+            { id: 'u12', date: '2026.11.20', type: 'buy', account: '연저펀1', price: 14620, shares: 677, afterCash: 70, afterStock: 30, note: '말뚝박기 3구간 돌파 · 연저펀1 10% 추가 매수' },
+          ],
+        },
+        qld: {
+          id: 'qld',
+          headerTitle: 'QLD (2x)',
+          currency: 'USD',
+          version: 1,
+          lastUpdated: '2026.11.20',
+          mode: 'crisis',
+          basePrice: 110.00,
+          baseDate: '2026-10-06',
+          lastCheckedPrice: 110.00,
+          lastCheckedDate: '2026.11.20',
+          totalTargetShares: 1000,
+          crisisEndHint: '2026.12.07 이후',
+          accounts: [
+            { name: '직투계좌1', shares: 1000, note: '보유 유지' },
+            { name: '직투계좌2', shares: 0, note: '대기' },
+          ],
+          history: [
+            { id: 'q1', date: '2026.10.06', type: 'new_high', account: '직투계좌1', price: 110.00, shares: 0, afterCash: 0, afterStock: 100, note: 'QLD 기준가(전고가) 초기 세팅' },
+          ],
+        },
+      },
+    };
+
+    let appState = JSON.parse(JSON.stringify(DEFAULT_APP_STATE));
+    let activeTableTab = 'crisis'; // 'crisis' | 'normal'
+    let pendingDeleteId = null;
+
+    // =========================================================================
+    // 1-1. 로컬 스토리지 & GitHub Gist 클라우드 동기화 엔진
+    // =========================================================================
+    const LOCAL_STATE_KEY = 'rich_project_dashboard_state_v1';
+    const LOCAL_GH_CFG_KEY = 'rich_project_gh_gist_cfg_v1';
+    const GIST_FILENAME = 'rich-project-dashboard-state.json';
+    const GIST_DESC = 'RichProject US Tech TOP10 & QLD Dashboard Data';
+
+    let ghConfig = {
+      token: '',
+      gistId: '',
+      lastSyncTime: '',
+    };
+
+    function sanitizeGhToken(raw) {
+      if (!raw) return '';
+      return raw.trim().replace(/^Ghp_/, 'ghp_');
+    }
+
+    function loadLocalStorageData() {
+      try {
+        const savedCfg = localStorage.getItem(LOCAL_GH_CFG_KEY);
+        if (savedCfg) {
+          ghConfig = { ...ghConfig, ...JSON.parse(savedCfg) };
+          ghConfig.token = sanitizeGhToken(ghConfig.token);
+        }
+        const savedState = localStorage.getItem(LOCAL_STATE_KEY);
+        if (savedState) {
+          const parsed = JSON.parse(savedState);
+          if (parsed && parsed.assets && parsed.assets.ustech && parsed.assets.qld) {
+            appState = parsed;
+          }
+        }
+      } catch (err) {
+        console.warn('로컬 저장소 불러오기 실패:', err);
+      }
+    }
+
+    function saveGhConfig() {
+      try {
+        localStorage.setItem(LOCAL_GH_CFG_KEY, JSON.stringify(ghConfig));
+      } catch (err) {
+        console.warn('GitHub 설정 저장 실패:', err);
+      }
+    }
+
+    function updateCloudStatusUI(status, customText = '') {
+      const dot = document.getElementById('cloudStatusDot');
+      const label = document.getElementById('cloudStatusLabel');
+      const modalBadge = document.getElementById('cloudModalBadge');
+      const lastSyncEl = document.getElementById('cloudLastSyncText');
+      const connectedActions = document.getElementById('ghConnectedActions');
+
+      if (!dot || !label) return;
+
+      if (status === 'syncing') {
+        dot.className = 'w-2 h-2 rounded-full bg-amber-500 animate-ping';
+        label.textContent = '동기화중';
+        if (modalBadge) {
+          modalBadge.className = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300';
+          modalBadge.textContent = '동기화 중...';
+        }
+      } else if (status === 'synced') {
+        dot.className = 'w-2 h-2 rounded-full bg-emerald-500';
+        label.textContent = '동기화됨';
+        if (modalBadge) {
+          modalBadge.className = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300';
+          modalBadge.textContent = 'GitHub Gist 연결됨';
+        }
+        if (lastSyncEl) {
+          lastSyncEl.textContent = customText || (ghConfig.lastSyncTime ? `최근 동기화 : ${ghConfig.lastSyncTime}` : '비공개 Gist와 실시간 연동 중입니다.');
+        }
+        if (connectedActions) connectedActions.classList.remove('hidden');
+      } else if (status === 'error') {
+        dot.className = 'w-2 h-2 rounded-full bg-rose-500';
+        label.textContent = '동기화오류';
+        if (modalBadge) {
+          modalBadge.className = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300';
+          modalBadge.textContent = '동기화 오류';
+        }
+        if (lastSyncEl && customText) lastSyncEl.textContent = customText;
+        if (connectedActions && ghConfig.token) connectedActions.classList.remove('hidden');
+      } else {
+        dot.className = 'w-2 h-2 rounded-full bg-slate-400';
+        label.textContent = '동기화';
+        if (modalBadge) {
+          modalBadge.className = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300';
+          modalBadge.textContent = '브라우저 로컬 저장';
+        }
+        if (lastSyncEl) {
+          lastSyncEl.textContent = '토큰을 한 번만 등록하면 비공개 Gist에 자동 저장됩니다.';
+        }
+        if (connectedActions) connectedActions.classList.add('hidden');
+      }
+    }
+
+    function getFormattedNow() {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      const hh = String(now.getHours()).padStart(2, '0');
+      const min = String(now.getMinutes()).padStart(2, '0');
+      return `${yyyy}.${mm}.${dd} ${hh}:${min}`;
+    }
+
+    async function findExistingDashboardGist(token) {
+      const res = await fetch(`https://api.github.com/gists?per_page=100&ts=${Date.now()}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: 'application/vnd.github+json',
+        },
+      });
+      if (!res.ok) throw new Error(`GitHub 인증 실패 (HTTP ${res.status})`);
+      const gists = await res.json();
+      const found = gists.find((g) => g.files && Object.prototype.hasOwnProperty.call(g.files, GIST_FILENAME));
+      return found ? found.id : null;
+    }
+
+    async function createDashboardGist(token) {
+      const res = await fetch('https://api.github.com/gists', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: 'application/vnd.github+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          description: GIST_DESC,
+          public: false,
+          files: {
+            [GIST_FILENAME]: {
+              content: JSON.stringify(appState, null, 2),
+            },
+          },
+        }),
+      });
+      if (!res.ok) throw new Error(`Gist 생성 실패 (HTTP ${res.status})`);
+      const data = await res.json();
+      return data.id;
+    }
+
+    async function pushStateToGist(silent = true) {
+      if (!ghConfig.token || !ghConfig.gistId) return false;
+      updateCloudStatusUI('syncing');
+      try {
+        const res = await fetch(`https://api.github.com/gists/${ghConfig.gistId}`, {
+          method: 'PATCH',
+          headers: {
+            Authorization: `Bearer ${ghConfig.token}`,
+            Accept: 'application/vnd.github+json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            files: {
+              [GIST_FILENAME]: {
+                content: JSON.stringify(appState, null, 2),
+              },
+            },
+          }),
+        });
+        if (!res.ok) throw new Error(`저장 실패 (HTTP ${res.status})`);
+        ghConfig.lastSyncTime = getFormattedNow();
+        saveGhConfig();
+        updateCloudStatusUI('synced');
+        if (!silent) showToast('GitHub 클라우드에 저장 완료되었습니다.');
+        return true;
+      } catch (err) {
+        updateCloudStatusUI('error', `클라우드 저장 오류: ${err.message}`);
+        if (!silent) showToast(`클라우드 저장 오류: ${err.message}`);
+        return false;
+      }
+    }
+
+    async function pullStateFromGist(silent = true) {
+      if (!ghConfig.token || !ghConfig.gistId) return false;
+      updateCloudStatusUI('syncing');
+      try {
+        const res = await fetch(`https://api.github.com/gists/${ghConfig.gistId}?ts=${Date.now()}`, {
+          headers: {
+            Authorization: `Bearer ${ghConfig.token}`,
+            Accept: 'application/vnd.github+json',
+          },
+        });
+        if (!res.ok) throw new Error(`불러오기 실패 (HTTP ${res.status})`);
+        const data = await res.json();
+        const fileObj = data.files && data.files[GIST_FILENAME];
+        if (!fileObj || !fileObj.content) {
+          throw new Error('Gist 내부에 대시보드 데이터 파일이 없습니다.');
+        }
+        const parsed = JSON.parse(fileObj.content);
+        if (parsed && parsed.assets && parsed.assets.ustech && parsed.assets.qld) {
+          appState = parsed;
+          localStorage.setItem(LOCAL_STATE_KEY, JSON.stringify(appState));
+          renderApp();
+        }
+        ghConfig.lastSyncTime = getFormattedNow();
+        saveGhConfig();
+        updateCloudStatusUI('synced');
+        if (!silent) showToast('GitHub 클라우드에서 최신 데이터를 불러왔습니다.');
+        return true;
+      } catch (err) {
+        updateCloudStatusUI('error', `클라우드 불러오기 오류: ${err.message}`);
+        if (!silent) showToast(`불러오기 오류: ${err.message}`);
+        return false;
+      }
+    }
+
+    function persistState(syncToCloud = true) {
+      try {
+        localStorage.setItem(LOCAL_STATE_KEY, JSON.stringify(appState));
+      } catch (err) {
+        console.warn('로컬 저장 실패:', err);
+      }
+      if (syncToCloud && ghConfig.token && ghConfig.gistId) {
+        pushStateToGist(true);
+      }
+    }
+
+    // =========================================================================
+    // 2. 계산 및 포맷팅 유틸리티
+    // =========================================================================
+    function getCurrentAsset() {
+      return appState.assets[appState.activeAsset];
+    }
+
+    function formatPrice(val, currency) {
+      const num = Number(val) || 0;
+      if (currency === 'USD') {
+        return `$${num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      }
+      return `${Math.round(num).toLocaleString('ko-KR')}원`;
+    }
+
+    function formatShares(val) {
+      return `${Math.round(Number(val) || 0).toLocaleString('ko-KR')}주`;
+    }
+
+    function calcPriceByDrop(basePrice, dropPct, currency) {
+      const raw = basePrice * (1 - dropPct / 100);
+      return currency === 'USD' ? Number(raw.toFixed(2)) : Math.round(raw);
+    }
+
+    function computeMetrics(asset) {
+      const totalHeldShares = asset.accounts.reduce((acc, item) => acc + (Number(item.shares) || 0), 0);
+      const targetShares = Math.max(1, Number(asset.totalTargetShares) || 1);
+      const stockPct = Math.min(100, Math.max(0, Math.round((totalHeldShares / targetShares) * 100)));
+      const cashPct = Math.max(0, 100 - stockPct);
+
+      const drawdownPct = asset.basePrice > 0
+        ? (((asset.lastCheckedPrice - asset.basePrice) / asset.basePrice) * 100).toFixed(2)
+        : '0.00';
+
+      // 말뚝박기 표 (위기시 5% 간격, 0~10구간)
+      const crisisSteps = [];
+      for (let i = 0; i <= 10; i++) {
+        const dropPct = i * 5;
+        const price = calcPriceByDrop(asset.basePrice, dropPct, asset.currency);
+        const targetCash = 100 - i * 10;
+        const targetStock = i * 10;
+        const cumShares = Math.round((targetShares * targetStock) / 100);
+        crisisSteps.push({
+          step: i,
+          label: i === 0 ? '기준' : `${i}구간`,
+          dropPct,
+          price,
+          targetCash,
+          targetStock,
+          shares: cumShares,
+        });
+      }
+
+      // 리밸런싱 표 (평상시 2.5% 간격, 0~10구간)
+      const normalSteps = [];
+      for (let i = 0; i <= 10; i++) {
+        const dropPct = i * 2.5;
+        const price = calcPriceByDrop(asset.basePrice, dropPct, asset.currency);
+        const targetCash = i * 10;
+        const targetStock = 100 - i * 10;
+        const cumSellShares = Math.round((targetShares * targetCash) / 100);
+        normalSteps.push({
+          step: i,
+          label: i === 0 ? '기준' : `${i}구간`,
+          dropPct,
+          price,
+          targetCash,
+          targetStock,
+          shares: cumSellShares,
+        });
+      }
+
+      // 현재 구간 추정 (위기모드 기준: 주식 비중 30% -> 3구간)
+      const currentCrisisStepIdx = Math.min(10, Math.max(0, Math.round(stockPct / 10)));
+      const currentNormalStepIdx = Math.min(10, Math.max(0, Math.round(cashPct / 10)));
+
+      return {
+        totalHeldShares,
+        targetShares,
+        stockPct,
+        cashPct,
+        drawdownPct,
+        crisisSteps,
+        normalSteps,
+        currentCrisisStepIdx,
+        currentNormalStepIdx,
+      };
+    }
+
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      if (!banner) return;
+      banner.textContent = msg;
+      banner.classList.remove('opacity-0');
+      banner.classList.add('opacity-100');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        banner.classList.remove('opacity-100');
+        banner.classList.add('opacity-0');
+      }, 2600);
+    }
+
+    // =========================================================================
+    // 3. 메인 렌더링 엔진
+    // =========================================================================
+    function renderApp() {
+      const asset = getCurrentAsset();
+      const m = computeMetrics(asset);
+
+      // 헤더 & 버전
+      document.getElementById('headerTitle').textContent = asset.headerTitle;
+      document.getElementById('versionBadge').textContent = `v${asset.version}`;
+      document.getElementById('lastUpdatedText').textContent = `업데이트 : ${asset.lastUpdated}`;
+
+      // 상단 종목 탭 활성화 스타일
+      document.querySelectorAll('.asset-tab-btn').forEach((btn) => {
+        const isActive = btn.dataset.asset === asset.id;
+        if (isActive) {
+          btn.className = 'asset-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-2xs transition';
+        } else {
+          btn.className = 'asset-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition';
+        }
+      });
+
+      // 위기모드 / 평상시 모드 배지
+      const modeBadgeBtn = document.getElementById('modeBadgeBtn');
+      const modeDot = document.getElementById('modeDot');
+      const modeLabel = document.getElementById('modeLabel');
+      if (asset.mode === 'crisis') {
+        modeBadgeBtn.className = 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 bg-rose-50 text-rose-700 dark:bg-rose-950/70 dark:text-rose-300 border border-rose-200/80 dark:border-rose-800/60 transition';
+        modeDot.className = 'w-2 h-2 rounded-full bg-rose-500';
+        modeLabel.textContent = '위기모드 (-50%)';
+      } else {
+        modeBadgeBtn.className = 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 transition';
+        modeDot.className = 'w-2 h-2 rounded-full bg-emerald-500';
+        modeLabel.textContent = '평상시 (2.5%)';
+      }
+
+      // 요약 헤드라인 & 게이지
+      document.getElementById('currentRatioHeadline').textContent = `현금 ${m.cashPct}% / 주식 ${m.stockPct}%`;
+      const stepBadge = document.getElementById('currentStepBadge');
+      if (asset.mode === 'crisis') {
+        stepBadge.textContent = m.currentCrisisStepIdx === 0 ? '말뚝 대기 (0구간)' : `말뚝 ${m.currentCrisisStepIdx}구간`;
+      } else {
+        stepBadge.textContent = m.currentNormalStepIdx === 0 ? '평시 보유 유지' : `평시 ${m.currentNormalStepIdx}구간`;
+      }
+
+      document.getElementById('cashPctLabel').textContent = `현금 비중 ${m.cashPct}%`;
+      document.getElementById('stockPctLabel').textContent = `주식 비중 ${m.stockPct}% (${formatShares(m.totalHeldShares)} / ${formatShares(m.targetShares)})`;
+      document.getElementById('cashBar').style.width = `${m.cashPct}%`;
+      document.getElementById('stockBar').style.width = `${m.stockPct}%`;
+
+      // 3대 핵심 지표
+      document.getElementById('basePriceDisplay').textContent = formatPrice(asset.basePrice, asset.currency);
+      document.getElementById('baseDateDisplay').textContent = asset.baseDate.replace(/-/g, '.');
+      document.getElementById('lastPriceDisplay').textContent = formatPrice(asset.lastCheckedPrice, asset.currency);
+      document.getElementById('lastPriceDateDisplay').textContent = asset.lastCheckedDate;
+      const ddNum = parseFloat(m.drawdownPct);
+      const ddEl = document.getElementById('drawdownDisplay');
+      ddEl.textContent = `${ddNum > 0 ? '+' : ''}${m.drawdownPct}%`;
+      ddEl.className = `text-sm sm:text-base font-extrabold mt-0.5 ${ddNum < 0 ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}`;
+      document.getElementById('targetSharesDisplay').textContent = `목표 ${formatShares(m.targetShares)}`;
+
+      // 계좌별 보유 현황 카드
+      document.getElementById('totalHoldingsSummary').textContent = `합계 ${formatShares(m.totalHeldShares)}`;
+      const accountsGrid = document.getElementById('accountsGrid');
+      accountsGrid.innerHTML = asset.accounts.map((acc) => {
+        const hasShares = acc.shares > 0;
+        return `
+          <div class="p-3 rounded-xl border ${hasShares ? 'bg-indigo-50/40 dark:bg-indigo-950/20 border-indigo-200/70 dark:border-indigo-900/50' : 'bg-slate-50/70 dark:bg-slate-800/40 border-slate-200/60 dark:border-slate-800'}">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-600 dark:text-slate-300">${acc.name}</span>
+              <span class="w-1.5 h-1.5 rounded-full ${hasShares ? 'bg-indigo-500' : 'bg-slate-300 dark:bg-slate-600'}"></span>
+            </div>
+            <p class="text-sm sm:text-base font-extrabold mt-1 ${hasShares ? 'text-slate-900 dark:text-white' : 'text-slate-400'}">${formatShares(acc.shares)}</p>
+            <p class="text-[10px] text-slate-400 truncate mt-0.5">${acc.note || (hasShares ? '보유중' : '매도 완료')}</p>
+          </div>
+        `;
+      }).join('');
+
+      // 다음 액션 카드 업데이트
+      const curIdx = m.currentCrisisStepIdx;
+      const nextIdx = Math.min(10, curIdx + 1);
+      const nextStepObj = m.crisisSteps[nextIdx];
+      const stepUnitShares = Math.round(m.targetShares * 0.1);
+
+      document.getElementById('nextDropStepLabel').textContent = curIdx >= 10 ? '최종 10구간 도달 완료' : `다음 ${nextIdx}구간 (-${nextStepObj.dropPct}%)`;
+      document.getElementById('nextDropPrice').textContent = formatPrice(nextStepObj.price, asset.currency);
+      document.getElementById('nextDropActionText').textContent = curIdx >= 10 ? '현금 0% 소진 완료' : `+${formatShares(stepUnitShares)} 매수`;
+      document.getElementById('nextDropRatioDesc').textContent = curIdx >= 10
+        ? `최종 목표 주식 100% (${formatShares(m.targetShares)}) 달성 상태입니다.`
+        : `목표 비중 전환 : 현금 ${nextStepObj.targetCash}% / 주식 ${nextStepObj.targetStock}% (누적 ${formatShares(nextStepObj.shares)})`;
+
+      // V자 반등 (2구간 상승) 계산
+      const reboundIdx = Math.max(0, curIdx - 2);
+      const reboundStepObj = m.crisisSteps[reboundIdx];
+      const curStepObj = m.crisisSteps[curIdx];
+      document.getElementById('reboundTargetStepLabel').textContent = `${reboundStepObj.label} (-${reboundStepObj.dropPct}%) 도달 시`;
+      document.getElementById('reboundTargetPrice').textContent = formatPrice(reboundStepObj.price, asset.currency);
+      document.getElementById('reboundActionText').textContent = m.cashPct > 0 ? `현금 ${m.cashPct}% 전액 매수` : '현금 소진 상태';
+      document.getElementById('reboundRedropRule').textContent =
+        `• 재하락 시 : 직전 말뚝(${curStepObj.label} ${formatPrice(curStepObj.price, asset.currency)})보다 1구간 추가 하락(${nextStepObj.label} ${formatPrice(nextStepObj.price, asset.currency)}) 시 비율대로 매도 후 재개`;
+      document.getElementById('crisisEndRule').textContent =
+        `• 위기 종료 : 마지막 -3% 후 1개월+1일 경과 (${asset.crisisEndHint}) 또는 공황 시 2개월+1일 / 8거래일 연속 상승`;
+
+      // 구간표 렌더링
+      renderStepsTable(asset, m);
+
+      // 매매 이력 렌더링
+      renderHistoryList(asset);
+    }
+
+    function renderStepsTable(asset, m) {
+      const isCrisis = activeTableTab === 'crisis';
+      const steps = isCrisis ? m.crisisSteps : m.normalSteps;
+      const activeIdx = isCrisis ? m.currentCrisisStepIdx : m.currentNormalStepIdx;
+
+      document.getElementById('tableSectionTitle').textContent = isCrisis
+        ? '■ 말뚝박기 표 (위기시 · 간격 5%)'
+        : '■ 리밸런싱 표 (평상시 · 간격 2.5%)';
+      document.getElementById('tableSectionSubtitle').textContent = isCrisis
+        ? '비(非)제로금리 환경 -50% 말뚝박기 기준'
+        : (asset.mode === 'crisis' ? '현재 위기모드로 평시 리밸런싱 적용 중단 상태' : '평상시 2.5% 하락 간격 분할 매도 계획표');
+      document.getElementById('tableSharesColHeader').textContent = isCrisis ? '누적 매수' : '누적 매도';
+
+      const crisisBtn = document.getElementById('showCrisisTableBtn');
+      const normalBtn = document.getElementById('showNormalTableBtn');
+      if (isCrisis) {
+        crisisBtn.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs transition';
+        normalBtn.className = 'px-2.5 py-1 rounded-lg text-slate-500 dark:text-slate-400 transition';
+      } else {
+        normalBtn.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs transition';
+        crisisBtn.className = 'px-2.5 py-1 rounded-lg text-slate-500 dark:text-slate-400 transition';
+      }
+
+      const tbody = document.getElementById('gridTableBody');
+      tbody.innerHTML = steps.map((row) => {
+        const isCurrent = row.step === activeIdx && ((isCrisis && asset.mode === 'crisis') || (!isCrisis && asset.mode === 'normal'));
+        return `
+          <tr class="${isCurrent ? 'bg-indigo-50/80 dark:bg-indigo-950/50 font-extrabold text-indigo-700 dark:text-indigo-300' : 'hover:bg-slate-50/80 dark:hover:bg-slate-800/40'}">
+            <td class="py-2.5 px-3 whitespace-nowrap">
+              ${row.label}
+              ${isCurrent ? '<span class="ml-1 px-1.5 py-0.5 rounded bg-indigo-600 text-white text-[10px] font-bold">현재</span>' : ''}
+            </td>
+            <td class="py-2.5 px-3 whitespace-nowrap text-slate-600 dark:text-slate-300">${row.dropPct === 0 ? '0%' : `-${row.dropPct}%`}</td>
+            <td class="py-2.5 px-3 whitespace-nowrap font-bold">${formatPrice(row.price, asset.currency)}</td>
+            <td class="py-2.5 px-3 whitespace-nowrap">현 ${row.targetCash}% : 주 ${row.targetStock}%</td>
+            <td class="py-2.5 px-3 whitespace-nowrap text-right font-bold">${row.step === 0 && !isCrisis ? '보유 유지' : formatShares(row.shares)}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderHistoryList(asset) {
+      const listEl = document.getElementById('tradeHistoryList');
+      const countBadge = document.getElementById('historyCountBadge');
+      countBadge.textContent = `총 ${asset.history.length}건`;
+
+      if (asset.history.length === 0) {
+        listEl.innerHTML = `<p class="text-xs text-slate-400 py-6 text-center">등록된 매매 이력이 없습니다.</p>`;
+        return;
+      }
+
+      const reversed = [...asset.history].reverse();
+      listEl.innerHTML = reversed.map((item) => {
+        let badgeText = '추가매수';
+        let badgeCls = 'bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300';
+        if (item.type === 'sell') {
+          badgeText = '분할매도';
+          badgeCls = 'bg-rose-50 text-rose-700 dark:bg-rose-950/70 dark:text-rose-300';
+        } else if (item.type === 'rebound_all') {
+          badgeText = '전액재매수';
+          badgeCls = 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300';
+        } else if (item.type === 'new_high') {
+          badgeText = '전고가갱신';
+          badgeCls = 'bg-amber-50 text-amber-700 dark:bg-amber-950/70 dark:text-amber-300';
+        }
+
+        const isPendingDel = pendingDeleteId === item.id;
+        return `
+          <div class="p-3 rounded-xl bg-slate-50/90 dark:bg-slate-800/50 border border-slate-200/70 dark:border-slate-800 flex items-center justify-between gap-2">
+            <div class="min-w-0 space-y-1">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="text-xs font-extrabold text-slate-700 dark:text-slate-200">${item.date}</span>
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold ${badgeCls}">${badgeText}</span>
+                <span class="text-xs font-bold text-slate-900 dark:text-white">${formatPrice(item.price, asset.currency)}</span>
+                ${item.shares > 0 ? `<span class="text-xs font-semibold text-slate-500 dark:text-slate-400">(${item.account} · ${formatShares(item.shares)})</span>` : ''}
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 truncate">${item.note || '-'}</p>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="hidden sm:inline-block px-2 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700 text-[11px] font-bold text-slate-600 dark:text-slate-300">
+                현${item.afterCash} / 주${item.afterStock}
+              </span>
+              ${isPendingDel
+                ? `<button type="button" onclick="confirmDeleteHistory('${item.id}')" class="px-2.5 py-1.5 rounded-lg bg-rose-600 text-white text-[11px] font-extrabold">삭제확인</button>`
+                : `<button type="button" onclick="requestDeleteHistory('${item.id}')" title="이력 삭제 및 잔고 복구" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  </button>`
+              }
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // 4. 매매 입력 / 삭제 / 원클릭 체결 핸들러
+    // =========================================================================
+    function openTradeModal(preset = {}) {
+      const asset = getCurrentAsset();
+      document.getElementById('tradeModalTitle').textContent = `${asset.headerTitle} 매매 체결 입력`;
+      document.getElementById('tradePriceLabel').textContent = asset.currency === 'USD' ? '체결 단가 ($)' : '체결 단가 (원)';
+
+      const todayStr = new Date().toISOString().slice(0, 10);
+      document.getElementById('tradeDateInput').value = preset.date || todayStr;
+      document.getElementById('tradeTypeInput').value = preset.type || 'buy';
+
+      const accSelect = document.getElementById('tradeAccountInput');
+      accSelect.innerHTML = asset.accounts.map((a) => `<option value="${a.name}">${a.name} (현재 ${formatShares(a.shares)})</option>`).join('');
+      if (preset.account) accSelect.value = preset.account;
+
+      document.getElementById('tradePriceInput').value = preset.price !== undefined ? preset.price : '';
+      document.getElementById('tradeSharesInput').value = preset.shares !== undefined ? preset.shares : '';
+      document.getElementById('tradeNoteInput').value = preset.note || '';
+
+      const modal = document.getElementById('tradeModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeAllModals() {
+      document.getElementById('tradeModal').classList.add('hidden');
+      document.getElementById('tradeModal').classList.remove('flex');
+      document.getElementById('settingsModal').classList.add('hidden');
+      document.getElementById('settingsModal').classList.remove('flex');
+      document.getElementById('cloudModal').classList.add('hidden');
+      document.getElementById('cloudModal').classList.remove('flex');
+    }
+
+    document.getElementById('tradeForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const asset = getCurrentAsset();
+      const rawDate = document.getElementById('tradeDateInput').value;
+      const formattedDate = rawDate ? rawDate.replace(/-/g, '.') : getFormattedNow().slice(0, 10);
+      const type = document.getElementById('tradeTypeInput').value;
+      const accountName = document.getElementById('tradeAccountInput').value;
+      const price = parseFloat(document.getElementById('tradePriceInput').value) || 0;
+      const shares = Math.max(0, Math.round(parseFloat(document.getElementById('tradeSharesInput').value) || 0));
+      const userNote = document.getElementById('tradeNoteInput').value.trim();
+
+      const targetAcc = asset.accounts.find((a) => a.name === accountName) || asset.accounts[0];
+
+      if (type === 'buy' || type === 'rebound_all') {
+        targetAcc.shares += shares;
+        targetAcc.note = `${formattedDate.slice(5)} 매수 반영`;
+      } else if (type === 'sell') {
+        // 선택한 계좌에서 우선 차감, 부족 시 다른 계좌에서 순차 차감
+        let remainToDeduct = shares;
+        const primaryDeduct = Math.min(targetAcc.shares, remainToDeduct);
+        targetAcc.shares -= primaryDeduct;
+        remainToDeduct -= primaryDeduct;
+        if (targetAcc.shares === 0) targetAcc.note = '매도 완료';
+
+        if (remainToDeduct > 0) {
+          for (const acc of asset.accounts) {
+            if (remainToDeduct <= 0) break;
+            const d = Math.min(acc.shares, remainToDeduct);
+            acc.shares -= d;
+            remainToDeduct -= d;
+            if (acc.shares === 0) acc.note = '매도 완료';
+          }
+        }
+      } else if (type === 'new_high') {
+        asset.basePrice = price;
+        asset.baseDate = rawDate || asset.baseDate;
+        if (shares > 0) {
+          targetAcc.shares += shares;
+          asset.totalTargetShares += shares;
+        }
+      }
+
+      asset.lastCheckedPrice = price;
+      asset.lastCheckedDate = formattedDate;
+      asset.lastUpdated = formattedDate;
+      asset.version += 1;
+
+      const m = computeMetrics(asset);
+      const defaultNoteMap = {
+        buy: `${accountName} ${formatPrice(price, asset.currency)} ${formatShares(shares)} 추가 매수`,
+        sell: `${accountName} ${formatPrice(price, asset.currency)} ${formatShares(shares)} 분할 매도`,
+        rebound_all: `V자 반등 · ${accountName} ${formatShares(shares)} 전액 재매수`,
+        new_high: `전고가 갱신 (${formatPrice(price, asset.currency)})${shares > 0 ? ` · ${accountName} ${formatShares(shares)} 추가 매수` : ''}`,
+      };
+
+      asset.history.push({
+        id: `tr_${Date.now()}`,
+        date: formattedDate,
+        type,
+        account: accountName,
+        price,
+        shares,
+        afterCash: m.cashPct,
+        afterStock: m.stockPct,
+        note: userNote || defaultNoteMap[type],
+      });
+
+      renderApp();
+      persistState(true);
+      closeAllModals();
+      showToast(`${asset.headerTitle} v${asset.version} 업데이트 완료 (현금 ${m.cashPct}% / 주식 ${m.stockPct}%)`);
+    });
+
+    window.requestDeleteHistory = function (id) {
+      pendingDeleteId = id;
+      renderHistoryList(getCurrentAsset());
+    };
+
+    window.confirmDeleteHistory = function (id) {
+      const asset = getCurrentAsset();
+      const idx = asset.history.findIndex((item) => item.id === id);
+      if (idx === -1) return;
+      const item = asset.history[idx];
+
+      // 잔고 역산 복구
+      const targetAcc = asset.accounts.find((a) => a.name === item.account) || asset.accounts[0];
+      if (item.shares > 0) {
+        if (item.type === 'buy' || item.type === 'rebound_all') {
+          targetAcc.shares = Math.max(0, targetAcc.shares - item.shares);
+        } else if (item.type === 'sell') {
+          targetAcc.shares += item.shares;
+        } else if (item.type === 'new_high') {
+          targetAcc.shares = Math.max(0, targetAcc.shares - item.shares);
+          asset.totalTargetShares = Math.max(1, asset.totalTargetShares - item.shares);
+        }
+      }
+
+      asset.history.splice(idx, 1);
+      if (asset.history.length > 0) {
+        const last = asset.history[asset.history.length - 1];
+        asset.lastCheckedPrice = last.price;
+        asset.lastCheckedDate = last.date;
+      }
+
+      pendingDeleteId = null;
+      renderApp();
+      persistState(true);
+      showToast('해당 매매 기록이 삭제되고 잔고가 반영되었습니다.');
+    };
+
+    // 빠른 수량 비율 버튼
+    document.querySelectorAll('.quick-qty-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const asset = getCurrentAsset();
+        const m = computeMetrics(asset);
+        const pct = btn.dataset.pct;
+        const qtyInput = document.getElementById('tradeSharesInput');
+        if (pct === 'remain') {
+          qtyInput.value = Math.max(0, m.targetShares - m.totalHeldShares);
+        } else {
+          qtyInput.value = Math.round((m.targetShares * Number(pct)) / 100);
+        }
+      });
+    });
+
+    // 다음 액션 카드 원클릭 버튼
+    document.getElementById('quickDropBuyBtn').addEventListener('click', () => {
+      const asset = getCurrentAsset();
+      const m = computeMetrics(asset);
+      const nextIdx = Math.min(10, m.currentCrisisStepIdx + 1);
+      const nextStepObj = m.crisisSteps[nextIdx];
+      const stepUnitShares = Math.round(m.targetShares * 0.1);
+      openTradeModal({
+        type: 'buy',
+        price: nextStepObj.price,
+        shares: stepUnitShares,
+        note: `말뚝박기 ${nextStepObj.label} 돌파 10% 추가 매수`,
+      });
+    });
+
+    document.getElementById('quickReboundBuyBtn').addEventListener('click', () => {
+      const asset = getCurrentAsset();
+      const m = computeMetrics(asset);
+      const reboundIdx = Math.max(0, m.currentCrisisStepIdx - 2);
+      const reboundStepObj = m.crisisSteps[reboundIdx];
+      const remainShares = Math.max(0, m.targetShares - m.totalHeldShares);
+      openTradeModal({
+        type: 'rebound_all',
+        price: reboundStepObj.price,
+        shares: remainShares,
+        note: `${m.currentCrisisStepIdx}구간 → ${reboundStepObj.label} 상승 · 현금 ${m.cashPct}% 전액 재매수`,
+      });
+    });
+
+    // =========================================================================
+    // 5. 삼성노트 모바일 최적화 텍스트 복사
+    // =========================================================================
+    document.getElementById('copySamsungNoteBtn').addEventListener('click', () => {
+      const asset = getCurrentAsset();
+      const m = computeMetrics(asset);
+      const curIdx = m.currentCrisisStepIdx;
+      const nextIdx = Math.min(10, curIdx + 1);
+      const nextStep = m.crisisSteps[nextIdx];
+      const reboundIdx = Math.max(0, curIdx - 2);
+      const reboundStep = m.crisisSteps[reboundIdx];
+      const stepUnitShares = Math.round(m.targetShares * 0.1);
+
+      const accLine = asset.accounts.map((a) => `${a.name} ${formatShares(a.shares)}`).join(' │ ');
+      const crisisRows = m.crisisSteps.map((r) => {
+        const mark = r.step === curIdx ? ' ◀현재' : '';
+        return `${r.label.padEnd(4, ' ')}(-${String(r.dropPct).padStart(2, ' ')}%) │ ${formatPrice(r.price, asset.currency)} │ ${String(r.targetCash).padStart(3, ' ')} : ${String(r.targetStock).padStart(3, ' ')} │ ${formatShares(r.shares)}${mark}`;
+      }).join('\n');
+
+      const historyLines = asset.history.map((h) => {
+        return `• ${h.date} │ ${formatPrice(h.price, asset.currency)} │ ${h.note} (현${h.afterCash}/주${h.afterStock})`;
+      }).join('\n');
+
+      const noteText = `${asset.headerTitle} 통합 운용 가이드 v${asset.version}
+업데이트 : ${asset.lastUpdated} │ ${asset.mode === 'crisis' ? '위기모드 (-50% 말뚝)' : '평상시 리밸런싱 (2.5%)'}
+
+━━━━━━━━━━━━━━━━━━━━
+■ 1. 현재 요약 & 다음 액션
+━━━━━━━━━━━━━━━━━━━━
+• 기준가(전고가) : ${formatPrice(asset.basePrice, asset.currency)} (${asset.baseDate.replace(/-/g, '.')})
+• 최근 체결가 : ${formatPrice(asset.lastCheckedPrice, asset.currency)} (${m.drawdownPct}%)
+• 현재 비중 : 현금 ${m.cashPct}% / 주식 ${m.stockPct}% (${formatShares(m.totalHeldShares)})
+  └ ${accLine}
+
+[▼ 추가 하락 대응]
+• 다음 ${nextStep.label} : ${formatPrice(nextStep.price, asset.currency)} (-${nextStep.dropPct}%)
+• 실행 : 10% (${formatShares(stepUnitShares)}) 추가 매수 → 현${nextStep.targetCash} : 주${nextStep.targetStock}
+
+[▲ V자 반등 대응 (2구간 상승)]
+• 목표가 : ${reboundStep.label} ${formatPrice(reboundStep.price, asset.currency)} (-${reboundStep.dropPct}%) 도달 시
+• 실행 : 현금 ${m.cashPct}% 전액 재매수
+• 재하락 룰 : 직전 말뚝(${m.crisisSteps[curIdx].label} ${formatPrice(m.crisisSteps[curIdx].price, asset.currency)})보다 1구간 추가 하락(${nextStep.label} ${formatPrice(nextStep.price, asset.currency)}) 시 비율대로 매도 후 재개
+
+[✓ 위기 종료 조건 (현금 전액 재매수)]
+• 일반 : 마지막 -3% 발생 후 1개월+1일 경과 (${asset.crisisEndHint})
+• 공황 : 2개월+1일 경과 또는 8거래일 연속 상승
+
+━━━━━━━━━━━━━━━━━━━━
+■ 2. 말뚝박기 표 (위기시 / 간격 5%)
+━━━━━━━━━━━━━━━━━━━━
+구간(하락률) │ 목표가 │ 현금:주식 │ 누적매수
+────────────────────────────────────
+${crisisRows}
+
+━━━━━━━━━━━━━━━━━━━━
+■ 3. 매매 이력 (누적)
+━━━━━━━━━━━━━━━━━━━━
+${historyLines}`;
+
+      const ta = document.createElement('textarea');
+      ta.value = noteText;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast(`${asset.headerTitle} v${asset.version} 삼성노트 양식이 복사되었습니다!`);
+      } catch (err) {
+        showToast('복사 중 오류가 발생했습니다.');
+      }
+      document.body.removeChild(ta);
+    });
+
+    // =========================================================================
+    // 6. 탭, 모드 전환, 설정 및 클라우드 모달 이벤트
+    // =========================================================================
+    document.querySelectorAll('.asset-tab-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const nextAsset = btn.dataset.asset;
+        if (nextAsset && appState.assets[nextAsset]) {
+          appState.activeAsset = nextAsset;
+          pendingDeleteId = null;
+          persistState(false);
+          renderApp();
+        }
+      });
+    });
+
+    document.getElementById('modeBadgeBtn').addEventListener('click', () => {
+      const asset = getCurrentAsset();
+      asset.mode = asset.mode === 'crisis' ? 'normal' : 'crisis';
+      activeTableTab = asset.mode;
+      renderApp();
+      persistState(true);
+      showToast(asset.mode === 'crisis' ? '위기모드(말뚝박기 -50%)로 전환되었습니다.' : '평상시 리밸런싱(2.5%) 모드로 전환되었습니다.');
+    });
+
+    document.getElementById('showCrisisTableBtn').addEventListener('click', () => {
+      activeTableTab = 'crisis';
+      renderStepsTable(getCurrentAsset(), computeMetrics(getCurrentAsset()));
+    });
+
+    document.getElementById('showNormalTableBtn').addEventListener('click', () => {
+      activeTableTab = 'normal';
+      renderStepsTable(getCurrentAsset(), computeMetrics(getCurrentAsset()));
+    });
+
+    document.getElementById('openTradeModalBtn').addEventListener('click', () => openTradeModal());
+
+    // 설정 모달
+    document.getElementById('openSettingsModalBtn').addEventListener('click', () => {
+      const asset = getCurrentAsset();
+      document.getElementById('settingsModalTitle').textContent = `${asset.headerTitle} 운용 기준 설정`;
+      document.getElementById('settingBasePriceLabel').textContent = asset.currency === 'USD' ? '기준가(전고가 $)' : '기준가(전고가 원)';
+      document.getElementById('settingBasePriceInput').value = asset.basePrice;
+      document.getElementById('settingBaseDateInput').value = asset.baseDate;
+      document.getElementById('settingTotalSharesInput').value = asset.totalTargetShares;
+      document.getElementById('settingVersionInput').value = asset.version;
+      document.getElementById('settingAccountsInput').value = asset.accounts.map((a) => a.name).join(', ');
+      document.getElementById('settingCrisisEndInput').value = asset.crisisEndHint;
+
+      const modal = document.getElementById('settingsModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    });
+
+    document.getElementById('saveSettingsBtn').addEventListener('click', () => {
+      const asset = getCurrentAsset();
+      const newBasePrice = parseFloat(document.getElementById('settingBasePriceInput').value);
+      const newBaseDate = document.getElementById('settingBaseDateInput').value;
+      const newTotalShares = parseInt(document.getElementById('settingTotalSharesInput').value, 10);
+      const newVersion = parseInt(document.getElementById('settingVersionInput').value, 10);
+      const rawAccounts = document.getElementById('settingAccountsInput').value;
+      const newCrisisEnd = document.getElementById('settingCrisisEndInput').value.trim();
+
+      if (newBasePrice > 0) asset.basePrice = newBasePrice;
+      if (newBaseDate) asset.baseDate = newBaseDate;
+      if (newTotalShares > 0) asset.totalTargetShares = newTotalShares;
+      if (newVersion > 0) asset.version = newVersion;
+      if (newCrisisEnd) asset.crisisEndHint = newCrisisEnd;
+
+      const parsedNames = rawAccounts.split(',').map((s) => s.trim()).filter(Boolean);
+      if (parsedNames.length > 0) {
+        asset.accounts = parsedNames.map((name) => {
+          const existing = asset.accounts.find((a) => a.name === name);
+          return existing ? existing : { name, shares: 0, note: '신규 계좌' };
+        });
+      }
+
+      renderApp();
+      persistState(true);
+      closeAllModals();
+      showToast('운용 기준 설정이 저장되었습니다.');
+    });
+
+    document.getElementById('resetDefaultBtn').addEventListener('click', () => {
+      const activeId = appState.activeAsset;
+      appState.assets[activeId] = JSON.parse(JSON.stringify(DEFAULT_APP_STATE.assets[activeId]));
+      renderApp();
+      persistState(true);
+      closeAllModals();
+      showToast(`${appState.assets[activeId].headerTitle} 기본 데이터로 초기화되었습니다.`);
+    });
+
+    // GitHub 클라우드 동기화 모달 이벤트
+    document.getElementById('copyGhTokenUrlBtn').addEventListener('click', () => {
+      const url = 'https://github.com/settings/tokens/new?scopes=gist&description=RichProject_Dashboard';
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast('토큰 발급 주소가 복사되었습니다! 인터넷 브라우저 주소창에 붙여넣어 주세요.');
+      } catch (err) {
+        showToast('복사에 실패했습니다. 안내된 메뉴 경로를 이용해 주세요.');
+      }
+      document.body.removeChild(ta);
+    });
+
+    document.getElementById('openCloudModalBtn').addEventListener('click', () => {
+      document.getElementById('ghTokenInput').value = ghConfig.token || '';
+      document.getElementById('ghGistIdInput').value = ghConfig.gistId || '';
+      updateCloudStatusUI(ghConfig.token && ghConfig.gistId ? 'synced' : 'disconnected');
+      const modal = document.getElementById('cloudModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    });
+
+    document.getElementById('connectGhSyncBtn').addEventListener('click', async () => {
+      const token = sanitizeGhToken(document.getElementById('ghTokenInput').value);
+      document.getElementById('ghTokenInput').value = token;
+      let gistId = document.getElementById('ghGistIdInput').value.trim();
+
+      if (!token) {
+        showToast('GitHub Personal Access Token을 입력해주세요.');
+        return;
+      }
+
+      const btn = document.getElementById('connectGhSyncBtn');
+      btn.disabled = true;
+      btn.textContent = '깃허브 연결 확인 중...';
+      updateCloudStatusUI('syncing');
+
+      try {
+        if (!gistId) {
+          const existingId = await findExistingDashboardGist(token);
+          if (existingId) {
+            ghConfig.token = token;
+            ghConfig.gistId = existingId;
+            document.getElementById('ghGistIdInput').value = existingId;
+            saveGhConfig();
+            await pullStateFromGist(false);
+          } else {
+            const newId = await createDashboardGist(token);
+            ghConfig.token = token;
+            ghConfig.gistId = newId;
+            ghConfig.lastSyncTime = getFormattedNow();
+            document.getElementById('ghGistIdInput').value = newId;
+            saveGhConfig();
+            updateCloudStatusUI('synced');
+            showToast('새 비공개 Gist 금고가 생성되고 동기화되었습니다!');
+          }
+        } else {
+          ghConfig.token = token;
+          ghConfig.gistId = gistId;
+          saveGhConfig();
+          await pullStateFromGist(false);
+        }
+      } catch (err) {
+        updateCloudStatusUI('error', `연결 실패: ${err.message}`);
+        showToast(`연결 실패: ${err.message}`);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '연결 및 자동 동기화 시작';
+      }
+    });
+
+    document.getElementById('forcePullGhBtn').addEventListener('click', () => {
+      pullStateFromGist(false);
+    });
+
+    document.getElementById('forcePushGhBtn').addEventListener('click', () => {
+      pushStateToGist(false);
+    });
+
+    document.getElementById('disconnectGhBtn').addEventListener('click', () => {
+      ghConfig = { token: '', gistId: '', lastSyncTime: '' };
+      saveGhConfig();
+      document.getElementById('ghTokenInput').value = '';
+      document.getElementById('ghGistIdInput').value = '';
+      updateCloudStatusUI('disconnected');
+      showToast('이 기기에서 클라우드 연결이 해제되었습니다.');
+    });
+
+    // 모달 닫기 및 다크모드
+    document.querySelectorAll('.close-modal').forEach((btn) => {
+      btn.addEventListener('click', closeAllModals);
+    });
+
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // 초기화
+    (function init() {
+      // 모바일 홈 화면 추가 시 주소창 없는 단독 앱(Standalone) 모드 지원
+      try {
+        const manifestData = {
+          name: '미국테크TOP10 & QLD 운용 대시보드',
+          short_name: '리치대시보드',
+          start_url: window.location.href,
+          display: 'standalone',
+          background_color: '#0f172a',
+          theme_color: '#4f46e5',
+        };
+        const manifestBlob = new Blob([JSON.stringify(manifestData)], { type: 'application/manifest+json' });
+        const manifestLink = document.getElementById('pwaManifestLink');
+        if (manifestLink) {
+          manifestLink.href = URL.createObjectURL(manifestBlob);
+        }
+      } catch (e) {
+        console.warn('PWA 매니페스트 설정 건너뜀:', e);
+      }
+
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      }
+// ... existing code ... -->
+```
