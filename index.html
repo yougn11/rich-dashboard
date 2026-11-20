@@ -17,7 +17,7 @@
   <!-- D3.js v7 시각화 라이브러리 -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
-  <!-- Pretendard & Inter 웹폰트 -->
+  <!-- Pretendard 웹폰트 -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
@@ -87,8 +87,8 @@
             <span>시세</span>
           </button>
 
-          <!-- 2. GitHub Gist 클라우드 동기화 -->
-          <button id="openCloudModalBtn" type="button" title="깃허브 클라우드 동기화" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center gap-1.5 transition">
+          <!-- 2. GitHub Gist 클라우드 동기화 & 가족 공유 -->
+          <button id="openCloudModalBtn" type="button" title="깃허브 클라우드 동기화 및 가족 공유" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center gap-1.5 transition">
             <span id="cloudStatusDot" class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
             <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
             <span id="cloudStatusLabel">동기화</span>
@@ -104,7 +104,7 @@
         <div class="flex items-center gap-1.5 shrink-0">
           <!-- 4. ⚙️ 기준 및 시세 URL 설정 -->
           <button id="openSettingsModalBtn" type="button" title="기준가 및 시세 URL 설정" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center gap-1 transition">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l-.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             <span>설정</span>
           </button>
 
@@ -147,9 +147,7 @@
           <span class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">포트폴리오 실시간 상태</span>
           <div class="flex flex-wrap items-center gap-1.5">
             <h2 id="currentRatioHeadline" class="text-xl sm:text-2xl font-extrabold tracking-tight mr-0.5">현금 70% / 주식 30%</h2>
-            <!-- 보유 기준 구간 배지 -->
             <span id="heldStepBadge" class="px-2 py-0.5 rounded-lg text-xs font-extrabold bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300">보유: 말뚝 3구간</span>
-            <!-- 주가 기준 구간 배지 (경고 알림 포함) -->
             <span id="priceStepBadge" class="px-2 py-0.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">주가: 3구간대</span>
           </div>
         </div>
@@ -184,7 +182,7 @@
           <p id="baseDateDisplay" class="text-[10px] text-slate-400 mt-0.5">2026.10.06</p>
         </div>
 
-        <!-- 최근 확인 주가 (터치 시 수동 수정 모달 오픈) -->
+        <!-- 최근 확인 주가 -->
         <button id="openQuickPriceModalBtn" type="button" title="터치하여 현재 주가 수동 수정" class="text-left p-3 rounded-xl bg-slate-50 hover:bg-indigo-50/70 dark:bg-slate-800/70 dark:hover:bg-indigo-950/40 border border-slate-200/60 hover:border-indigo-300 dark:border-slate-700/60 dark:hover:border-indigo-700 transition group">
           <div class="flex items-center justify-between gap-1">
             <p class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">최근 확인 주가</p>
@@ -220,7 +218,6 @@
           <p id="comboChartSubtitle" class="text-xs text-slate-500 dark:text-slate-400">주가 추이(꺾은선) 대비 현금 · 주식 비중 변화(누적 막대)</p>
         </div>
 
-        <!-- 차트 기준 전환 (실제 매매 추이 / 구간별 계획표) -->
         <div class="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200/70 dark:border-slate-700/70">
           <button type="button" data-chart-mode="history" class="chart-mode-btn px-2.5 py-1 rounded-lg text-xs font-extrabold transition">
             매매 추이
@@ -314,7 +311,6 @@
           <p id="activeTableSubtitle" class="text-xs text-slate-500 dark:text-slate-400">-50% 말뚝박기 기준 (10%씩 분할 매수)</p>
         </div>
 
-        <!-- 탭 전환 버튼 -->
         <div class="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200/70 dark:border-slate-700/70 self-start sm:self-auto">
           <button type="button" data-table-tab="crisis" class="table-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold flex items-center gap-1.5 transition">
             <span>말뚝박기 표 (위기)</span>
@@ -449,7 +445,6 @@
           </button>
           <p id="googleSheetTestResult" class="hidden text-[11px] font-bold p-2 rounded-lg"></p>
 
-          <!-- 접이식 Apps Script 코드 복사 도우미 -->
           <details class="pt-1">
             <summary class="text-[11px] font-bold text-blue-700 dark:text-blue-400 cursor-pointer select-none">
               구글 시트 & Apps Script 3분 설정 코드 보기 ▾
@@ -538,14 +533,14 @@
   </div>
 
   <!-- ===================================================================== -->
-  <!-- 모달 3: GitHub Gist 클라우드 동기화 -->
+  <!-- 모달 3: GitHub Gist 클라우드 동기화 & 가족 공유 초대 -->
   <!-- ===================================================================== -->
   <div id="cloudModal" class="modal-backdrop fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
     <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-3xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
       <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <div class="flex items-center gap-2">
           <svg class="w-5 h-5 text-slate-800 dark:text-white" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          <h3 class="text-base font-extrabold">깃허브 클라우드 동기화</h3>
+          <h3 class="text-base font-extrabold">클라우드 동기화 · 가족 공유</h3>
         </div>
         <button type="button" class="close-modal p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -561,8 +556,57 @@
           <p id="cloudLastSyncText" class="text-xs text-slate-600 dark:text-slate-300">토큰을 등록하면 매매 기록과 구글 시트 URL이 비공개 Gist에 자동 동기화됩니다.</p>
         </div>
 
+        <!-- 현재 기기 조회 전용 모드 & 편집 전환 비밀번호(PIN) 설정 카드 -->
+        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-amber-950/25 border border-amber-200/80 dark:border-amber-900/50 space-y-3">
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <p class="text-xs font-extrabold text-amber-900 dark:text-amber-300">🔒 조회 전용 모드 (실수 방지 잠금)</p>
+              <p class="text-[11px] text-amber-700/90 dark:text-amber-400/90 mt-0.5">편집 모드로 전환할 때 설정된 비밀번호를 요구합니다.</p>
+            </div>
+            <button id="toggleReadOnlyBtn" type="button" class="px-3 py-1.5 rounded-xl text-xs font-extrabold shrink-0 transition bg-white dark:bg-slate-800 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-300">
+              꺼짐
+            </button>
+          </div>
+
+          <!-- 편집 모드에서만 보이는 비밀번호 설정 영역 -->
+          <div id="editPinConfigBox" class="pt-2.5 border-t border-amber-200/70 dark:border-amber-800/50 space-y-1.5">
+            <label class="block text-[11px] font-extrabold text-amber-900 dark:text-amber-300">🔑 편집 모드 전환 비밀번호 (PIN)</label>
+            <div class="flex gap-1.5">
+              <input type="text" id="editPinSettingInput" inputmode="numeric" maxlength="12" placeholder="예: 1234 (비워두면 비번 없음)" class="flex-1 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-amber-200 dark:border-amber-800 text-xs font-extrabold tracking-wider focus:outline-none focus:ring-2 focus:ring-amber-500" />
+              <button id="saveEditPinBtn" type="button" class="px-3 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-extrabold shrink-0 transition">
+                비밀번호 저장
+              </button>
+            </div>
+            <p id="editPinStatusHint" class="text-[10px] text-amber-700/80 dark:text-amber-400/80">설정된 비밀번호는 클라우드와 초대 링크에 함께 반영됩니다.</p>
+          </div>
+
+          <!-- 조회 전용 모드일 때 표시되는 잠금 안내 -->
+          <div id="editPinLockedNotice" class="hidden pt-2 border-t border-amber-200/70 dark:border-amber-800/50 text-[11px] font-bold text-amber-800 dark:text-amber-300">
+            🔐 편집 전환 비밀번호가 설정되어 있습니다. 위 버튼을 눌러 비밀번호를 입력하면 편집 모드로 전환됩니다.
+          </div>
+        </div>
+
+        <!-- 가족 공유 · 원클릭 초대 링크 생성 섹션 -->
+        <div class="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/25 border border-emerald-200/80 dark:border-emerald-900/50 space-y-2.5">
+          <div>
+            <p class="text-xs font-extrabold text-emerald-900 dark:text-emerald-300">👨‍👩‍👧 가족 공유 · 원클릭 초대 링크</p>
+            <p class="text-[11px] text-emerald-700 dark:text-emerald-400 mt-0.5">토큰을 따로 입력할 필요 없이, 아래 링크를 카톡으로 보내 터치하면 즉시 자동 동기화됩니다.</p>
+          </div>
+          <p id="inviteLockedHint" class="text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-white/80 dark:bg-slate-900/70 px-2.5 py-2 rounded-lg border border-emerald-200/70 dark:border-emerald-800/60">
+            ※ 아래에서 GitHub 토큰을 먼저 연결하면 초대 링크 복사 버튼이 활성화됩니다.
+          </p>
+          <div id="inviteButtonsRow" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button id="copyReadOnlyInviteBtn" type="button" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow-xs transition flex items-center justify-center gap-1">
+              <span>🔒 조회 전용 링크 복사</span>
+            </button>
+            <button id="copyEditableInviteBtn" type="button" class="py-2.5 px-3 rounded-xl bg-white hover:bg-emerald-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 text-xs font-extrabold transition flex items-center justify-center gap-1">
+              <span>✏️ 공동 편집 링크 복사</span>
+            </button>
+          </div>
+        </div>
+
         <div class="p-3.5 rounded-xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-900/50 space-y-2 text-xs text-slate-700 dark:text-slate-300">
-          <p class="font-extrabold text-indigo-700 dark:text-indigo-300">1회 연결 안내</p>
+          <p class="font-extrabold text-indigo-700 dark:text-indigo-300">GitHub 비공개 Gist 연결</p>
           <p>GitHub 토큰(<code class="font-mono text-indigo-600 dark:text-indigo-400">ghp_...</code>, 권한: <strong>gist</strong>)을 입력하면 비공개 파일(<code class="font-mono">rich_project_dashboard_data.json</code>)이 자동 연결됩니다.</p>
           <div class="flex flex-wrap gap-2 pt-0.5">
             <button id="copyGhTokenUrlBtn" type="button" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition">
@@ -589,34 +633,7 @@
           연결 및 자동 동기화 시작
         </button>
 
-        <!-- 현재 기기 조회 전용 모드 전환 카드 -->
-        <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-amber-950/25 border border-amber-200/80 dark:border-amber-900/50 flex items-center justify-between gap-3">
-          <div>
-            <p class="text-xs font-extrabold text-amber-900 dark:text-amber-300">🔒 조회 전용 모드 (실수 방지 잠금)</p>
-            <p class="text-[11px] text-amber-700/90 dark:text-amber-400/90 mt-0.5">매매 입력·삭제·설정 변경 버튼을 숨기고 조회 및 시세 새로고침만 허용합니다.</p>
-          </div>
-          <button id="toggleReadOnlyBtn" type="button" class="px-3 py-1.5 rounded-xl text-xs font-extrabold shrink-0 transition bg-white dark:bg-slate-800 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-300">
-            꺼짐
-          </button>
-        </div>
-
-        <div id="ghConnectedActions" class="hidden pt-3 border-t border-slate-200 dark:border-slate-800 space-y-3">
-          <!-- 가족 공유 · 원클릭 초대 링크 생성 섹션 -->
-          <div class="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/25 border border-emerald-200/80 dark:border-emerald-900/50 space-y-2">
-            <div>
-              <p class="text-xs font-extrabold text-emerald-900 dark:text-emerald-300">👨‍👩‍👧 가족 공유 · 원클릭 초대 링크</p>
-              <p class="text-[11px] text-emerald-700 dark:text-emerald-400 mt-0.5">토큰을 따로 입력할 필요 없이, 아래 링크를 카톡으로 보내 터치하면 즉시 자동 동기화됩니다.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5">
-              <button id="copyReadOnlyInviteBtn" type="button" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow-xs transition flex items-center justify-center gap-1">
-                <span>🔒 조회 전용 링크 복사</span>
-              </button>
-              <button id="copyEditableInviteBtn" type="button" class="py-2.5 px-3 rounded-xl bg-white hover:bg-emerald-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 text-xs font-extrabold transition flex items-center justify-center gap-1">
-                <span>✏️ 공동 편집 링크 복사</span>
-              </button>
-            </div>
-          </div>
-
+        <div id="ghConnectedActions" class="hidden pt-3 border-t border-slate-200 dark:border-slate-800 space-y-2.5">
           <div id="ghSyncManualGrid" class="grid grid-cols-2 gap-2">
             <button id="forcePullGhBtn" type="button" class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold transition">
               클라우드 → 불러오기
@@ -676,6 +693,38 @@
     </div>
   </div>
 
+  <!-- ===================================================================== -->
+  <!-- 모달 5: 편집 모드 전환 비밀번호(PIN) 인증 -->
+  <!-- ===================================================================== -->
+  <div id="pinUnlockModal" class="modal-backdrop fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/70 backdrop-blur-xs p-0 sm:p-4">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-xs rounded-t-3xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden">
+      <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="text-base font-extrabold">🔑 편집 모드 잠금 해제</h3>
+        <button type="button" class="close-modal p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="pinUnlockForm" class="p-5 space-y-4">
+        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          조회 전용 잠금을 해제하고 <strong>편집 모드</strong>로 전환하려면 설정된 비밀번호를 입력해 주세요.
+        </p>
+
+        <div>
+          <input type="password" id="unlockPinInput" inputmode="numeric" autocomplete="off" required placeholder="비밀번호 입력" class="w-full px-3.5 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center text-base font-extrabold tracking-widest focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <p id="unlockPinError" class="hidden text-xs font-extrabold text-rose-600 dark:text-rose-400 mt-1.5 text-center">
+            비밀번호가 일치하지 않습니다.
+          </p>
+        </div>
+
+        <div class="flex gap-2">
+          <button type="button" class="close-modal flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-bold">취소</button>
+          <button type="submit" class="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-extrabold shadow-md shadow-indigo-500/20">잠금 해제</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- 하단 플로팅 토스트 메시지 -->
   <div id="toastBanner" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-2xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs sm:text-sm font-bold shadow-xl opacity-0 pointer-events-none transition-all duration-200 max-w-[92vw] text-center">
     알림 메시지
@@ -691,6 +740,7 @@
     const DEFAULT_APP_STATE = {
       activeAsset: 'kr',
       googleSheetUrl: '',
+      editPin: '',
       assets: {
         kr: {
           id: 'kr',
@@ -834,6 +884,7 @@
     const LOCAL_GH_CFG_KEY = 'rich_project_gh_gist_cfg_v1';
     const LOCAL_GSHEET_URL_KEY = 'rich_project_gsheet_url_v1';
     const LOCAL_READONLY_KEY = 'rich_project_readonly_mode_v1';
+    const LOCAL_EDIT_PIN_KEY = 'rich_project_edit_pin_v1';
     const GIST_FILENAME = 'rich_project_dashboard_data.json';
     const GIST_DESC = '리치프로젝트 통합 리밸런싱·말뚝박기 대시보드 데이터';
 
@@ -849,14 +900,37 @@
       return String(raw || '').trim().replace(/[^\x21-\x7E]/g, '');
     }
 
+    function getActiveEditPin() {
+      const statePin = String(appState.editPin || '').trim();
+      if (statePin) return statePin;
+      try {
+        return String(localStorage.getItem(LOCAL_EDIT_PIN_KEY) || '').trim();
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function saveEditPinValue(newPin, syncToCloud = true) {
+      const cleanPin = String(newPin || '').trim();
+      appState.editPin = cleanPin;
+      try {
+        localStorage.setItem(LOCAL_EDIT_PIN_KEY, cleanPin);
+      } catch (e) {
+        console.warn('PIN 로컬 저장 오류:', e);
+      }
+      persistState(syncToCloud);
+      applyReadOnlyUI();
+    }
+
     // -------------------------------------------------------------------------
-    // 원클릭 초대 링크 인코딩 / 디코딩 & 조회 전용 모드 제어
+    // 2. 원클릭 가족 공유 초대 링크 인코딩 / 디코딩 & 조회 전용 모드 제어
     // -------------------------------------------------------------------------
     function buildInviteUrl(readOnlyFlag = true) {
       const payload = JSON.stringify({
         t: ghConfig.token,
         g: ghConfig.gistId,
         ro: readOnlyFlag ? 1 : 0,
+        p: getActiveEditPin(),
       });
       const base64 = btoa(unescape(encodeURIComponent(payload)))
         .replace(/\+/g, '-')
@@ -892,6 +966,7 @@
             token: sanitizeGhToken(data.t),
             gistId: String(data.g).trim(),
             readOnly: Boolean(data.ro),
+            editPin: String(data.p || '').trim(),
           };
         }
       } catch (err) {
@@ -923,6 +998,20 @@
       const toggleBtn = document.getElementById('toggleReadOnlyBtn');
       const forcePushBtn = document.getElementById('forcePushGhBtn');
       const manualGrid = document.getElementById('ghSyncManualGrid');
+      const pinConfigBox = document.getElementById('editPinConfigBox');
+      const pinLockedNotice = document.getElementById('editPinLockedNotice');
+      const pinInput = document.getElementById('editPinSettingInput');
+      const pinHint = document.getElementById('editPinStatusHint');
+
+      const activePin = getActiveEditPin();
+      if (pinInput && document.activeElement !== pinInput) {
+        pinInput.value = activePin;
+      }
+      if (pinHint) {
+        pinHint.textContent = activePin
+          ? `현재 비밀번호 설정됨 (${activePin.length}자리) · 해제 시 비밀번호 입력 필요`
+          : '설정된 비밀번호가 없습니다. 비밀번호를 입력 후 저장해 주세요.';
+      }
 
       if (isReadOnlyMode) {
         if (headerBadge) headerBadge.classList.remove('hidden');
@@ -938,6 +1027,13 @@
         if (toggleBtn) {
           toggleBtn.textContent = '켜짐 (잠금중)';
           toggleBtn.className = 'px-3 py-1.5 rounded-xl text-xs font-extrabold shrink-0 transition bg-amber-600 text-white shadow-xs';
+        }
+        if (pinConfigBox) pinConfigBox.classList.add('hidden');
+        if (pinLockedNotice) {
+          pinLockedNotice.classList.remove('hidden');
+          pinLockedNotice.textContent = activePin
+            ? '🔐 편집 전환 비밀번호가 설정되어 있습니다. 위 버튼을 눌러 비밀번호를 입력하면 편집 모드로 전환됩니다.'
+            : '🔓 조회 전용 잠금 중입니다. 위 버튼을 누르면 편집 모드로 전환됩니다.';
         }
         if (forcePushBtn) forcePushBtn.classList.add('hidden');
         if (manualGrid) manualGrid.className = 'grid grid-cols-1 gap-2';
@@ -956,8 +1052,82 @@
           toggleBtn.textContent = '꺼짐';
           toggleBtn.className = 'px-3 py-1.5 rounded-xl text-xs font-extrabold shrink-0 transition bg-white dark:bg-slate-800 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-300';
         }
+        if (pinConfigBox) pinConfigBox.classList.remove('hidden');
+        if (pinLockedNotice) pinLockedNotice.classList.add('hidden');
         if (forcePushBtn) forcePushBtn.classList.remove('hidden');
         if (manualGrid) manualGrid.className = 'grid grid-cols-2 gap-2';
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. 로컬 저장소 & GitHub Gist 클라우드 동기화
+    // -------------------------------------------------------------------------
+    function migrateAssetStructure(parsed) {
+      if (!parsed || typeof parsed !== 'object' || !parsed.assets) return false;
+      ['kr', 'qld'].forEach((key) => {
+        if (!parsed.assets[key]) {
+          parsed.assets[key] = JSON.parse(JSON.stringify(DEFAULT_APP_STATE.assets[key]));
+        } else {
+          parsed.assets[key] = {
+            ...JSON.parse(JSON.stringify(DEFAULT_APP_STATE.assets[key])),
+            ...parsed.assets[key],
+          };
+          if (!Array.isArray(parsed.assets[key].history)) {
+            parsed.assets[key].history = [];
+          }
+          if (!Array.isArray(parsed.assets[key].subAccounts)) {
+            parsed.assets[key].subAccounts = [];
+          }
+        }
+      });
+      if (!parsed.activeAsset || !parsed.assets[parsed.activeAsset]) {
+        parsed.activeAsset = 'kr';
+      }
+      if (typeof parsed.googleSheetUrl !== 'string') {
+        parsed.googleSheetUrl = '';
+      }
+      if (typeof parsed.editPin !== 'string') {
+        parsed.editPin = '';
+      }
+      return true;
+    }
+
+    function loadLocalStorageData() {
+      try {
+        const savedReadOnly = localStorage.getItem(LOCAL_READONLY_KEY);
+        if (savedReadOnly === '1') {
+          isReadOnlyMode = true;
+        }
+
+        const savedCfg = localStorage.getItem(LOCAL_GH_CFG_KEY);
+        if (savedCfg) {
+          ghConfig = { ...ghConfig, ...JSON.parse(savedCfg) };
+          ghConfig.token = sanitizeGhToken(ghConfig.token);
+        }
+
+        const savedState = localStorage.getItem(LOCAL_STATE_KEY);
+        if (savedState) {
+          const parsed = JSON.parse(savedState);
+          if (migrateAssetStructure(parsed)) {
+            appState = parsed;
+          }
+        }
+
+        const savedSheetUrl = localStorage.getItem(LOCAL_GSHEET_URL_KEY);
+        if (savedSheetUrl && !appState.googleSheetUrl) {
+          appState.googleSheetUrl = savedSheetUrl;
+        }
+
+        const savedEditPin = localStorage.getItem(LOCAL_EDIT_PIN_KEY);
+        if (savedEditPin && !appState.editPin) {
+          appState.editPin = savedEditPin;
+        }
+
+        if (appState.assets[appState.activeAsset]) {
+          activeTableTab = appState.assets[appState.activeAsset].mode || 'crisis';
+        }
+      } catch (err) {
+        console.warn('로컬 데이터 로드 오류:', err);
       }
     }
 
@@ -973,10 +1143,11 @@
       try {
         localStorage.setItem(LOCAL_STATE_KEY, JSON.stringify(appState));
         localStorage.setItem(LOCAL_GSHEET_URL_KEY, appState.googleSheetUrl || '');
+        localStorage.setItem(LOCAL_EDIT_PIN_KEY, appState.editPin || '');
       } catch (err) {
         console.warn('로컬 저장 오류:', err);
       }
-      if (syncToCloud && ghConfig.token && ghConfig.gistId) {
+      if (!isReadOnlyMode && syncToCloud && ghConfig.token && ghConfig.gistId) {
         pushStateToGist(true);
       }
     }
@@ -985,17 +1156,21 @@
       const dot = document.getElementById('cloudStatusDot');
       const label = document.getElementById('cloudStatusLabel');
       const modalBadge = document.getElementById('cloudModalBadge');
-    function loadLocalStorageData() {
-      try {
-        const savedReadOnly = localStorage.getItem(LOCAL_READONLY_KEY);
-        if (savedReadOnly === '1') {
-          isReadOnlyMode = true;
-        }
+      const lastSyncEl = document.getElementById('cloudLastSyncText');
+      const connectedActions = document.getElementById('ghConnectedActions');
+      const inviteLockedHint = document.getElementById('inviteLockedHint');
+      const inviteButtonsRow = document.getElementById('inviteButtonsRow');
 
-        const savedCfg = localStorage.getItem(LOCAL_GH_CFG_KEY);
-        if (savedCfg) {
-          ghConfig = { ...ghConfig, ...JSON.parse(savedCfg) };
-          ghConfig.token = sanitizeGhToken(ghConfig.token);
+      if (!dot || !label) return;
+
+      const isConnected = Boolean(ghConfig.token && ghConfig.gistId);
+
+      if (status === 'syncing') {
+        dot.className = 'w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse';
+        label.textContent = '동기화중';
+        if (modalBadge) {
+          modalBadge.className = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300';
+          modalBadge.textContent = '동기화 진행 중...';
         }
       } else if (status === 'synced') {
         dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500';
@@ -1008,6 +1183,8 @@
           lastSyncEl.textContent = customText || (ghConfig.lastSyncTime ? `최근 동기화 : ${ghConfig.lastSyncTime}` : '비공개 Gist와 실시간 연동 중입니다.');
         }
         if (connectedActions) connectedActions.classList.remove('hidden');
+        if (inviteLockedHint) inviteLockedHint.classList.add('hidden');
+        if (inviteButtonsRow) inviteButtonsRow.classList.remove('opacity-50');
       } else if (status === 'error') {
         dot.className = 'w-1.5 h-1.5 rounded-full bg-rose-500';
         label.textContent = '동기화오류';
@@ -1017,17 +1194,21 @@
         }
         if (lastSyncEl && customText) lastSyncEl.textContent = customText;
         if (connectedActions && ghConfig.token) connectedActions.classList.remove('hidden');
+        if (inviteLockedHint) inviteLockedHint.classList.toggle('hidden', isConnected);
+        if (inviteButtonsRow) inviteButtonsRow.classList.toggle('opacity-50', !isConnected);
       } else {
         dot.className = 'w-1.5 h-1.5 rounded-full bg-slate-400';
-    function persistState(syncToCloud = true) {
-      try {
-        localStorage.setItem(LOCAL_STATE_KEY, JSON.stringify(appState));
-        localStorage.setItem(LOCAL_GSHEET_URL_KEY, appState.googleSheetUrl || '');
-      } catch (err) {
-        console.warn('로컬 저장 오류:', err);
-      }
-      if (!isReadOnlyMode && syncToCloud && ghConfig.token && ghConfig.gistId) {
-        pushStateToGist(true);
+        label.textContent = '동기화';
+        if (modalBadge) {
+          modalBadge.className = 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300';
+          modalBadge.textContent = '브라우저 로컬 저장';
+        }
+        if (lastSyncEl) {
+          lastSyncEl.textContent = '토큰을 등록하면 매매 기록과 구글 시트 URL이 비공개 Gist에 자동 동기화됩니다.';
+        }
+        if (connectedActions) connectedActions.classList.add('hidden');
+        if (inviteLockedHint) inviteLockedHint.classList.remove('hidden');
+        if (inviteButtonsRow) inviteButtonsRow.classList.add('opacity-50');
       }
     }
 
@@ -1127,10 +1308,16 @@
         }
         const parsed = JSON.parse(fileObj.content);
         if (migrateAssetStructure(parsed)) {
+          const localFallbackPin = getActiveEditPin();
+          if (!parsed.editPin && localFallbackPin) {
+            parsed.editPin = localFallbackPin;
+          }
           appState = parsed;
           activeTableTab = appState.assets[appState.activeAsset].mode || 'crisis';
           localStorage.setItem(LOCAL_STATE_KEY, JSON.stringify(appState));
           localStorage.setItem(LOCAL_GSHEET_URL_KEY, appState.googleSheetUrl || '');
+          localStorage.setItem(LOCAL_EDIT_PIN_KEY, appState.editPin || '');
+          applyReadOnlyUI();
           renderApp();
         }
         ghConfig.lastSyncTime = getFormattedNow();
@@ -1146,7 +1333,7 @@
     }
 
     // -------------------------------------------------------------------------
-    // 3. 구글 시트 Apps Script 실시간 시세 연동
+    // 4. 구글 시트 Apps Script 실시간 시세 연동
     // -------------------------------------------------------------------------
     function updatePriceSyncDot() {
       const dot = document.getElementById('priceSyncDot');
@@ -1162,8 +1349,12 @@
       const targetUrl = (customUrl || appState.googleSheetUrl || '').trim();
       if (!targetUrl) {
         if (!silent) {
-          showToast('⚙️ 설정에서 구글 시트 시세 웹 앱 URL을 먼저 등록해 주세요.');
-          openSettingsModal();
+          if (isReadOnlyMode) {
+            showToast('시세 URL이 아직 연결되지 않았습니다.');
+          } else {
+            showToast('⚙️ 설정에서 구글 시트 시세 웹 앱 URL을 먼저 등록해 주세요.');
+            openSettingsModal();
+          }
         }
         return { ok: false, message: '구글 시트 웹 앱 URL이 설정되지 않았습니다.' };
       }
@@ -1227,7 +1418,7 @@
     }
 
     // -------------------------------------------------------------------------
-    // 4. 계산 및 포맷팅 유틸리티
+    // 5. 계산 및 포맷팅 유틸리티
     // -------------------------------------------------------------------------
     function getCurrentAsset() {
       return appState.assets[appState.activeAsset];
@@ -1266,7 +1457,6 @@
       const crisisMaxSteps = Math.max(1, Math.round(maxCrisisDropPct / crisisStepPct));
       const normalMaxSteps = 10;
 
-      // 위기시 말뚝박기 구간표 (10% 단위 현금 -> 주식 전환)
       const crisisSteps = [];
       for (let i = 0; i <= crisisMaxSteps; i++) {
         const dropPct = Number((i * crisisStepPct).toFixed(1));
@@ -1285,7 +1475,6 @@
         });
       }
 
-      // 평상시 리밸런싱 구간표 (10% 단위 주식 -> 현금 전환)
       const normalSteps = [];
       for (let i = 0; i <= normalMaxSteps; i++) {
         const dropPct = Number((i * normalStepPct).toFixed(1));
@@ -1304,11 +1493,9 @@
         });
       }
 
-      // 보유 기준 구간 인덱스 (수량 비율 기준)
       const heldCrisisStepIdx = Math.min(crisisMaxSteps, Math.max(0, Math.round((stockPct / 100) * crisisMaxSteps)));
       const heldNormalStepIdx = Math.min(normalMaxSteps, Math.max(0, Math.round(cashPct / 10)));
 
-      // 주가 기준 구간 인덱스 (기준가 대비 하락률 기준)
       const dropFromHigh = asset.basePrice > 0
         ? Math.max(0, ((asset.basePrice - asset.currentPrice) / asset.basePrice) * 100)
         : 0;
@@ -1346,7 +1533,245 @@
     }
 
     // -------------------------------------------------------------------------
-    // 5. 메인 화면 렌더링
+    // 6. D3.js 듀얼 축 콤보 차트 렌더링 (주가 꺾은선 + 현금/주식 비중 누적 막대)
+    // -------------------------------------------------------------------------
+    function renderComboChart(asset, m) {
+      document.querySelectorAll('.chart-mode-btn').forEach((btn) => {
+        const isActive = btn.dataset.chartMode === activeChartMode;
+        btn.className = isActive
+          ? 'chart-mode-btn px-2.5 py-1 rounded-lg text-xs font-extrabold bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-2xs transition'
+          : 'chart-mode-btn px-2.5 py-1 rounded-lg text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition';
+      });
+
+      const container = document.getElementById('comboChartContainer');
+      if (!container || typeof d3 === 'undefined') return;
+
+      let points = [];
+      if (activeChartMode === 'history') {
+        const baseShares = m.baseShares;
+        let runningShares = asset.history.length > 0 && asset.history[0].type === '기준가'
+          ? 0
+          : (asset.id === 'qld' ? baseShares : 0);
+
+        if (asset.history.length === 0 || asset.history[0].type !== '기준가') {
+          const initStockPct = Math.min(100, Math.max(0, Math.round((runningShares / baseShares) * 100)));
+          points.push({
+            label: asset.baseDate.slice(5),
+            title: `전고가 기준 (${asset.baseDate})`,
+            price: asset.basePrice,
+            stockPct: initStockPct,
+            cashPct: 100 - initStockPct,
+          });
+        }
+
+        asset.history.forEach((h) => {
+          if (h.type === '매수') {
+            runningShares += Number(h.shares) || 0;
+          } else if (h.type === '매도') {
+            runningShares = Math.max(0, runningShares - (Number(h.shares) || 0));
+          } else if (h.type === '기준가' && (Number(h.shares) || 0) > 0) {
+            runningShares += Number(h.shares) || 0;
+          }
+          const stPct = Math.min(100, Math.max(0, Math.round((runningShares / baseShares) * 100)));
+          points.push({
+            label: h.date.slice(5),
+            title: `${h.date} ${h.type}`,
+            price: Number(h.price) || asset.basePrice,
+            stockPct: stPct,
+            cashPct: 100 - stPct,
+          });
+        });
+
+        points.push({
+          label: '현재',
+          title: `현재시세 (${asset.priceUpdatedAt || asset.lastUpdated})`,
+          price: asset.currentPrice,
+          stockPct: m.stockPct,
+          cashPct: m.cashPct,
+        });
+      } else {
+        const steps = asset.mode === 'crisis' ? m.crisisSteps : m.normalSteps;
+        points = steps.map((s) => ({
+          label: s.step === 0 ? '기준' : `${s.step}구간`,
+          title: `${s.label} (${s.dropPct === 0 ? '0%' : `-${s.dropPct}%`})`,
+          price: s.price,
+          stockPct: s.targetStock,
+          cashPct: s.targetCash,
+        }));
+      }
+
+      const activeIdx = selectedChartIndex !== null && points[selectedChartIndex]
+        ? selectedChartIndex
+        : points.length - 1;
+
+      function updateReadout(idx) {
+        const pt = points[idx];
+        if (!pt) return;
+        const dd = asset.basePrice > 0
+          ? (((pt.price - asset.basePrice) / asset.basePrice) * 100).toFixed(2)
+          : '0.00';
+        const ddNum = parseFloat(dd);
+        document.getElementById('chartPointTitle').textContent = pt.title;
+        document.getElementById('chartPointPrice').textContent = `${formatPrice(pt.price, asset.currency)} (${ddNum > 0 ? '+' : ''}${dd}%)`;
+        document.getElementById('chartPointRatio').textContent = `현금 ${pt.cashPct}% · 주식 ${pt.stockPct}%`;
+      }
+      updateReadout(activeIdx);
+
+      container.innerHTML = '';
+      const width = container.clientWidth || 340;
+      const height = container.clientHeight || 224;
+      const isDark = document.documentElement.classList.contains('dark');
+
+      const margin = { top: 14, right: 48, bottom: 26, left: 34 };
+      const innerW = Math.max(120, width - margin.left - margin.right);
+      const innerH = Math.max(100, height - margin.top - margin.bottom);
+
+      const svg = d3.select(container)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('viewBox', `0 0 ${width} ${height}`);
+
+      const g = svg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+      const x = d3.scaleBand()
+        .domain(points.map((_, i) => i))
+        .range([0, innerW])
+        .padding(0.36);
+
+      const yPct = d3.scaleLinear()
+        .domain([0, 100])
+        .range([innerH, 0]);
+
+      const allPrices = points.map((p) => p.price).concat([asset.basePrice]);
+      const minP = d3.min(allPrices) * 0.94;
+      const maxP = d3.max(allPrices) * 1.04;
+      const yPrice = d3.scaleLinear()
+        .domain([minP, maxP])
+        .range([innerH, 0]);
+
+      const axisColor = isDark ? '#64748b' : '#94a3b8';
+      const gridColor = isDark ? '#1e293b' : '#f1f5f9';
+
+      g.append('g')
+        .selectAll('line')
+        .data([0, 25, 50, 75, 100])
+        .join('line')
+        .attr('x1', 0)
+        .attr('x2', innerW)
+        .attr('y1', (d) => yPct(d))
+        .attr('y2', (d) => yPct(d))
+        .attr('stroke', gridColor)
+        .attr('stroke-width', 1);
+
+      const yAxisLeft = d3.axisLeft(yPct)
+        .tickValues([0, 50, 100])
+        .tickFormat((d) => `${d}%`)
+        .tickSize(0);
+      g.append('g')
+        .call(yAxisLeft)
+        .call((sel) => sel.select('.domain').remove())
+        .selectAll('text')
+        .attr('fill', axisColor)
+        .style('font-size', '10px')
+        .style('font-weight', '600');
+
+      const yAxisRight = d3.axisRight(yPrice)
+        .ticks(4)
+        .tickFormat((d) => asset.currency === 'USD' ? `$${Math.round(d)}` : `${Math.round(d / 1000)}k`)
+        .tickSize(0);
+      g.append('g')
+        .attr('transform', `translate(${innerW},0)`)
+        .call(yAxisRight)
+        .call((sel) => sel.select('.domain').remove())
+        .selectAll('text')
+        .attr('fill', '#d97706')
+        .style('font-size', '10px')
+        .style('font-weight', '700');
+
+      const stepSkip = points.length > 8 ? 2 : 1;
+      const xAxis = d3.axisBottom(x)
+        .tickValues(points.map((_, i) => i).filter((i) => i % stepSkip === 0 || i === points.length - 1))
+        .tickFormat((i) => points[i].label)
+        .tickSize(0);
+      g.append('g')
+        .attr('transform', `translate(0,${innerH + 6})`)
+        .call(xAxis)
+        .call((sel) => sel.select('.domain').remove())
+        .selectAll('text')
+        .attr('fill', axisColor)
+        .style('font-size', '10px')
+        .style('font-weight', '700');
+
+      g.selectAll('.bar-stock')
+        .data(points)
+        .join('rect')
+        .attr('class', 'bar-stock')
+        .attr('x', (_, i) => x(i))
+        .attr('y', (d) => yPct(d.stockPct))
+        .attr('width', x.bandwidth())
+        .attr('height', (d) => Math.max(0, innerH - yPct(d.stockPct)))
+        .attr('rx', 3)
+        .attr('fill', (_, i) => (i === activeIdx ? '#4338ca' : '#6366f1'))
+        .attr('opacity', (_, i) => (i === activeIdx ? 0.95 : 0.78));
+
+      g.selectAll('.bar-cash')
+        .data(points)
+        .join('rect')
+        .attr('class', 'bar-cash')
+        .attr('x', (_, i) => x(i))
+        .attr('y', 0)
+        .attr('width', x.bandwidth())
+        .attr('height', (d) => Math.max(0, yPct(d.stockPct)))
+        .attr('rx', 3)
+        .attr('fill', '#10b981')
+        .attr('opacity', (_, i) => (i === activeIdx ? 0.34 : 0.18));
+
+      const lineGen = d3.line()
+        .x((_, i) => x(i) + x.bandwidth() / 2)
+        .y((d) => yPrice(d.price))
+        .curve(d3.curveMonotoneX);
+
+      g.append('path')
+        .datum(points)
+        .attr('fill', 'none')
+        .attr('stroke', '#f59e0b')
+        .attr('stroke-width', 2.5)
+        .attr('d', lineGen);
+
+      g.selectAll('.price-dot')
+        .data(points)
+        .join('circle')
+        .attr('class', 'price-dot')
+        .attr('cx', (_, i) => x(i) + x.bandwidth() / 2)
+        .attr('cy', (d) => yPrice(d.price))
+        .attr('r', (_, i) => (i === activeIdx ? 5 : 3.5))
+        .attr('fill', (_, i) => (i === activeIdx ? '#d97706' : '#f59e0b'))
+        .attr('stroke', isDark ? '#0f172a' : '#ffffff')
+        .attr('stroke-width', 1.8);
+
+      g.selectAll('.hit-zone')
+        .data(points)
+        .join('rect')
+        .attr('class', 'hit-zone')
+        .attr('x', (_, i) => x(i) - x.step() * 0.15)
+        .attr('y', 0)
+        .attr('width', x.step())
+        .attr('height', innerH)
+        .attr('fill', 'transparent')
+        .style('cursor', 'pointer')
+        .on('click mouseenter touchstart', function (_, d) {
+          const idx = points.indexOf(d);
+          if (idx !== -1 && idx !== selectedChartIndex) {
+            selectedChartIndex = idx;
+            renderComboChart(asset, m);
+          }
+        });
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. 메인 화면 렌더링
     // -------------------------------------------------------------------------
     function renderApp() {
       const asset = getCurrentAsset();
@@ -1354,12 +1779,10 @@
 
       updatePriceSyncDot();
 
-      // 헤더 영역
       document.getElementById('headerTitle').textContent = asset.headerTitle;
       document.getElementById('versionBadge').textContent = `v${asset.version}`;
       document.getElementById('lastUpdatedText').textContent = `업데이트 : ${asset.lastUpdated}`;
 
-      // 종목 탭 활성화 상태
       document.querySelectorAll('.asset-tab-btn').forEach((btn) => {
         const isActive = btn.dataset.asset === asset.id;
         btn.className = isActive
@@ -1367,7 +1790,6 @@
           : 'asset-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition';
       });
 
-      // 운용 모드 배지
       const modeBadgeBtn = document.getElementById('modeBadgeBtn');
       const modeDot = document.getElementById('modeDot');
       const modeLabel = document.getElementById('modeLabel');
@@ -1381,7 +1803,6 @@
         modeLabel.textContent = `평상시 (${asset.normalStepPct}%)`;
       }
 
-      // 포트폴리오 비율 & 보유 구간 vs 주가 위치 동시 배지
       document.getElementById('currentRatioHeadline').textContent = `현금 ${m.cashPct}% / 주식 ${m.stockPct}%`;
       const heldBadge = document.getElementById('heldStepBadge');
       const priceBadge = document.getElementById('priceStepBadge');
@@ -1420,13 +1841,11 @@
         }
       }
 
-      // 비중 바
       document.getElementById('cashPctLabel').textContent = `현금 비중 ${m.cashPct}%`;
       document.getElementById('stockPctLabel').textContent = `주식 비중 ${m.stockPct}% (${formatShares(m.heldShares)} / ${formatShares(m.baseShares)})`;
       document.getElementById('cashBar').style.width = `${m.cashPct}%`;
       document.getElementById('stockBar').style.width = `${m.stockPct}%`;
 
-      // 3대 핵심 지표 카드
       document.getElementById('basePriceDisplay').textContent = formatPrice(asset.basePrice, asset.currency);
       document.getElementById('baseDateDisplay').textContent = asset.baseDate.replace(/-/g, '.');
       document.getElementById('currentPriceDisplay').textContent = formatPrice(asset.currentPrice, asset.currency);
@@ -1438,7 +1857,6 @@
       ddEl.className = `text-sm sm:text-base font-extrabold mt-0.5 ${ddNum < 0 ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}`;
       document.getElementById('baseSharesDisplay').textContent = `기준 ${formatShares(m.baseShares)}`;
 
-      // 계좌별 보유 현황
       document.getElementById('totalHoldingsSummary').textContent = `보유 ${formatShares(m.heldShares)} / 기준 ${formatShares(m.baseShares)}`;
       const accountsGrid = document.getElementById('accountsGrid');
       if (asset.subAccounts && asset.subAccounts.length > 0) {
@@ -1473,7 +1891,6 @@
         `;
       }
 
-      // 다음 액션 가이드 카드
       const stepUnitShares = Math.round(m.baseShares * 0.1);
       if (asset.mode === 'crisis') {
         const curIdx = m.heldCrisisStepIdx;
@@ -1523,7 +1940,6 @@
     }
 
     function renderStepsTable(asset, m) {
-      // 탭 버튼 활성화 스타일 & 운용중 배지 표시
       document.querySelectorAll('.table-tab-btn').forEach((btn) => {
         const isTabActive = btn.dataset.tableTab === activeTableTab;
         btn.className = isTabActive
@@ -1649,9 +2065,13 @@
     }
 
     // -------------------------------------------------------------------------
-    // 6. 매매 입력 / 삭제 / 원클릭 체결 핸들러
+    // 8. 매매 입력 / 삭제 / 원클릭 체결 핸들러
     // -------------------------------------------------------------------------
     function openTradeModal(preset = {}) {
+      if (isReadOnlyMode) {
+        showToast('🔒 조회 전용 모드에서는 매매를 입력할 수 없습니다.');
+        return;
+      }
       const asset = getCurrentAsset();
       document.getElementById('tradeModalTitle').textContent = `${asset.headerTitle} 매매 체결 입력`;
       document.getElementById('tradePriceLabel').textContent = asset.currency === 'USD' ? '체결 단가 ($)' : '체결 단가 (원)';
@@ -1689,6 +2109,7 @@
 
     document.getElementById('tradeForm').addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isReadOnlyMode) return;
       const asset = getCurrentAsset();
       const rawDate = document.getElementById('tradeDateInput').value;
       const formattedDate = rawDate ? rawDate.replace(/-/g, '.') : getFormattedNow().slice(0, 10);
@@ -1764,11 +2185,13 @@
     });
 
     window.requestDeleteHistory = function (id) {
+      if (isReadOnlyMode) return;
       pendingDeleteId = id;
       renderHistoryList(getCurrentAsset());
     };
 
     window.confirmDeleteHistory = function (id) {
+      if (isReadOnlyMode) return;
       const asset = getCurrentAsset();
       const idx = asset.history.findIndex((item) => item.id === id);
       if (idx === -1) return;
@@ -1856,8 +2279,24 @@
     });
 
     // -------------------------------------------------------------------------
-    // 7. 삼성노트 모바일 최적화 양식 복사
+    // 9. 삼성노트 모바일 최적화 양식 복사
     // -------------------------------------------------------------------------
+    function copyTextToClipboard(text, successMsg) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg);
+      } catch (err) {
+        showToast('복사에 실패했습니다.');
+      }
+      document.body.removeChild(ta);
+    }
+
     document.getElementById('copySamsungNoteBtn').addEventListener('click', () => {
       const asset = getCurrentAsset();
       const m = computeMetrics(asset);
@@ -1928,25 +2367,17 @@ ${normalRows}
 ━━━━━━━━━━━━━━━━━━━━
 ${historyLines}`;
 
-      const ta = document.createElement('textarea');
-      ta.value = noteText;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
-        showToast(`${asset.headerTitle} v${asset.version} 삼성노트 양식이 복사되었습니다!`);
-      } catch (err) {
-        showToast('복사 중 오류가 발생했습니다.');
-      }
-      document.body.removeChild(ta);
+      copyTextToClipboard(noteText, `${asset.headerTitle} v${asset.version} 삼성노트 양식이 복사되었습니다!`);
     });
 
     // -------------------------------------------------------------------------
-    // 8. 설정 모달 & 이벤트 바인딩
+    // 10. 설정 모달 & 이벤트 바인딩
     // -------------------------------------------------------------------------
     function openSettingsModal() {
+      if (isReadOnlyMode) {
+        showToast('🔒 조회 전용 모드에서는 설정을 변경할 수 없습니다.');
+        return;
+      }
       const asset = getCurrentAsset();
       document.getElementById('settingsModalTitle').textContent = `${asset.headerTitle} 기준 & 시세 연동 설정`;
       document.getElementById('settingGoogleSheetUrlInput').value = appState.googleSheetUrl || '';
@@ -2020,19 +2451,7 @@ ${historyLines}`;
     });
 
     document.getElementById('copyGasCodeBtn').addEventListener('click', () => {
-      const ta = document.createElement('textarea');
-      ta.value = GOOGLE_APPS_SCRIPT_SAMPLE;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
-        showToast('Apps Script 코드가 복사되었습니다! 구글 시트 스크립트 편집기에 붙여넣어 주세요.');
-      } catch (err) {
-        showToast('코드 복사에 실패했습니다.');
-      }
-      document.body.removeChild(ta);
+      copyTextToClipboard(GOOGLE_APPS_SCRIPT_SAMPLE, 'Apps Script 코드가 복사되었습니다! 구글 시트 스크립트 편집기에 붙여넣어 주세요.');
     });
 
     document.getElementById('saveSettingsBtn').addEventListener('click', () => {
@@ -2087,12 +2506,10 @@ ${historyLines}`;
       showToast(`${appState.assets[activeId].headerTitle} 기본 데이터로 초기화되었습니다.`);
     });
 
-    // 상단 🔄 시세 버튼 클릭
     document.getElementById('refreshPriceBtn').addEventListener('click', () => {
       fetchGoogleSheetPrices({ silent: false });
     });
 
-    // 종목 탭 전환
     document.querySelectorAll('.asset-tab-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const nextAsset = btn.dataset.asset;
@@ -2107,7 +2524,6 @@ ${historyLines}`;
       });
     });
 
-    // 콤보 차트 기준 전환 (매매 추이 <-> 구간 계획)
     document.querySelectorAll('.chart-mode-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const nextMode = btn.dataset.chartMode;
@@ -2119,7 +2535,6 @@ ${historyLines}`;
       });
     });
 
-    // 구간표 탭 전환 (말뚝박기 표 <-> 리밸런싱 표)
     document.querySelectorAll('.table-tab-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const nextTab = btn.dataset.tableTab;
@@ -2130,7 +2545,6 @@ ${historyLines}`;
       });
     });
 
-    // 모드 전환 배지 클릭
     document.getElementById('modeBadgeBtn').addEventListener('click', () => {
       if (isReadOnlyMode) {
         showToast('🔒 조회 전용 모드에서는 운용 모드를 변경할 수 없습니다.');
@@ -2144,17 +2558,8 @@ ${historyLines}`;
       showToast(asset.mode === 'crisis' ? `위기모드 (-${asset.maxCrisisDropPct}% 말뚝박기)로 전환되었습니다.` : `평상시 (${asset.normalStepPct}% 리밸런싱) 모드로 전환되었습니다.`);
     });
 
-    document.getElementById('openTradeModalBtn').addEventListener('click', () => {
-      if (isReadOnlyMode) {
-        showToast('🔒 조회 전용 모드에서는 매매를 입력할 수 없습니다.');
-        return;
-      }
-      openTradeModal();
-    });
-
     document.getElementById('openTradeModalBtn').addEventListener('click', () => openTradeModal());
 
-    // 최근 확인 주가 카드 수동 수정 모달
     function updateQuickPricePreview() {
       const asset = getCurrentAsset();
       const m = computeMetrics(asset);
@@ -2195,6 +2600,7 @@ ${historyLines}`;
 
     document.getElementById('quickPriceForm').addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isReadOnlyMode) return;
       const asset = getCurrentAsset();
       const newPrice = parseFloat(document.getElementById('quickPriceInput').value);
       const rawDate = document.getElementById('quickPriceDateInput').value;
@@ -2210,22 +2616,10 @@ ${historyLines}`;
       }
     });
 
-    // GitHub Gist 클라우드 모달 이벤트
+    // GitHub Gist 클라우드 & 가족 공유 모달 이벤트
     document.getElementById('copyGhTokenUrlBtn').addEventListener('click', () => {
       const url = 'https://github.com/settings/tokens/new?scopes=gist&description=RichProject_Dashboard';
-      const ta = document.createElement('textarea');
-      ta.value = url;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
-        showToast('토큰 발급 주소가 복사되었습니다!');
-      } catch (err) {
-        showToast('복사에 실패했습니다.');
-      }
-      document.body.removeChild(ta);
+      copyTextToClipboard(url, '토큰 발급 주소가 복사되었습니다!');
     });
 
     document.getElementById('openCloudModalBtn').addEventListener('click', () => {
@@ -2238,40 +2632,83 @@ ${historyLines}`;
       modal.classList.add('flex');
     });
 
-    document.getElementById('toggleReadOnlyBtn').addEventListener('click', () => {
-      setReadOnlyMode(!isReadOnlyMode, true);
-      renderHistoryList(getCurrentAsset());
-      showToast(isReadOnlyMode ? '🔒 조회 전용 모드가 켜졌습니다. (편집/삭제 잠금)' : '✏️ 편집 모드로 전환되었습니다.');
+    // 비밀번호 저장 버튼
+    document.getElementById('saveEditPinBtn').addEventListener('click', () => {
+      if (isReadOnlyMode) return;
+      const inputVal = document.getElementById('editPinSettingInput').value.trim();
+      saveEditPinValue(inputVal, true);
+      showToast(inputVal ? `🔑 편집 전환 비밀번호(${inputVal.length}자리)가 저장되었습니다.` : '편집 전환 비밀번호가 해제되었습니다.');
     });
 
-    function copyTextToClipboard(text, successMsg) {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
-        showToast(successMsg);
-      } catch (err) {
-        showToast('복사에 실패했습니다.');
+    // 조회 전용 모드 토글 (잠금 해제 시 비밀번호 인증 모달 호출)
+    document.getElementById('toggleReadOnlyBtn').addEventListener('click', () => {
+      if (!isReadOnlyMode) {
+        // 편집 모드 -> 조회 전용 모드로 잠글 때는 즉시 잠금
+        const typedPin = document.getElementById('editPinSettingInput').value.trim();
+        if (typedPin !== getActiveEditPin()) {
+          saveEditPinValue(typedPin, true);
+        }
+        setReadOnlyMode(true, true);
+        renderHistoryList(getCurrentAsset());
+        showToast('🔒 조회 전용 모드가 켜졌습니다. (편집/삭제 잠금)');
+      } else {
+        // 조회 전용 모드 -> 편집 모드로 해제할 때는 비밀번호 확인
+        const activePin = getActiveEditPin();
+        if (!activePin) {
+          setReadOnlyMode(false, true);
+          renderHistoryList(getCurrentAsset());
+          showToast('✏️ 편집 모드로 전환되었습니다.');
+          return;
+        }
+        document.getElementById('unlockPinInput').value = '';
+        document.getElementById('unlockPinError').classList.add('hidden');
+        const pinModal = document.getElementById('pinUnlockModal');
+        pinModal.classList.remove('hidden');
+        pinModal.classList.add('flex');
+        setTimeout(() => document.getElementById('unlockPinInput').focus(), 100);
       }
-      document.body.removeChild(ta);
-    }
+    });
+
+    // 비밀번호 인증 모달 제출 처리
+    document.getElementById('pinUnlockForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const entered = document.getElementById('unlockPinInput').value.trim();
+      const activePin = getActiveEditPin();
+
+      if (entered === activePin) {
+        document.getElementById('pinUnlockModal').classList.add('hidden');
+        document.getElementById('pinUnlockModal').classList.remove('flex');
+        setReadOnlyMode(false, true);
+        renderHistoryList(getCurrentAsset());
+        showToast('🔓 인증 완료! 편집 모드로 전환되었습니다.');
+      } else {
+        const errEl = document.getElementById('unlockPinError');
+        errEl.classList.remove('hidden');
+        const inputEl = document.getElementById('unlockPinInput');
+        inputEl.value = '';
+        inputEl.focus();
+      }
+    });
 
     document.getElementById('copyReadOnlyInviteBtn').addEventListener('click', () => {
       if (!ghConfig.token || !ghConfig.gistId) {
-        showToast('먼저 GitHub 클라우드 동기화를 연결해 주세요.');
+        showToast('먼저 아래에서 GitHub 토큰 연결을 완료해 주세요.');
         return;
       }
+      if (!isReadOnlyMode) {
+        const typedPin = document.getElementById('editPinSettingInput').value.trim();
+        if (typedPin !== getActiveEditPin()) {
+          saveEditPinValue(typedPin, true);
+        }
+      }
       const inviteUrl = buildInviteUrl(true);
-      copyTextToClipboard(inviteUrl, '🔒 [조회 전용] 가족 초대 링크가 복사되었습니다! 카톡으로 보내주세요.');
+      const pinNote = getActiveEditPin() ? ' (편집 비밀번호 보호 적용됨)' : '';
+      copyTextToClipboard(inviteUrl, `🔒 [조회 전용] 가족 초대 링크가 복사되었습니다!${pinNote}`);
     });
 
     document.getElementById('copyEditableInviteBtn').addEventListener('click', () => {
       if (!ghConfig.token || !ghConfig.gistId) {
-        showToast('먼저 GitHub 클라우드 동기화를 연결해 주세요.');
+        showToast('먼저 아래에서 GitHub 토큰 연결을 완료해 주세요.');
         return;
       }
       const inviteUrl = buildInviteUrl(false);
@@ -2359,7 +2796,7 @@ ${historyLines}`;
     });
 
     // -------------------------------------------------------------------------
-    // 9. 앱 초기화 (PWA 매니페스트, 로컬 로드, Gist 동기화, 구글 시트 자동 조회)
+    // 11. 앱 초기화 (PWA 매니페스트, 로컬 로드, 초대 링크 자동 연결, 구글 시트 시세)
     // -------------------------------------------------------------------------
     (async function init() {
       try {
@@ -2384,15 +2821,19 @@ ${historyLines}`;
 
       loadLocalStorageData();
 
-      // URL에 원클릭 초대 링크(#invite=...)가 포함되어 있는지 확인 및 자동 적용
       const invitePayload = parseInviteFromLocation();
       if (invitePayload) {
         ghConfig.token = invitePayload.token;
         ghConfig.gistId = invitePayload.gistId;
         saveGhConfig();
+        if (invitePayload.editPin) {
+          appState.editPin = invitePayload.editPin;
+          try {
+            localStorage.setItem(LOCAL_EDIT_PIN_KEY, invitePayload.editPin);
+          } catch (e) {}
+        }
         setReadOnlyMode(invitePayload.readOnly, true);
 
-        // 주소창에서 토큰이 담긴 해시 제거 (보안 및 깔끔한 URL 유지)
         try {
           window.history.replaceState(null, '', window.location.pathname);
         } catch (e) {
@@ -2410,7 +2851,7 @@ ${historyLines}`;
         if (invitePayload) {
           showToast(
             invitePayload.readOnly
-              ? '🔒 초대 링크로 연결되었습니다! (실수 방지 조회 전용 모드)'
+              ? '🔒 초대 링크로 연결되었습니다! (비밀번호 보호 조회 전용 모드)'
               : '✏️ 초대 링크로 연결되었습니다! (공동 편집 동기화 모드)'
           );
         }
@@ -2418,7 +2859,6 @@ ${historyLines}`;
         updateCloudStatusUI('disconnected');
       }
 
-      // 구글 시트 URL이 설정되어 있으면 앱 실행 시 자동 시세 조회
       if (appState.googleSheetUrl) {
         await fetchGoogleSheetPrices({ silent: true });
       }
