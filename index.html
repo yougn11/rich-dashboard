@@ -31,7 +31,6 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
-    /* 모바일 가로 스크롤 방지 및 커스텀 스크롤바 */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -161,9 +160,7 @@
           <h3 class="text-xs font-extrabold text-slate-600 dark:text-slate-300">■ 계좌별 보유 현황</h3>
           <span id="totalHoldingsSummary" class="text-xs font-bold text-indigo-600 dark:text-indigo-400">합계 2,031주</span>
         </div>
-        <div id="accountsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          <!-- JS 동적 렌더링 -->
-        </div>
+        <div id="accountsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-2"></div>
       </div>
     </section>
 
@@ -223,7 +220,7 @@
       </div>
     </section>
 
-    <!-- 3. 구간표 섹션 (말뚝박기 위기시 / 평상시 리밸런싱 전환) -->
+    <!-- 3. 구간표 섹션 -->
     <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs space-y-3">
       <div class="flex flex-wrap items-center justify-between gap-2">
         <div>
@@ -251,9 +248,7 @@
               <th id="tableSharesColHeader" class="py-2.5 px-3 font-bold text-right">누적 매수</th>
             </tr>
           </thead>
-          <tbody id="gridTableBody" class="divide-y divide-slate-100 dark:divide-slate-800/80">
-            <!-- JS 동적 렌더링 -->
-          </tbody>
+          <tbody id="gridTableBody" class="divide-y divide-slate-100 dark:divide-slate-800/80"></tbody>
         </table>
       </div>
     </section>
@@ -268,15 +263,13 @@
         <span id="historyCountBadge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">총 12건</span>
       </div>
 
-      <div id="tradeHistoryList" class="space-y-2">
-        <!-- JS 동적 렌더링 -->
-      </div>
+      <div id="tradeHistoryList" class="space-y-2"></div>
     </section>
 
   </main>
 
   <!-- 모달 1: 매매 입력 -->
-  <div id="tradeModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
+  <div id="tradeModal" class="modal-backdrop fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
     <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-3xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
       <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <h3 id="tradeModalTitle" class="text-base font-extrabold">매매 체결 입력</h3>
@@ -305,9 +298,7 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">체결 계좌</label>
-            <select id="tradeAccountInput" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500">
-              <!-- JS 동적 렌더링 -->
-            </select>
+            <select id="tradeAccountInput" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
           </div>
           <div>
             <label id="tradePriceLabel" class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">체결 단가 (원)</label>
@@ -341,7 +332,7 @@
   </div>
 
   <!-- 모달 2: 기준 설정 -->
-  <div id="settingsModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
+  <div id="settingsModal" class="modal-backdrop fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
     <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-3xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
       <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <h3 id="settingsModalTitle" class="text-base font-extrabold">운용 기준 설정</h3>
@@ -388,7 +379,7 @@
         </button>
 
         <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-          <span id="resetDefaultLabel" class="text-xs text-slate-500">기본 데이터로 되돌리기</span>
+          <span class="text-xs text-slate-500">기본 데이터로 되돌리기</span>
           <button id="resetDefaultBtn" type="button" class="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/50 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 text-xs font-bold transition">
             현재 종목 초기화
           </button>
@@ -398,7 +389,7 @@
   </div>
 
   <!-- 모달 3: GitHub Gist 클라우드 동기화 -->
-  <div id="cloudModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
+  <div id="cloudModal" class="modal-backdrop fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-xs p-0 sm:p-4">
     <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-3xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
       <div class="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <div class="flex items-center gap-2">
@@ -411,8 +402,7 @@
       </div>
 
       <div class="p-5 space-y-4 overflow-y-auto">
-        <!-- 현재 연결 상태 박스 -->
-        <div id="cloudConnectionBox" class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700/80 space-y-1">
+        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700/80 space-y-1">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-slate-500 dark:text-slate-400">동기화 상태</span>
             <span id="cloudModalBadge" class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300">브라우저 로컬 저장</span>
@@ -420,7 +410,6 @@
           <p id="cloudLastSyncText" class="text-xs text-slate-600 dark:text-slate-300">토큰을 한 번만 등록하면 비공개 Gist에 자동 저장됩니다.</p>
         </div>
 
-        <!-- 초간단 3단계 안내 -->
         <div class="p-3.5 rounded-xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-900/50 space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
           <p class="font-extrabold text-indigo-700 dark:text-indigo-300">1회 연결 방법 (30초 완료)</p>
           <p>1. 아래 버튼으로 주소를 복사해 브라우저(크롬·삼성인터넷)에 붙여넣거나 깃허브에서 토큰을 발급받으세요.</p>
@@ -441,7 +430,6 @@
           <p>2. 복사한 토큰(<code class="font-mono text-indigo-600 dark:text-indigo-400">ghp_...</code>)을 아래 칸에 붙여넣고 <strong>[연결 및 자동 동기화 시작]</strong> 클릭</p>
         </div>
 
-        <!-- 토큰 및 Gist ID 입력 -->
         <div class="space-y-3">
           <div>
             <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">GitHub Personal Access Token</label>
@@ -449,7 +437,7 @@
           </div>
           <div>
             <label class="block text-xs font-bold text-slate-600 dark:text-slate-300 mb-1">연결된 비공개 Gist ID <span class="font-normal text-slate-400">(자동 생성/탐색)</span></label>
-            <input type="text" id="ghGistIdInput" placeholder="비워두면 자동으로 찾거나 새로 생성합니다" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono text-slate-600 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="text" id="ghGistIdInput" placeholder="비워두면 자동으로 찾거나 새로 생성합니다" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono text-slate-600 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
           </div>
         </div>
 
@@ -457,7 +445,6 @@
           연결 및 자동 동기화 시작
         </button>
 
-        <!-- 수동 동기화 및 연결 해제 버튼 -->
         <div id="ghConnectedActions" class="hidden pt-2 border-t border-slate-200 dark:border-slate-800 space-y-2">
           <div class="grid grid-cols-2 gap-2">
             <button id="forcePullGhBtn" type="button" class="py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold transition">
@@ -482,7 +469,7 @@
 
   <script>
     // =========================================================================
-    // 1. 초기 상태 데이터 (미국테크TOP10 v35 기준 & QLD 초기 템플릿)
+    // 1. 초기 상태 데이터 (미국테크TOP10 v35 기준 & QLD v32 기준)
     // =========================================================================
     const DEFAULT_APP_STATE = {
       activeAsset: 'ustech',
@@ -493,7 +480,9 @@
           currency: 'KRW',
           version: 35,
           lastUpdated: '2026.11.20',
-          mode: 'crisis', // 'crisis' | 'normal'
+          mode: 'crisis',
+          crisisStepPct: 5,
+          normalStepPct: 2.5,
           basePrice: 17345,
           baseDate: '2026-10-06',
           lastCheckedPrice: 14620,
@@ -525,28 +514,34 @@
           id: 'qld',
           headerTitle: 'QLD (2x)',
           currency: 'USD',
-          version: 1,
-          lastUpdated: '2026.11.20',
+          version: 32,
+          lastUpdated: '2026.11.06',
           mode: 'crisis',
-          basePrice: 110.00,
-          baseDate: '2026-10-06',
-          lastCheckedPrice: 110.00,
-          lastCheckedDate: '2026.11.20',
-          totalTargetShares: 1000,
+          crisisStepPct: 10,
+          normalStepPct: 5,
+          basePrice: 100.77,
+          baseDate: '2026-10-12',
+          lastCheckedPrice: 77.88,
+          lastCheckedDate: '2026.11.06',
+          totalTargetShares: 1699,
           crisisEndHint: '2026.12.07 이후',
           accounts: [
-            { name: '직투계좌1', shares: 1000, note: '보유 유지' },
-            { name: '직투계좌2', shares: 0, note: '대기' },
+            { name: '해외직투', shares: 340, note: '잔여 170주 + 2구간 매수 170주' },
+            { name: '대기계좌', shares: 0, note: '추가 말뚝 대기' },
           ],
           history: [
-            { id: 'q1', date: '2026.10.06', type: 'new_high', account: '직투계좌1', price: 110.00, shares: 0, afterCash: 0, afterStock: 100, note: 'QLD 기준가(전고가) 초기 세팅' },
+            { id: 'q1', date: '2026.10.15', type: 'sell', account: '해외직투', price: 95.71, shares: 170, afterCash: 10, afterStock: 90, note: '평시 리밸런싱 1구간 (-5%) 매도' },
+            { id: 'q2', date: '2026.10.19', type: 'sell', account: '해외직투', price: 90.45, shares: 170, afterCash: 20, afterStock: 80, note: '평시 리밸런싱 2구간 (-10%) · 누적 340주 매도 (20%)' },
+            { id: 'q3', date: '2026.11.03', type: 'sell', account: '해외직투', price: 81.35, shares: 1139, afterCash: 87, afterStock: 13, note: '위기 모드 전환 후 1차 추가 매도' },
+            { id: 'q4', date: '2026.11.03', type: 'sell', account: '해외직투', price: 81.40, shares: 50, afterCash: 90, afterStock: 10, note: '위기 모드 전환 후 2차 추가 매도 · 누적 매도 1,529주 (90%)' },
+            { id: 'q5', date: '2026.11.06', type: 'buy', account: '해외직투', price: 77.88, shares: 170, afterCash: 80, afterStock: 20, note: '말뚝박기 2구간(-20%) 하락에 따른 10% 매수' },
           ],
         },
       },
     };
 
     let appState = JSON.parse(JSON.stringify(DEFAULT_APP_STATE));
-    let activeTableTab = 'crisis'; // 'crisis' | 'normal'
+    let activeTableTab = 'crisis';
     let pendingDeleteId = null;
 
     // =========================================================================
@@ -579,7 +574,15 @@
         if (savedState) {
           const parsed = JSON.parse(savedState);
           if (parsed && parsed.assets && parsed.assets.ustech && parsed.assets.qld) {
+            if (parsed.assets.qld.version === 1 && parsed.assets.qld.basePrice === 110 && parsed.assets.qld.history.length <= 1) {
+              parsed.assets.qld = JSON.parse(JSON.stringify(DEFAULT_APP_STATE.assets.qld));
+            }
+            if (!parsed.assets.ustech.crisisStepPct) parsed.assets.ustech.crisisStepPct = 5;
+            if (!parsed.assets.ustech.normalStepPct) parsed.assets.ustech.normalStepPct = 2.5;
+            if (!parsed.assets.qld.crisisStepPct) parsed.assets.qld.crisisStepPct = 10;
+            if (!parsed.assets.qld.normalStepPct) parsed.assets.qld.normalStepPct = 5;
             appState = parsed;
+            activeTableTab = appState.assets[appState.activeAsset].mode || 'crisis';
           }
         }
       } catch (err) {
@@ -802,10 +805,12 @@
         ? (((asset.lastCheckedPrice - asset.basePrice) / asset.basePrice) * 100).toFixed(2)
         : '0.00';
 
-      // 말뚝박기 표 (위기시 5% 간격, 0~10구간)
+      const crisisStepInterval = Number(asset.crisisStepPct) || 5;
+      const normalStepInterval = Number(asset.normalStepPct) || 2.5;
+
       const crisisSteps = [];
       for (let i = 0; i <= 10; i++) {
-        const dropPct = i * 5;
+        const dropPct = Number((i * crisisStepInterval).toFixed(1));
         const price = calcPriceByDrop(asset.basePrice, dropPct, asset.currency);
         const targetCash = 100 - i * 10;
         const targetStock = i * 10;
@@ -821,10 +826,9 @@
         });
       }
 
-      // 리밸런싱 표 (평상시 2.5% 간격, 0~10구간)
       const normalSteps = [];
       for (let i = 0; i <= 10; i++) {
-        const dropPct = i * 2.5;
+        const dropPct = Number((i * normalStepInterval).toFixed(1));
         const price = calcPriceByDrop(asset.basePrice, dropPct, asset.currency);
         const targetCash = i * 10;
         const targetStock = 100 - i * 10;
@@ -840,7 +844,6 @@
         });
       }
 
-      // 현재 구간 추정 (위기모드 기준: 주식 비중 30% -> 3구간)
       const currentCrisisStepIdx = Math.min(10, Math.max(0, Math.round(stockPct / 10)));
       const currentNormalStepIdx = Math.min(10, Math.max(0, Math.round(cashPct / 10)));
 
@@ -877,12 +880,10 @@
       const asset = getCurrentAsset();
       const m = computeMetrics(asset);
 
-      // 헤더 & 버전
       document.getElementById('headerTitle').textContent = asset.headerTitle;
       document.getElementById('versionBadge').textContent = `v${asset.version}`;
       document.getElementById('lastUpdatedText').textContent = `업데이트 : ${asset.lastUpdated}`;
 
-      // 상단 종목 탭 활성화 스타일
       document.querySelectorAll('.asset-tab-btn').forEach((btn) => {
         const isActive = btn.dataset.asset === asset.id;
         if (isActive) {
@@ -892,21 +893,21 @@
         }
       });
 
-      // 위기모드 / 평상시 모드 배지
       const modeBadgeBtn = document.getElementById('modeBadgeBtn');
       const modeDot = document.getElementById('modeDot');
       const modeLabel = document.getElementById('modeLabel');
+      const crisisMaxDrop = (Number(asset.crisisStepPct) || 5) * 10;
+      const normalStepInterval = Number(asset.normalStepPct) || 2.5;
       if (asset.mode === 'crisis') {
         modeBadgeBtn.className = 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 bg-rose-50 text-rose-700 dark:bg-rose-950/70 dark:text-rose-300 border border-rose-200/80 dark:border-rose-800/60 transition';
         modeDot.className = 'w-2 h-2 rounded-full bg-rose-500';
-        modeLabel.textContent = '위기모드 (-50%)';
+        modeLabel.textContent = `위기모드 (-${crisisMaxDrop}%)`;
       } else {
         modeBadgeBtn.className = 'px-2.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/60 transition';
         modeDot.className = 'w-2 h-2 rounded-full bg-emerald-500';
-        modeLabel.textContent = '평상시 (2.5%)';
+        modeLabel.textContent = `평상시 (${normalStepInterval}%)`;
       }
 
-      // 요약 헤드라인 & 게이지
       document.getElementById('currentRatioHeadline').textContent = `현금 ${m.cashPct}% / 주식 ${m.stockPct}%`;
       const stepBadge = document.getElementById('currentStepBadge');
       if (asset.mode === 'crisis') {
@@ -920,7 +921,6 @@
       document.getElementById('cashBar').style.width = `${m.cashPct}%`;
       document.getElementById('stockBar').style.width = `${m.stockPct}%`;
 
-      // 3대 핵심 지표
       document.getElementById('basePriceDisplay').textContent = formatPrice(asset.basePrice, asset.currency);
       document.getElementById('baseDateDisplay').textContent = asset.baseDate.replace(/-/g, '.');
       document.getElementById('lastPriceDisplay').textContent = formatPrice(asset.lastCheckedPrice, asset.currency);
@@ -931,7 +931,6 @@
       ddEl.className = `text-sm sm:text-base font-extrabold mt-0.5 ${ddNum < 0 ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400'}`;
       document.getElementById('targetSharesDisplay').textContent = `목표 ${formatShares(m.targetShares)}`;
 
-      // 계좌별 보유 현황 카드
       document.getElementById('totalHoldingsSummary').textContent = `합계 ${formatShares(m.totalHeldShares)}`;
       const accountsGrid = document.getElementById('accountsGrid');
       accountsGrid.innerHTML = asset.accounts.map((acc) => {
@@ -948,7 +947,6 @@
         `;
       }).join('');
 
-      // 다음 액션 카드 업데이트
       const curIdx = m.currentCrisisStepIdx;
       const nextIdx = Math.min(10, curIdx + 1);
       const nextStepObj = m.crisisSteps[nextIdx];
@@ -961,7 +959,6 @@
         ? `최종 목표 주식 100% (${formatShares(m.targetShares)}) 달성 상태입니다.`
         : `목표 비중 전환 : 현금 ${nextStepObj.targetCash}% / 주식 ${nextStepObj.targetStock}% (누적 ${formatShares(nextStepObj.shares)})`;
 
-      // V자 반등 (2구간 상승) 계산
       const reboundIdx = Math.max(0, curIdx - 2);
       const reboundStepObj = m.crisisSteps[reboundIdx];
       const curStepObj = m.crisisSteps[curIdx];
@@ -973,10 +970,7 @@
       document.getElementById('crisisEndRule').textContent =
         `• 위기 종료 : 마지막 -3% 후 1개월+1일 경과 (${asset.crisisEndHint}) 또는 공황 시 2개월+1일 / 8거래일 연속 상승`;
 
-      // 구간표 렌더링
       renderStepsTable(asset, m);
-
-      // 매매 이력 렌더링
       renderHistoryList(asset);
     }
 
@@ -984,17 +978,22 @@
       const isCrisis = activeTableTab === 'crisis';
       const steps = isCrisis ? m.crisisSteps : m.normalSteps;
       const activeIdx = isCrisis ? m.currentCrisisStepIdx : m.currentNormalStepIdx;
+      const crisisStepInterval = Number(asset.crisisStepPct) || 5;
+      const normalStepInterval = Number(asset.normalStepPct) || 2.5;
+      const crisisMaxDrop = crisisStepInterval * 10;
 
       document.getElementById('tableSectionTitle').textContent = isCrisis
-        ? '■ 말뚝박기 표 (위기시 · 간격 5%)'
-        : '■ 리밸런싱 표 (평상시 · 간격 2.5%)';
+        ? `■ 말뚝박기 표 (위기시 · 간격 ${crisisStepInterval}%)`
+        : `■ 리밸런싱 표 (평상시 · 간격 ${normalStepInterval}%)`;
       document.getElementById('tableSectionSubtitle').textContent = isCrisis
-        ? '비(非)제로금리 환경 -50% 말뚝박기 기준'
-        : (asset.mode === 'crisis' ? '현재 위기모드로 평시 리밸런싱 적용 중단 상태' : '평상시 2.5% 하락 간격 분할 매도 계획표');
+        ? `-${crisisMaxDrop}% 말뚝박기 기준 (누적 매수량은 최초 보유량의 10% 단위)`
+        : (asset.mode === 'crisis' ? '현재 위기모드로 평시 리밸런싱 적용 중단 상태' : `평상시 ${normalStepInterval}% 하락 간격 분할 매도 계획표`);
       document.getElementById('tableSharesColHeader').textContent = isCrisis ? '누적 매수' : '누적 매도';
 
       const crisisBtn = document.getElementById('showCrisisTableBtn');
       const normalBtn = document.getElementById('showNormalTableBtn');
+      crisisBtn.textContent = `위기시 (${crisisStepInterval}%)`;
+      normalBtn.textContent = `평상시 (${normalStepInterval}%)`;
       if (isCrisis) {
         crisisBtn.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-2xs transition';
         normalBtn.className = 'px-2.5 py-1 rounded-lg text-slate-500 dark:text-slate-400 transition';
@@ -1101,12 +1100,10 @@
     }
 
     function closeAllModals() {
-      document.getElementById('tradeModal').classList.add('hidden');
-      document.getElementById('tradeModal').classList.remove('flex');
-      document.getElementById('settingsModal').classList.add('hidden');
-      document.getElementById('settingsModal').classList.remove('flex');
-      document.getElementById('cloudModal').classList.add('hidden');
-      document.getElementById('cloudModal').classList.remove('flex');
+      document.querySelectorAll('.modal-backdrop').forEach((modal) => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      });
     }
 
     document.getElementById('tradeForm').addEventListener('submit', function (e) {
@@ -1126,7 +1123,6 @@
         targetAcc.shares += shares;
         targetAcc.note = `${formattedDate.slice(5)} 매수 반영`;
       } else if (type === 'sell') {
-        // 선택한 계좌에서 우선 차감, 부족 시 다른 계좌에서 순차 차감
         let remainToDeduct = shares;
         const primaryDeduct = Math.min(targetAcc.shares, remainToDeduct);
         targetAcc.shares -= primaryDeduct;
@@ -1193,7 +1189,6 @@
       if (idx === -1) return;
       const item = asset.history[idx];
 
-      // 잔고 역산 복구
       const targetAcc = asset.accounts.find((a) => a.name === item.account) || asset.accounts[0];
       if (item.shares > 0) {
         if (item.type === 'buy' || item.type === 'rebound_all') {
@@ -1219,7 +1214,6 @@
       showToast('해당 매매 기록이 삭제되고 잔고가 반영되었습니다.');
     };
 
-    // 빠른 수량 비율 버튼
     document.querySelectorAll('.quick-qty-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const asset = getCurrentAsset();
@@ -1234,7 +1228,6 @@
       });
     });
 
-    // 다음 액션 카드 원클릭 버튼
     document.getElementById('quickDropBuyBtn').addEventListener('click', () => {
       const asset = getCurrentAsset();
       const m = computeMetrics(asset);
@@ -1286,8 +1279,12 @@
         return `• ${h.date} │ ${formatPrice(h.price, asset.currency)} │ ${h.note} (현${h.afterCash}/주${h.afterStock})`;
       }).join('\n');
 
+      const crisisStepInterval = Number(asset.crisisStepPct) || 5;
+      const normalStepInterval = Number(asset.normalStepPct) || 2.5;
+      const crisisMaxDrop = crisisStepInterval * 10;
+
       const noteText = `${asset.headerTitle} 통합 운용 가이드 v${asset.version}
-업데이트 : ${asset.lastUpdated} │ ${asset.mode === 'crisis' ? '위기모드 (-50% 말뚝)' : '평상시 리밸런싱 (2.5%)'}
+업데이트 : ${asset.lastUpdated} │ ${asset.mode === 'crisis' ? `위기모드 (-${crisisMaxDrop}% 말뚝)` : `평상시 리밸런싱 (${normalStepInterval}%)`}
 
 ━━━━━━━━━━━━━━━━━━━━
 ■ 1. 현재 요약 & 다음 액션
@@ -1311,7 +1308,7 @@
 • 공황 : 2개월+1일 경과 또는 8거래일 연속 상승
 
 ━━━━━━━━━━━━━━━━━━━━
-■ 2. 말뚝박기 표 (위기시 / 간격 5%)
+■ 2. 말뚝박기 표 (위기시 / 간격 ${crisisStepInterval}%)
 ━━━━━━━━━━━━━━━━━━━━
 구간(하락률) │ 목표가 │ 현금:주식 │ 누적매수
 ────────────────────────────────────
@@ -1345,6 +1342,7 @@ ${historyLines}`;
         const nextAsset = btn.dataset.asset;
         if (nextAsset && appState.assets[nextAsset]) {
           appState.activeAsset = nextAsset;
+          activeTableTab = appState.assets[nextAsset].mode || 'crisis';
           pendingDeleteId = null;
           persistState(false);
           renderApp();
@@ -1356,9 +1354,11 @@ ${historyLines}`;
       const asset = getCurrentAsset();
       asset.mode = asset.mode === 'crisis' ? 'normal' : 'crisis';
       activeTableTab = asset.mode;
+      const crisisMaxDrop = (Number(asset.crisisStepPct) || 5) * 10;
+      const normalStepInterval = Number(asset.normalStepPct) || 2.5;
       renderApp();
       persistState(true);
-      showToast(asset.mode === 'crisis' ? '위기모드(말뚝박기 -50%)로 전환되었습니다.' : '평상시 리밸런싱(2.5%) 모드로 전환되었습니다.');
+      showToast(asset.mode === 'crisis' ? `위기모드(말뚝박기 -${crisisMaxDrop}%)로 전환되었습니다.` : `평상시 리밸런싱(${normalStepInterval}%) 모드로 전환되었습니다.`);
     });
 
     document.getElementById('showCrisisTableBtn').addEventListener('click', () => {
@@ -1373,7 +1373,6 @@ ${historyLines}`;
 
     document.getElementById('openTradeModalBtn').addEventListener('click', () => openTradeModal());
 
-    // 설정 모달
     document.getElementById('openSettingsModalBtn').addEventListener('click', () => {
       const asset = getCurrentAsset();
       document.getElementById('settingsModalTitle').textContent = `${asset.headerTitle} 운용 기준 설정`;
@@ -1428,7 +1427,6 @@ ${historyLines}`;
       showToast(`${appState.assets[activeId].headerTitle} 기본 데이터로 초기화되었습니다.`);
     });
 
-    // GitHub 클라우드 동기화 모달 이벤트
     document.getElementById('copyGhTokenUrlBtn').addEventListener('click', () => {
       const url = 'https://github.com/settings/tokens/new?scopes=gist&description=RichProject_Dashboard';
       const ta = document.createElement('textarea');
@@ -1521,9 +1519,14 @@ ${historyLines}`;
       showToast('이 기기에서 클라우드 연결이 해제되었습니다.');
     });
 
-    // 모달 닫기 및 다크모드
     document.querySelectorAll('.close-modal').forEach((btn) => {
       btn.addEventListener('click', closeAllModals);
+    });
+
+    document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeAllModals();
+      });
     });
 
     document.getElementById('themeToggleBtn').addEventListener('click', () => {
@@ -1532,7 +1535,6 @@ ${historyLines}`;
 
     // 초기화
     (function init() {
-      // 모바일 홈 화면 추가 시 주소창 없는 단독 앱(Standalone) 모드 지원
       try {
         const manifestData = {
           name: '미국테크TOP10 & QLD 운용 대시보드',
@@ -1554,5 +1556,17 @@ ${historyLines}`;
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
       }
-// ... existing code ... -->
-```
+
+      loadLocalStorageData();
+      renderApp();
+
+      if (ghConfig.token && ghConfig.gistId) {
+        updateCloudStatusUI('synced');
+        pullStateFromGist(true);
+      } else {
+        updateCloudStatusUI('disconnected');
+      }
+    })();
+  </script>
+</body>
+                </html>
