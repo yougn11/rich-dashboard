@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+
+<defs>
+
+
+<linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+
+
+<stop offset="0%" stop-color="#312e81" />
+
+
+<stop offset="50%" stop-color="#4f46e5" />
+
+
+<stop offset="100%" stop-color="#0f172a" />
+
+
+</linearGradient>
+
+
+<linearGradient id="chartGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+
+
+<stop offset="0%" stop-color="#10b981" />
+
+
+<stop offset="100%" stop-color="#34d399" />
+
+
+</linearGradient>
+
+
+</defs>
+
+
+<rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+
+<rect x="96" y="296" width="52" height="104" rx="14" fill="rgba(255,255,255,0.22)" />
+
+
+<rect x="176" y="244" width="52" height="156" rx="14" fill="rgba(255,255,255,0.34)" />
+
+
+<rect x="256" y="268" width="52" height="132" rx="14" fill="rgba(255,255,255,0.28)" />
+
+
+<rect x="336" y="188" width="52" height="212" rx="14" fill="url(#chartGrad)" />
+
+
+<path d="M114 252 L198 194 L278 222 L366 132" fill="none" stroke="#fbbf24" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+
+
+<circle cx="366" cy="132" r="20" fill="#fbbf24" stroke="#ffffff" stroke-width="8" />
+
+
+</svg>
+
