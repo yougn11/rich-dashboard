@@ -9,7 +9,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="리치대시보드" />
-  <link id="pwaManifestLink" rel="manifest" />
+  <link id="pwaManifestLink" rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+  <link rel="apple-touch-icon" href="./icon.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -908,7 +910,7 @@
           initialBaseShares: 1699,
           baseShares: 1699,
           heldShares: 680,
-          cashBalance: 107776,
+          cashBalance: 90080,
           mode: 'crisis',
           normalStepPct: 5,
           crisisStepPct: 10,
@@ -3078,7 +3080,14 @@
       });
     }
 
+    function registerPwaServiceWorker() {
+      if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', async () => {
+      registerPwaServiceWorker();
       if (localStorage.getItem('rich_project_theme') === 'dark') {
         document.documentElement.classList.add('dark');
       }
@@ -3105,4 +3114,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
